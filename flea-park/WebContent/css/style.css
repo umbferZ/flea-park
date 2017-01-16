@@ -1,0 +1,12 @@
+.dropdown-content li>a, .dropdown-content li>span {
+	color: #333;
+	font-weight: 300;
+}
+
+.dropdown-content {
+	margin-top: 64px;
+}
+
+.notVisible {
+	display: none;
+}

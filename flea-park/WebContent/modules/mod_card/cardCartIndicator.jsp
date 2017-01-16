@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<div class="s3 left fixed-action-btn">
+	<div class="card" id="card_cartIndicator">
+		<div class="card-title">
+			<div class="right waves-effect">
+				<i class="material-icons tiny" id="icon_close_card_cartIndicator">close</i>
+			</div>
+		</div>
+		<div class="card-content">
+			<div class="title">Ciao ${user.firstName} ${user.lastName}</div>
+			Totale <span class="card-title">123,89 €</span>
+		</div>
+		<div class="card-action">
+			<form method="post" action="UCPagamento01InserimentoDati.jsp">
+				<button class="btn" type="submit" name="action">
+					Procedi al pagamento <i class="material-icons right">shop</i>
+				</button>
+			</form>
+		</div>
+	</div>
+	<a class="btn-floating btn-large waves-effect right notVisible" id="fab_cartIndicator"><i class="material-icons">shop</i></a>
+</div>
+<script type='text/javascript' src='js/jquery-2.2.0.js'></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#icon_close_card_cartIndicator").click(function() {
+			$("#card_cartIndicator").slideToggle(function() {
+				$("#fab_cartIndicator").fadeToggle();
+			});
+
+		});
+		$("#fab_cartIndicator").click(function() {
+
+			$("#fab_cartIndicator").fadeToggle(function() {
+				$("#card_cartIndicator").slideToggle();
+			});
+		});
+
+	});
+</script>

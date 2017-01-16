@@ -1,0 +1,146 @@
+@import "palette.less";
+@nav-height: 64px;
+body {
+    background-color: @bodyColor;
+}
+
+nav {
+    background-color: @darkPrimaryColor;
+    color: @textPrimaryColor;
+    heiht: @nav-height;
+    max-height: @nav-height;
+    & ul ul {
+        background-color: @darkPrimaryColor;
+        color: @textPrimaryColor;:hover {
+            background-color: @primaryColor;
+        }
+    }
+}
+
+footer {
+    &.page {
+        &-footer {
+            background-color: @lightPrimaryColor;
+            color: @primaryColor;
+        }
+    }
+}
+
+.barSearch {
+    text-weight: 300;
+    z-index: 100;
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    background-color: @baseColor;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    & i {
+        color: @accentColor;
+    }:focus {
+        color: @primaryTextColor;
+    }
+
+    .input {
+        &-field {
+            margin: 0px;
+            padding: 0px;
+        }
+    }
+}
+
+.dropdown-content {
+    margin-top: @nav-height;
+    & li {
+        & > a , & > span {
+            color: @primaryTextColor;
+            font-weight: 300;
+            text-align: left;
+        }:hover {
+            background-color: @darkPrimaryColor;
+            color: @textPrimaryColor;
+        }
+    }
+}
+
+.notVisible {
+    display: none;
+}
+
+.btn {
+    & , &-floating {
+        background-color: @accentColor;
+        &:hover {
+            background-color: @lightPrimaryColor;
+        }
+
+        & i {
+            color: @baseColor
+        }
+    }
+}
+
+.input {
+    .valid {
+        color: @accentColor
+    }
+
+    &-field {
+        .prefix {
+            & label {
+                &.active {
+                    color: @accentColor
+                }
+            }
+        }
+    }
+}
+
+.card {
+    &-panel {
+        background-color: @primaryColor;
+        color: @textPrimaryColor;
+    }
+}
+
+a {
+    link {
+        color: @accentColor;
+    }
+}
+
+.slider {
+    .indicators {
+        .indicator {
+            &-item {
+                background-color: @lightPrimaryColor;
+                &.active {
+                    background-color: @accentColor;
+                }
+            }
+        }
+    }
+}
+
+.picker {
+    &__date-display {
+        background-color: @primaryColor;
+        color: @textPrimaryColor;
+    }
+
+    &__weekday-display {
+        background-color: @darkPrimaryColor;
+        color: @textPrimaryColor;
+    }
+}
+
+nav {
+    ul {
+        li {
+            & > a {
+                min-width: 180px;
+                text-align: center
+            }
+        }
+    }
+}
+

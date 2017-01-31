@@ -4,8 +4,8 @@
  * email: umberto.ferracci@gmail.com
  * Project: fleaPark
  * Package: com.fleaPark.model.people
- * Type: Vendor
- * Last update: 31-gen-2017 0.03.10
+ * Type: Venditore
+ * Last update: 31-gen-2017 18.10.48
  * 
  */
 package com.fleaPark.model.people;
@@ -13,6 +13,6 @@ package com.fleaPark.model.people;
 /**
  * The Class Vendor.
  */
-public class Vendor extends User{
-//    private Store store;
+public class Venditore extends Utente {
+    // private Store store;
 }

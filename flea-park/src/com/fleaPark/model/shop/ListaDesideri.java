@@ -4,8 +4,8 @@
  * email: umberto.ferracci@gmail.com
  * Project: fleaPark
  * Package: com.fleaPark.model.shop
- * Type: Wishlist
- * Last update: 31-gen-2017 0.03.10
+ * Type: ListaDesideri
+ * Last update: 31-gen-2017 18.10.48
  * 
  */
 package com.fleaPark.model.shop;
@@ -13,6 +13,6 @@ package com.fleaPark.model.shop;
 /**
  * The Class Wishlist.
  */
-public class Wishlist extends Cart{
+public class ListaDesideri extends Carrello {
 
 }

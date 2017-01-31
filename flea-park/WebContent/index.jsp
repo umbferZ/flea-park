@@ -1,18 +1,18 @@
-
+<%@ page errorPage = "/error.jsp" %>
 <jsp:include page="/includes/languageCheck.jsp"></jsp:include>
 <%
-/*     String lng = (String) session.getAttribute("language");
-    Resources resources = new Resources((String) session.getAttribute("language"));
-    if (request.getParameter("signUp") != null) {
-        response.sendRedirect("index.jsp");
-    }
-    if (request.getParameter("signIn") != null) {
-        response.sendRedirect("index.jsp");
-    }
-    if (request.getParameter("logout") != null) {
-        session.removeAttribute("user");
-        response.sendRedirect("index.jsp");
-    } */
+    //     String lng = (String) session.getAttribute("language");
+    //     Resources resources = new Resources((String) session.getAttribute("language"));
+//     if (request.getParameter("accedi") != null) {
+//         response.sendRedirect("index.jsp");
+//     }
+//     if (request.getParameter("registrati") != null) {
+//         response.sendRedirect("index.jsp");
+//     }
+//     if (request.getParameter("logout") != null) {
+//         session.removeAttribute("utente");
+//         response.sendRedirect("index.jsp");
+//     }
 %>
 <!DOCTYPE html>
 <html>
@@ -25,15 +25,14 @@
 	<div id="content">
 		<p align="center">
 			<%
-			    // 			    out.println("Language : " + language + "<br />");
+			    // 			    			    out.println("Language : " + language + "<br />");
 			%>
 		</p>
 		<%
-		    if (session.getAttribute("user") != null) {
+		    if (session.getAttribute("utente") != null) {
 		%>
 		<div class="container">
-            <h1 class="lighten">Flea Park</h1>
-			
+			<h1 class="lighten">Flea Park</h1>
 		</div>
 		<%
 		    } else {

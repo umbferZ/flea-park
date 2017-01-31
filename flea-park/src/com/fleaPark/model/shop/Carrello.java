@@ -4,22 +4,22 @@
  * email: umberto.ferracci@gmail.com
  * Project: fleaPark
  * Package: com.fleaPark.model.shop
- * Type: Cart
- * Last update: 31-gen-2017 0.03.09
+ * Type: Carrello
+ * Last update: 31-gen-2017 18.10.48
  * 
  */
 package com.fleaPark.model.shop;
 
 import java.util.List;
 
-import com.fleaPark.model.object.Oggetti;
-import com.fleaPark.model.object.Price;
+import com.fleaPark.model.object.Prezzo;
+import com.fleaPark.model.object.Prodotto;
 
 /**
  * The Class Cart.
  */
-public class Cart {
-    private List<Oggetti> listOfObjects;
-    private Price total;
-    
+public class Carrello {
+    private List<Prodotto> listOfObjects;
+    private Prezzo total;
+
 }

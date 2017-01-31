@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.services.persistence.dao
  * Type: EntityDao
- * Last update: 31-gen-2017 0.03.10
+ * Last update: 31-gen-2017 18.10.48
  * 
  */
 package com.fleaPark.services.persistence.dao;

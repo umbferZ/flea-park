@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.services.persistence.dao
  * Type: DAOHibernate
- * Last update: 31-gen-2017 0.03.10
+ * Last update: 31-gen-2017 18.10.48
  * 
  */
 package com.fleaPark.services.persistence.dao;
@@ -23,8 +23,8 @@ import org.hibernate.cfg.AnnotationConfiguration;
 @Deprecated
 public class DAOHibernate {
 
-    private AnnotationConfiguration config;
     private Class<?> cls;
+    private AnnotationConfiguration config;
 
     /**
      * Instantiates a new DAO hibernate.

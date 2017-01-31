@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.services.persistence.dao
  * Type: EntityDaoHibernate
- * Last update: 31-gen-2017 0.03.10
+ * Last update: 31-gen-2017 18.10.48
  * 
  */
 package com.fleaPark.services.persistence.dao;
@@ -25,7 +25,6 @@ import org.hibernate.criterion.Example;
 import org.hibernate.exception.ConstraintViolationException;
 
 import com.fleaPark.tools.debug.Message4Debug;
-
 
 /**
  * The Class EntityDaoHibernate.
@@ -50,11 +49,9 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         config = new AnnotationConfiguration();
         config.addAnnotatedClass(persistentClass);
         List<Class> classes = dependingClasses();
-        if (classes != null) {
-            for (Class c : classes) {
+        if (classes != null)
+            for (Class c : classes)
                 config.addAnnotatedClass(c);
-            }
-        }
         config.configure("hibernate.cfg.xml");
         Message4Debug.addTrace(persistentClass.getName());
     }
@@ -71,11 +68,9 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         persistentClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         config = new AnnotationConfiguration();
         config.addAnnotatedClass(persistentClass);
-        if (classes != null) {
-            for (Class c : classes) {
+        if (classes != null)
+            for (Class c : classes)
                 config.addAnnotatedClass(c);
-            }
-        }
         config.configure("hibernate.cfg.xml");
         Message4Debug.addTrace(persistentClass.getName());
     }
@@ -92,14 +87,6 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
     }
 
     /**
-     * Depending classes.
-     *
-     * @return the list
-     */
-    @SuppressWarnings("rawtypes")
-    protected abstract List<Class> dependingClasses();
-
-    /**
      * Clear.
      */
     public void clear() {
@@ -108,8 +95,10 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         closeSession();
     }
 
-    /* (non-Javadoc)
-     * @see com.fleaPark.services.persistence.dao.EntityDao#delete(java.lang.Object)
+    /*
+     * (non-Javadoc)
+     * @see
+     * com.fleaPark.services.persistence.dao.EntityDao#delete(java.lang.Object)
      */
     @Override
     public void delete(T entity) {
@@ -118,7 +107,17 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         closeSession();
     }
 
-    /* (non-Javadoc)
+    /**
+     * Flush.
+     */
+    public void flush() {
+        Message4Debug.addTrace(this.getClass().getName() + ".flush()");
+        openSession().flush();
+        closeSession();
+    }
+
+    /*
+     * (non-Javadoc)
      * @see com.fleaPark.services.persistence.dao.EntityDao#getAll()
      */
     @Override
@@ -128,8 +127,11 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
 
     }
 
-    /* (non-Javadoc)
-     * @see com.fleaPark.services.persistence.dao.EntityDao#getByExample(java.lang.Object, java.lang.String[])
+    /*
+     * (non-Javadoc)
+     * @see
+     * com.fleaPark.services.persistence.dao.EntityDao#getByExample(java.lang.
+     * Object, java.lang.String[])
      */
     @Override
     @SuppressWarnings("unchecked")
@@ -144,8 +146,10 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         return crit.list();
     }
 
-    /* (non-Javadoc)
-     * @see com.fleaPark.services.persistence.dao.EntityDao#getById(java.io.Serializable, boolean)
+    /*
+     * (non-Javadoc)
+     * @see com.fleaPark.services.persistence.dao.EntityDao#getById(java.io.
+     * Serializable, boolean)
      */
     @Override
     @SuppressWarnings("unchecked")
@@ -158,15 +162,6 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
             entity = (T) openSession().load(getPersistentClass(), id);
         closeSession();
         return entity;
-    }
-
-    /**
-     * Flush.
-     */
-    public void flush() {
-        Message4Debug.addTrace(this.getClass().getName() + ".flush()");
-        openSession().flush();
-        closeSession();
     }
 
     /**
@@ -197,8 +192,10 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         return session;
     }
 
-    /* (non-Javadoc)
-     * @see com.fleaPark.services.persistence.dao.EntityDao#insert(java.lang.Object)
+    /*
+     * (non-Javadoc)
+     * @see
+     * com.fleaPark.services.persistence.dao.EntityDao#insert(java.lang.Object)
      */
     @Override
     public T insert(T entity) {
@@ -260,6 +257,14 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         Message4Debug.addTrace(this.getClass().getName() + ".closeSession()");
         config.buildSessionFactory().getCurrentSession().close();
     }
+
+    /**
+     * Depending classes.
+     *
+     * @return the list
+     */
+    @SuppressWarnings("rawtypes")
+    protected abstract List<Class> dependingClasses();
 
     /**
      * Find by criteria.

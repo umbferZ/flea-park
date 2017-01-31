@@ -2,10 +2,10 @@
  * 
  * Created by Umberto Ferracci from urania's PC
  * email: umberto.ferracci@gmail.com
- * Project: FleaPark
- * Package: com.fleaPark.utility
+ * Project: fleaPark
+ * Package: com.fleaPark.tools.debug
  * Type: Message4Debug
- * Last update: 23-giu-2016 22.15.30
+ * Last update: 31-gen-2017 0.03.10
  * 
  */
 package com.fleaPark.tools.debug;
@@ -15,11 +15,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * The Class Message4Debug.
+ */
 public class Message4Debug {
     private static int id;
-    private static List<String> stack = new ArrayList();
+    private static List<String> stack = new ArrayList<String>();
 
-    private static boolean debug = true;
+    private static boolean debug = false;
 
     /**
      * Adds the trace.

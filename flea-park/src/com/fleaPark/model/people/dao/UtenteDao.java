@@ -20,12 +20,12 @@ import com.fleaPark.services.persistence.dao.EntityDaoHibernate;
 import com.fleaPark.tools.debug.Message4Debug;
 
 public interface UtenteDao extends EntityDao<Utente, Long> {
-    public Utente getUserByEmailAndPassword(String email, String password) throws Exception;
+    public Utente getUtenteByEmailAndPassword(String email, String password) throws Exception;
 
     public class UtenteDaoHibernate extends EntityDaoHibernate<Utente, Long> implements UtenteDao {
         @SuppressWarnings("unchecked")
         @Override
-        public Utente getUserByEmailAndPassword(String email, String password) throws Exception {
+        public Utente getUtenteByEmailAndPassword(String email, String password) throws Exception {
             Message4Debug.addTrace(this.getClass().getName() + ".getByEmailAndPassword()");
             String sql = " from Utente u where u.email=:email and u.password=:password";
             Query query = super.openSession().createQuery(sql);

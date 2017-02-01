@@ -50,8 +50,7 @@
     if (session.getAttribute("utente") == null) {
 %>
 <jsp:include page="/modules/mod_modals/modalSignUp-In.jsp"></jsp:include>
-
 <%
     }
 %>
-<jsp:include page="barSearch.jsp"></jsp:include>
+<jsp:include page="./barSearch.jsp"></jsp:include>

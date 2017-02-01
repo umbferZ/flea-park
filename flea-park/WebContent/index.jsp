@@ -1,8 +1,7 @@
-<%@ page errorPage = "/error.jsp" %>
 <jsp:include page="/includes/languageCheck.jsp"></jsp:include>
 <%
-    //     String lng = (String) session.getAttribute("language");
-    //     Resources resources = new Resources((String) session.getAttribute("language"));
+//         String lng = (String) session.getAttribute("language");
+//         Resources resources = new Resources((String) session.getAttribute("language"));
 //     if (request.getParameter("accedi") != null) {
 //         response.sendRedirect("index.jsp");
 //     }
@@ -23,11 +22,6 @@
 <body>
 	<jsp:include page="/modules/mod_bar/barNav.jsp"></jsp:include>
 	<div id="content">
-		<p align="center">
-			<%
-			    // 			    			    out.println("Language : " + language + "<br />");
-			%>
-		</p>
 		<%
 		    if (session.getAttribute("utente") != null) {
 		%>

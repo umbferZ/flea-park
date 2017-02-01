@@ -12,7 +12,6 @@ package com.fleaPark.application.beans;
 
 import com.fleaPark.application.controls.C_UC_Access;
 import com.fleaPark.model.people.Utente;
-import com.fleaPark.tools.debug.Message4Debug;
 
 public class BeanDiAccesso {
     private int idUtente;
@@ -24,20 +23,6 @@ public class BeanDiAccesso {
     private String password;
 
     private String email;
-
-    public boolean accedi() {
-        C_UC_Access controller = new C_UC_Access();
-        Utente user = controller.accedi(email, password);
-        if (user != null) {
-            nome = user.getNome();
-            cognome = user.getCognome();
-            email = user.getEmail();
-            password = user.getPassword();
-            idUtente = user.getIdUtente();
-            return true;
-        }
-        return false;
-    }
 
     public String getCognome() {
         return cognome;
@@ -59,13 +44,6 @@ public class BeanDiAccesso {
         return password;
     }
 
-    public void registrati() {
-        Message4Debug.log("registrazione in corso...");
-        C_UC_Access controller = new C_UC_Access();
-        controller.registrati(nome, cognome, email, password);
-        Message4Debug.log("registrato");
-    }
-
     public void setCognome(String cognome) {
         this.cognome = cognome;
     }
@@ -85,4 +63,24 @@ public class BeanDiAccesso {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public boolean accedi() {
+        C_UC_Access controller = new C_UC_Access();
+        Utente user = controller.accedi(email, password);
+        if (user != null) {
+            nome = user.getNome();
+            cognome = user.getCognome();
+            email = user.getEmail();
+            password = user.getPassword();
+            idUtente = user.getIdUtente();
+            return true;
+        }
+        return false;
+    }
+
+    public void registrati() {
+        C_UC_Access controller = new C_UC_Access();
+        controller.registrati(nome, cognome, email, password);
+    }
+
 }

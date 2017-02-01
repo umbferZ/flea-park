@@ -19,16 +19,14 @@ public class C_UC_Access {
 
     public static void main(String[] args) {
         C_UC_Access access = new C_UC_Access();
-        // access.registrati("nome", "cognome", "email@email", "password");
-        // Message4Debug.log("nuovo utente inserito");
-        Message4Debug.log("idutente: " + access.accedi("email@email", "password").getIdUtente());
+         access.registrati("nome", "cognome", "email@email", "password");
     }
 
     public Utente accedi(String email, String password) {
         DaoFactory factory = DaoFactory.getInstance();
         UtenteDao utenteDao = factory.getUtenteDao();
         try {
-            Utente utenteRegistrato = utenteDao.getUserByEmailAndPassword(email, password);
+            Utente utenteRegistrato = utenteDao.getUtenteByEmailAndPassword(email, password);
             return utenteRegistrato;
         } catch (Exception e) {
             Message4Debug.addTrace(e.getMessage());

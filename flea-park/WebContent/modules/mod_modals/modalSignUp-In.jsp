@@ -1,4 +1,3 @@
-<%@page import="org.apache.jasper.tagplugins.jstl.core.Redirect"%>
 <%@page import="com.fleaPark.tools.debug.Message4Debug"%>
 <div id="signUp" class="modal">
 	<jsp:useBean id="beanDiAccesso" class="com.fleaPark.application.beans.BeanDiAccesso"></jsp:useBean>

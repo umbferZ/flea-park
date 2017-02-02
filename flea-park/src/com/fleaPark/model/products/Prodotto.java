@@ -8,7 +8,7 @@
  * Last update: 31-gen-2017 18.10.48
  * 
  */
-package com.fleaPark.model.object;
+package com.fleaPark.model.products;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

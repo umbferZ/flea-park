@@ -8,14 +8,14 @@
  * Last update: 31-gen-2017 18.10.48
  * 
  */
-package com.fleaPark.model.object.dao;
+package com.fleaPark.model.products.dao;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fleaPark.model.object.Prezzo;
-import com.fleaPark.model.object.Prodotto;
 import com.fleaPark.model.people.Utente;
+import com.fleaPark.model.products.Prezzo;
+import com.fleaPark.model.products.Prodotto;
 import com.fleaPark.services.persistence.dao.EntityDao;
 import com.fleaPark.services.persistence.dao.EntityDaoHibernate;
 

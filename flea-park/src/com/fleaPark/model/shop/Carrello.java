@@ -12,8 +12,8 @@ package com.fleaPark.model.shop;
 
 import java.util.List;
 
-import com.fleaPark.model.object.Prezzo;
-import com.fleaPark.model.object.Prodotto;
+import com.fleaPark.model.products.Prezzo;
+import com.fleaPark.model.products.Prodotto;
 
 /**
  * The Class Cart.

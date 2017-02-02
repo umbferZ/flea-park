@@ -1,4 +1,4 @@
-package com.fleaPark.application.view;
+package com.fleaPark.application.standAlone.view;
 
 public class DemoView {
     public static void main(String[] args) {

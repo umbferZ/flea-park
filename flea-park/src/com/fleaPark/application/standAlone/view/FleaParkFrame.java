@@ -8,7 +8,7 @@
  * Last update: 1-feb-2017 16.08.54
  * 
  */
-package com.fleaPark.application.view;
+package com.fleaPark.application.standAlone.view;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -20,7 +20,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
-import com.fleaPark.application.view.listener.MouseSpy;
+import com.fleaPark.application.standAlone.view.listener.MouseSpy;
 
 public class FleaParkFrame extends JFrame {
     /**

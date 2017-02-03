@@ -3,17 +3,14 @@
  * Created by Umberto Ferracci from urania's PC
  * email: umberto.ferracci@gmail.com
  * Project: fleaPark
- * Package: com.fleaPark.model.object
+ * Package: com.fleaPark.model.products
  * Type: Prodotto
- * Last update: 31-gen-2017 18.10.48
+ * Last update: 2-feb-2017 22.26.55
  * 
  */
 package com.fleaPark.model.products;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 import com.fleaPark.model.people.Utente;
 
@@ -30,24 +27,27 @@ public class Prodotto {
 
     private String nome;
 
-    private Prezzo prezzo;
+    private int prezzo;
     private Utente venditore;
+
+    private Categoria categoria;
 
     public Prodotto() {
         super();
     }
 
-    @ManyToOne
     public Utente getAcquirente() {
         return acquirente;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
     }
 
     public String getDescrizione() {
         return descrizione;
     }
 
-    @Id
-    @GeneratedValue
     public int getIdProdotto() {
         return idProdotto;
     }
@@ -56,18 +56,20 @@ public class Prodotto {
         return nome;
     }
 
-    @ManyToOne
-    public Prezzo getPrezzo() {
+    public int getPrezzo() {
         return prezzo;
     }
 
-    @ManyToOne
     public Utente getVenditore() {
         return venditore;
     }
 
     public void setAcquirente(Utente acquirente) {
         this.acquirente = acquirente;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
     public void setDescrizione(String descrizione) {
@@ -82,11 +84,12 @@ public class Prodotto {
         this.nome = nome;
     }
 
-    public void setPrezzo(Prezzo prezzo) {
+    public void setPrezzo(int prezzo) {
         this.prezzo = prezzo;
     }
 
     public void setVenditore(Utente venditore) {
         this.venditore = venditore;
     }
+
 }

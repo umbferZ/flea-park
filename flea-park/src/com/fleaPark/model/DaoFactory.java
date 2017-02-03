@@ -10,17 +10,17 @@
  */
 package com.fleaPark.model;
 
-import com.fleaPark.model.people.Utente;
 import com.fleaPark.model.people.dao.UtenteDao;
-import com.fleaPark.tools.debug.Message4Debug;
+import com.fleaPark.model.products.dao.CategoriaDao;
+import com.fleaPark.model.products.dao.ProdottoDao;
 
 public class DaoFactory {
-    public static DaoFactory instance = null;
+    private static DaoFactory instance = null;
 
-    public static DaoFactory getInstance() {
-        if (DaoFactory.instance == null)
-            DaoFactory.instance = new DaoFactory();
-        return DaoFactory.instance;
+    public synchronized static DaoFactory getInstance() {
+        if (instance == null)
+            instance = new DaoFactory();
+        return instance;
     }
 
     private DaoFactory() {
@@ -30,16 +30,13 @@ public class DaoFactory {
     public UtenteDao getUtenteDao() {
         return new UtenteDao.UtenteDaoHibernate();
     }
-    public static void main(String[] args) {
-        DaoFactory factory = DaoFactory.getInstance();
-        UtenteDao utenteDao = factory.getUtenteDao();
-        Utente utente=null;
-        try {
-            utente=utenteDao.getUtenteByEmailAndPassword("email@email", "password");
-            Message4Debug.log("id utente "+utente.getIdUtente());
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+
+    public ProdottoDao getProdottoDao() {
+        return new ProdottoDao.ProdottoDaoHibernate();
     }
+
+    public CategoriaDao getCategoriaDao() {
+        return new CategoriaDao.CategoriaDaoHibernate();
+    }
+
 }

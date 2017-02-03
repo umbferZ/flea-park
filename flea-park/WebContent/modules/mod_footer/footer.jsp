@@ -2,7 +2,7 @@
 <footer class="page-footer">
 	<div class="container">
 		<div class="row">
-			<div class="col l3 s12 center green">
+			<div class="col l3 s12 center">
 				<h5 class="">Change language</h5>
 				<ul>
 					<li><a href="?language=en">English</a></li>
@@ -11,10 +11,10 @@
 					<li><a href="?language=de">Deutsch</a></li>
 				</ul>
 			</div>
-			<div class="col l6 s12 center white">
+			<div class="col l6 s12 center">
 				<h5>second menu</h5>
 			</div>
-			<div class="col l3 s12 center red">
+			<div class="col l3 s12 center">
 				<h5>another menù</h5>
 			</div>
 		</div>

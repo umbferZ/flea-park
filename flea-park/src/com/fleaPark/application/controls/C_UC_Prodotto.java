@@ -1,0 +1,36 @@
+package com.fleaPark.application.controls;
+
+import java.util.List;
+
+import org.hibernate.dialect.DataDirectOracle9Dialect;
+
+import com.fleaPark.model.DaoFactory;
+import com.fleaPark.model.products.Categoria;
+import com.fleaPark.model.products.Prodotto;
+
+public class C_UC_Prodotto {
+
+    public void inserisciProdotto(String nome, String descrizione, int prezzo, long idCategoria) {
+        DaoFactory factory = DaoFactory.getInstance();
+        Categoria categoria = factory.getCategoriaDao().getById(idCategoria, true);
+        Prodotto p = new Prodotto();
+        p.setNome(nome);
+        p.setDescrizione(descrizione);
+        p.setPrezzo(prezzo);
+        p.setCategoria(categoria);
+        factory.getProdottoDao().insert(p);
+
+    }
+
+    public Categoria getCategoria(long idCategoria) {
+        DaoFactory factory = DaoFactory.getInstance();
+        return factory.getCategoriaDao().getById(idCategoria, true);
+
+    }
+
+    public List<Categoria> getCategorie() {
+        DaoFactory factory = DaoFactory.getInstance();
+        return factory.getCategoriaDao().getAll();
+    }
+
+}

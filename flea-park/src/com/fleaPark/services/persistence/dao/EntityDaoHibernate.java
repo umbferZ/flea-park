@@ -206,11 +206,12 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
             transaction = s.beginTransaction();
             s.save(entity);
             transaction.commit();
-        } catch (ConstraintViolationException e) { // FIXME how to intercept
-                                                   // ConstraintViolationExceptio
-                                                   // with unique columns
+        } catch (ConstraintViolationException e) {
+            Message4Debug.addTrace("EntityDaoHibernate.insert(T entity):");
             Message4Debug.addTrace(e.getMessage());
+            e.printStackTrace();
         } catch (HibernateException e) {
+            Message4Debug.log(e.getMessage());
             if (transaction != null)
                 transaction.rollback();
         } finally {

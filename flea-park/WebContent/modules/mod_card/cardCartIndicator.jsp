@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="s3 left fixed-action-btn">
 	<div class="card" id="card_cartIndicator">
-		<div class="card-title">
-			<div class="right waves-effect">
-				<i class="material-icons tiny" id="icon_close_card_cartIndicator">close</i>
-			</div>
-		</div>
+		<div class="card-title"></div>
 		<div class="card-content">
-			<div class="title">Ciao ${user.firstName} ${user.lastName}</div>
-			Totale <span class="card-title">123,89 €</span>
+			<span class="right">
+				<a href="#"><i class="material-icons tiny wave-effect" id="icon_close_card_cartIndicator">close</i></a>
+			</span>
+			<div class="title">Ciao ${utente.nome} ${utente.cognome}</div>
+			Totale
+			<span class="card-title">123,89 €</span>
 		</div>
 		<div class="card-action">
 			<form method="post" action="UCPagamento01InserimentoDati.jsp">

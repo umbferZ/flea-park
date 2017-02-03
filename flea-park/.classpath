@@ -13,19 +13,19 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/home/urania/git/fleaPark/flea-park/lib/antlr-2.7.6.jar"/>
-	<classpathentry kind="lib" path="/home/urania/git/fleaPark/flea-park/lib/cglib-2.2.jar"/>
-	<classpathentry kind="lib" path="/home/urania/git/fleaPark/flea-park/lib/commons-collections-3.1.jar"/>
-	<classpathentry kind="lib" path="/home/urania/git/fleaPark/flea-park/lib/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="/home/urania/git/fleaPark/flea-park/lib/ejb3-persistence.jar"/>
-	<classpathentry kind="lib" path="/home/urania/git/fleaPark/flea-park/lib/hibernate3.jar"/>
-	<classpathentry kind="lib" path="/home/urania/git/fleaPark/flea-park/lib/hibernate-annotations.jar"/>
-	<classpathentry kind="lib" path="/home/urania/git/fleaPark/flea-park/lib/hibernate-commons-annotations.jar"/>
-	<classpathentry kind="lib" path="/home/urania/git/fleaPark/flea-park/lib/javassist-3.9.0.GA.jar"/>
-	<classpathentry kind="lib" path="/home/urania/git/fleaPark/flea-park/lib/jta-1.1.jar"/>
-	<classpathentry kind="lib" path="/home/urania/git/fleaPark/flea-park/lib/log4j.jar"/>
-	<classpathentry kind="lib" path="/home/urania/git/fleaPark/flea-park/lib/mysql-connector-java-5.1.39.jar"/>
-	<classpathentry kind="lib" path="/home/urania/git/fleaPark/flea-park/lib/slf4j-api-1.5.8.jar"/>
-	<classpathentry kind="lib" path="/home/urania/git/fleaPark/flea-park/lib/slf4j-log4j12.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cglib-2.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ejb3-persistence.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate-annotations.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate-commons-annotations.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javassist-3.9.0.GA.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.39.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-api-1.5.8.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-log4j12.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

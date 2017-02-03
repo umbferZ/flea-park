@@ -1,39 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="com.fleaPark.tools.debug.Message4Debug"%>
 <%
-/*     String keyword = "";
-			String checkin = "";
-			String checkout = "";
-			String result = "";
-			if (request.getParameter("search") != null) {
-				keyword = searchBean.getKeyword();
-				checkin = searchBean.getCheckin();
-				checkout = searchBean.getCheckout();
+    //     String keyword = "";
+			// 			String checkin = "";
+			// 			String checkout = "";
+			// 			String result = "";
+			// 			if (request.getParameter("search") != null) {
+			// 				keyword = searchBean.getKeyword();
+			// 				checkin = searchBean.getCheckin();
+			// 				checkout = searchBean.getCheckout();
 
-			} */
+			// 			}
 %>
 <div id="barSearch" class="barSearch notVisible row">
 	<div class="right-align col s12">
 		<i class="material-icons waves-effect tiny" id="icon_close_barSearch">close</i>
 	</div>
-	<div class="row col s12">
+	<div class="container row">
 		<form method="post" action="">
-			<div class="input-field col s12 m7">
-				<i class="material-icons prefix">mode_edit</i>
+			<div class="input-field col s12 m3">
+				<select name="category" id="category">
+					<option disabled="disabled">Scegli categoria</option>
+					<option>Categoria 1</option>
+					<option>Categoria 1</option>
+					<option>Categoria 1</option>
+					<option>Categoria 1</option>
+				</select>
+			</div>
+			<div class="input-field col s12 m6 offset-m1">
 				<input type="text" class="validate" id="keyword" name="keyword" required="required" value="">
 				<label class="active" for="keyword">Keyword</label>
 			</div>
-			<div class="input-field col s12 m2">
-				<i class="material-icons prefix">today</i>
-				<input type="date" class="datepicker validate" id="checkin" name="checkin" required="required" value="">
-				<label class="active" for="checkin">Checkin</label>
-			</div>
-			<div class="input-field col s12 m2">
-				<i class="material-icons prefix">today</i>
-				<input type="date" class="datepicker validate" id="checkout" name="checkout" required="required" value="">
-				<label class="active" for="checkin">Checkout</label>
-			</div>
-			<div class="input-field col s12 m1 center">
+			<div class="input-field col s12 m1 right">
 				<button class="btn" type="submit" name="search" value="ok">
 					<i class="material-icons">search</i>
 				</button>

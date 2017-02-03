@@ -3,9 +3,9 @@
  * Created by Umberto Ferracci from urania's PC
  * email: umberto.ferracci@gmail.com
  * Project: fleaPark
- * Package: com.fleaPark.model.object
+ * Package: com.fleaPark.model.products
  * Type: Prezzo
- * Last update: 31-gen-2017 18.10.48
+ * Last update: 2-feb-2017 22.26.55
  * 
  */
 package com.fleaPark.model.products;

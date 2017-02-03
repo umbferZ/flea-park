@@ -1,5 +1,6 @@
-<%@ page isErrorPage="true" import="java.io.*"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="java.io.PrintWriter"%>
+<%@page import="java.io.StringWriter"%>
+<%@ page language="java" isErrorPage="true" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,9 +22,9 @@
 			Cause:
 			<%=exception.getCause()%>
 		</p>
-		<pre>
-StackTrace:
-<%
+		<code>
+			StackTrace:
+			<%
 		    StringWriter stringWriter = new StringWriter();
 		    PrintWriter printWriter = new PrintWriter(stringWriter);
 		    exception.printStackTrace(printWriter);
@@ -31,10 +32,8 @@ StackTrace:
 		    printWriter.close();
 		    stringWriter.close();
 		%>
-
-</pre>
+		</code>
 	</div>
-	<jsp:include page="modules/mod_footer/footer.jsp" />
 	<jsp:include page="includes/script.jsp"></jsp:include>
 </body>
 </html>

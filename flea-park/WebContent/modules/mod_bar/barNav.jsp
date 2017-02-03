@@ -33,7 +33,7 @@
 				    if (session.getAttribute("utente") != null) {
 				%>
 				<li><a href="#!" class="dropdown-button" data-activates="cart"><i class="material-icons tiny left">shopping_cart </i>Cart<i class="material-icons tiny right">arrow_drop_down</i></a></li>
-				<li><a href="#!" class="dropdown-button" data-activates="account"><i class="material-icons tiny left">perm_identity</i>${user.firstName} ${user.lastName}<i class="material-icons tiny right">arrow_drop_down</i></a></li>
+				<li><a href="#!" class="dropdown-button" data-activates="account"><i class="material-icons tiny left">perm_identity</i>${utente.nome} ${utente.cognome}<i class="material-icons tiny right">arrow_drop_down</i></a></li>
 				<%
 				    } else {
 				%>
@@ -50,6 +50,11 @@
     if (session.getAttribute("utente") == null) {
 %>
 <jsp:include page="/modules/mod_modals/modalSignUp-In.jsp"></jsp:include>
+<%
+    } else {
+%>
+<jsp:include page="/modules/mod_card/cardCartIndicator.jsp"></jsp:include>
+<jsp:include page="/modules/mod_sideBar/sidebar.jsp"></jsp:include>
 <%
     }
 %>

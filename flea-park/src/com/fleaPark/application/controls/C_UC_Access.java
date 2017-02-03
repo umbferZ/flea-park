@@ -19,7 +19,7 @@ public class C_UC_Access {
 
     public static void main(String[] args) {
         C_UC_Access access = new C_UC_Access();
-         access.registrati("nome", "cognome", "email@email", "password");
+        access.registrati("nome", "cognome", "email@email", "password");
     }
 
     public Utente accedi(String email, String password) {
@@ -35,13 +35,13 @@ public class C_UC_Access {
     }
 
     public void registrati(String nome, String cognome, String email, String password) {
-        DaoFactory factory = DaoFactory.getInstance();
-        UtenteDao utenteDao = factory.getUtenteDao();
         Utente nuovoUtente = new Utente();
         nuovoUtente.setNome(nome);
         nuovoUtente.setCognome(cognome);
         nuovoUtente.setEmail(email);
         nuovoUtente.setPassword(password);
+        DaoFactory factory = DaoFactory.getInstance();
+        UtenteDao utenteDao = factory.getUtenteDao();
         utenteDao.insert(nuovoUtente);
     }
 }

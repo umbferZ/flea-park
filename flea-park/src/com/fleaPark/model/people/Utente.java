@@ -10,6 +10,7 @@
  */
 package com.fleaPark.model.people;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -45,6 +46,7 @@ public class Utente {
         return nome;
     }
 
+    @Column(unique = true)
     public String getEmail() {
         return email;
     }

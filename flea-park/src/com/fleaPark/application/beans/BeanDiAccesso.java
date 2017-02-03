@@ -83,4 +83,5 @@ public class BeanDiAccesso {
         controller.registrati(nome, cognome, email, password);
     }
 
+
 }

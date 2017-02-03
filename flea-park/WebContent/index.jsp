@@ -1,17 +1,18 @@
+<%@ page errorPage = "PaginaErrore.jsp" %>
 <jsp:include page="/includes/languageCheck.jsp"></jsp:include>
 <%
 //         String lng = (String) session.getAttribute("language");
 //         Resources resources = new Resources((String) session.getAttribute("language"));
-//     if (request.getParameter("accedi") != null) {
-//         response.sendRedirect("index.jsp");
-//     }
-//     if (request.getParameter("registrati") != null) {
-//         response.sendRedirect("index.jsp");
-//     }
-//     if (request.getParameter("logout") != null) {
-//         session.removeAttribute("utente");
-//         response.sendRedirect("index.jsp");
-//     }
+    if (request.getParameter("accedi") != null) {
+        response.sendRedirect("index.jsp");
+    }
+    if (request.getParameter("registrati") != null) {
+        response.sendRedirect("index.jsp");
+    }
+    if (request.getParameter("logout") != null) {
+        session.removeAttribute("utente");
+        response.sendRedirect("index.jsp");
+    }
 %>
 <!DOCTYPE html>
 <html>
@@ -27,6 +28,7 @@
 		%>
 		<div class="container">
 			<h1 class="lighten">Flea Park</h1>
+			<jsp:include page="/modules/mod_form/form_inserisciProdotto.jsp"></jsp:include>
 		</div>
 		<%
 		    } else {

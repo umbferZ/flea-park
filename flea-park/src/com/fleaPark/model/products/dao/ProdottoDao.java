@@ -26,7 +26,6 @@ public interface ProdottoDao extends EntityDao<Prodotto, Long> {
         protected List<Class> dependingClasses() {
             List<Class> classes = new ArrayList<>();
             classes.add(Utente.class);
-            classes.add(Prezzo.class);
             return classes;
         }
 

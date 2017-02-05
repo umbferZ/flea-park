@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model
  * Type: DaoFactory
- * Last update: 31-gen-2017 18.10.48
+ * Last update: 3-feb-2017 23.55.06
  * 
  */
 package com.fleaPark.model;
@@ -27,16 +27,16 @@ public class DaoFactory {
         // TODO Auto-generated constructor stub
     }
 
-    public UtenteDao getUtenteDao() {
-        return new UtenteDao.UtenteDaoHibernate();
+    public CategoriaDao getCategoriaDao() {
+        return new CategoriaDao.CategoriaDaoHibernate();
     }
 
     public ProdottoDao getProdottoDao() {
         return new ProdottoDao.ProdottoDaoHibernate();
     }
 
-    public CategoriaDao getCategoriaDao() {
-        return new CategoriaDao.CategoriaDaoHibernate();
+    public UtenteDao getUtenteDao() {
+        return new UtenteDao.UtenteDaoHibernate();
     }
 
 }

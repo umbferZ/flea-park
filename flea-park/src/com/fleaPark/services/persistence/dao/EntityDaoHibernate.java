@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.services.persistence.dao
  * Type: EntityDaoHibernate
- * Last update: 31-gen-2017 18.10.48
+ * Last update: 3-feb-2017 23.55.06
  * 
  */
 package com.fleaPark.services.persistence.dao;
@@ -205,18 +205,19 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         try {
             transaction = s.beginTransaction();
             s.save(entity);
+            s.flush();
             transaction.commit();
         } catch (ConstraintViolationException e) {
             Message4Debug.addTrace("EntityDaoHibernate.insert(T entity):");
             Message4Debug.addTrace(e.getMessage());
-            e.printStackTrace();
+            // e.printStackTrace();
         } catch (HibernateException e) {
             Message4Debug.log(e.getMessage());
             if (transaction != null)
                 transaction.rollback();
         } finally {
             if (s != null)
-                closeSession();
+                s.close();
         }
         return entity;
     }
@@ -290,7 +291,11 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
      */
     protected Session openSession() {
         Message4Debug.addTrace(this.getClass().getName() + ".openSession()");
-        Session s = config.buildSessionFactory().openSession();
-        return s;
+        // Session s = config.buildSessionFactory().getCurrentSession();
+        // if (config.buildSessionFactory().isClosed()) {
+        return config.buildSessionFactory().openSession();
+        // } else {
+        // return config.buildSessionFactory().getCurrentSession();
+        // }
     }
 }

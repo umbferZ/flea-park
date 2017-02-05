@@ -1,3 +1,13 @@
+/*
+ * 
+ * Created by Umberto Ferracci from urania's PC
+ * email: umberto.ferracci@gmail.com
+ * Project: fleaPark
+ * Package: com.fleaPark.application.beans
+ * Type: BeanCategoria
+ * Last update: 3-feb-2017 23.55.05
+ * 
+ */
 package com.fleaPark.application.beans;
 
 import java.util.ArrayList;
@@ -9,22 +19,6 @@ import com.fleaPark.model.products.Categoria;
 public class BeanCategoria {
     private int idCategoria;
     private String nome;
-
-    public int getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
     public BeanCategoria() {
         super();
@@ -49,5 +43,21 @@ public class BeanCategoria {
             result.add(b);
         }
         return result;
+    }
+
+    public int getIdCategoria() {
+        return idCategoria;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }

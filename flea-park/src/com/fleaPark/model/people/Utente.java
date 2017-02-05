@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.people
  * Type: Utente
- * Last update: 31-gen-2017 18.10.48
+ * Last update: 3-feb-2017 23.55.06
  * 
  */
 package com.fleaPark.model.people;
@@ -16,19 +16,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
- * The Class User.
+ * The Class Utente.
  */
 @Entity
 public class Utente {
 
     private String cognome;
+    @Column(unique = true)
     private String email;
 
+    @Id
+    @GeneratedValue
     private int idUtente;
 
     private String nome;
 
     private String password;
+//    @OneToMany(mappedBy = "venditore", cascade = CascadeType.ALL)
+//    private List<Prodotto> acquisti;
+//    @OneToMany(mappedBy = "acquirente", cascade = CascadeType.ALL)
+//    private List<Prodotto> prodotti;
 
     public Utente() {
         super();
@@ -42,17 +49,18 @@ public class Utente {
         this.password = password;
     }
 
+//    public List<Prodotto> getAcquisti() {
+//        return acquisti;
+//    }
+
     public String getCognome() {
         return nome;
     }
 
-    @Column(unique = true)
     public String getEmail() {
         return email;
     }
 
-    @Id
-    @GeneratedValue
     public int getIdUtente() {
         return idUtente;
     }
@@ -64,6 +72,14 @@ public class Utente {
     public String getPassword() {
         return password;
     }
+
+//    public List<Prodotto> getProdotti() {
+//        return prodotti;
+//    }
+
+//    public void setAcquisti(List<Prodotto> acquisti) {
+//        this.acquisti = acquisti;
+//    }
 
     public void setCognome(String lastName) {
         nome = lastName;
@@ -84,5 +100,9 @@ public class Utente {
     public void setPassword(String password) {
         this.password = password;
     }
+
+//    public void setProdotti(List<Prodotto> prodotti) {
+//        this.prodotti = prodotti;
+//    }
 
 }

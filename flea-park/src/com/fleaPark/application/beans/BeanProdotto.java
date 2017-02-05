@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.beans
  * Type: BeanProdotto
- * Last update: 2-feb-2017 23.21.28
+ * Last update: 3-feb-2017 23.55.06
  * 
  */
 package com.fleaPark.application.beans;

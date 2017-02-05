@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products
  * Type: Categoria
- * Last update: 2-feb-2017 23.43.11
+ * Last update: 3-feb-2017 23.55.06
  * 
  */
 package com.fleaPark.model.products;
@@ -18,57 +18,23 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Categoria {
+    @Id
+    @GeneratedValue
     private int id;
-
+    @Column(unique = true)
     private String nome;
+    @ManyToOne
     private Categoria parent;
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Categoria> sottocategorie;
 
     public Categoria() {
         super();
-    }
-
-    @Id
-    @GeneratedValue
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Column(unique = true)
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    @ManyToOne(cascade = { CascadeType.ALL })
-    public Categoria getParent() {
-        return parent;
-    }
-
-    public void setParent(Categoria parent) {
-        this.parent = parent;
-    }
-
-    @OneToMany(mappedBy = "parent", fetch=FetchType.EAGER)
-    public List<Categoria> getSottocategorie() {
-        return sottocategorie;
-    }
-
-    public void setSottocategorie(List<Categoria> sottocategorie) {
-        this.sottocategorie = sottocategorie;
     }
 
     public Categoria(String nome) {
@@ -79,6 +45,38 @@ public class Categoria {
         super();
         this.nome = nome;
         this.parent = parent;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Categoria getParent() {
+        return parent;
+    }
+
+    public List<Categoria> getSottocategorie() {
+        return sottocategorie;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setParent(Categoria parent) {
+        this.parent = parent;
+    }
+
+    public void setSottocategorie(List<Categoria> sottocategorie) {
+        this.sottocategorie = sottocategorie;
     }
 
 }

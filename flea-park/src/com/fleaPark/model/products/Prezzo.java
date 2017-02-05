@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products
  * Type: Prezzo
- * Last update: 2-feb-2017 22.26.55
+ * Last update: 3-feb-2017 23.55.06
  * 
  */
 package com.fleaPark.model.products;

@@ -3,16 +3,15 @@
  * Created by Umberto Ferracci from urania's PC
  * email: umberto.ferracci@gmail.com
  * Project: fleaPark
- * Package: com.fleaPark.application.view
+ * Package: com.fleaPark.application.standAlone.view
  * Type: FleaParkFrame
- * Last update: 1-feb-2017 16.08.54
+ * Last update: 3-feb-2017 23.55.06
  * 
  */
 package com.fleaPark.application.standAlone.view;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -43,7 +42,7 @@ public class FleaParkFrame extends JFrame {
         }
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        c = this.getContentPane();
+        c = getContentPane();
         c.setLayout(new BorderLayout());
         menuBar = new JMenuBar();
         leftPanel = new JPanel();

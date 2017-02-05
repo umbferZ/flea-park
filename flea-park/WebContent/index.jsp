@@ -1,8 +1,8 @@
-<%@ page errorPage = "PaginaErrore.jsp" %>
+<%@ page errorPage="/error.jsp"%>
 <jsp:include page="/includes/languageCheck.jsp"></jsp:include>
 <%
-//         String lng = (String) session.getAttribute("language");
-//         Resources resources = new Resources((String) session.getAttribute("language"));
+    //         String lng = (String) session.getAttribute("language");
+    //         Resources resources = new Resources((String) session.getAttribute("language"));
     if (request.getParameter("accedi") != null) {
         response.sendRedirect("index.jsp");
     }
@@ -27,7 +27,6 @@
 		    if (session.getAttribute("utente") != null) {
 		%>
 		<div class="container">
-			<h1 class="lighten">Flea Park</h1>
 			<jsp:include page="/modules/mod_form/form_inserisciProdotto.jsp"></jsp:include>
 		</div>
 		<%

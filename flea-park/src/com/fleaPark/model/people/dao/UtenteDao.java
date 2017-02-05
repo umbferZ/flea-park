@@ -5,24 +5,26 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.people.dao
  * Type: UtenteDao
- * Last update: 31-gen-2017 18.10.47
+ * Last update: 3-feb-2017 23.55.06
  * 
  */
 package com.fleaPark.model.people.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
 
 import com.fleaPark.model.people.Utente;
+import com.fleaPark.model.products.Prodotto;
 import com.fleaPark.services.persistence.dao.EntityDao;
 import com.fleaPark.services.persistence.dao.EntityDaoHibernate;
 import com.fleaPark.tools.debug.Message4Debug;
 
-public interface UtenteDao extends EntityDao<Utente, Long> {
+public interface UtenteDao extends EntityDao<Utente, Integer> {
     public Utente getUtenteByEmailAndPassword(String email, String password) throws Exception;
 
-    public class UtenteDaoHibernate extends EntityDaoHibernate<Utente, Long> implements UtenteDao {
+    public class UtenteDaoHibernate extends EntityDaoHibernate<Utente, Integer> implements UtenteDao {
         @SuppressWarnings("unchecked")
         @Override
         public Utente getUtenteByEmailAndPassword(String email, String password) throws Exception {
@@ -41,7 +43,8 @@ public interface UtenteDao extends EntityDao<Utente, Long> {
         @SuppressWarnings("rawtypes")
         @Override
         protected List<Class> dependingClasses() {
-            // TODO Auto-generated method stub
+            List<Class> classes = new ArrayList<>();
+            classes.add(Prodotto.class);
             return null;
         }
 

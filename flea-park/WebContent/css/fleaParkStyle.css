@@ -79,6 +79,9 @@ footer.page-footer {
 a link {
   color: #FF5722;
 }
+.slider .indicators {
+  display: none;
+}
 .slider .indicators .indicator-item {
   background-color: #D1C4E9;
 }
@@ -96,4 +99,7 @@ a link {
 nav ul li > a {
   min-width: 180px;
   text-align: center;
+}
+html {
+  font-size: 15px;
 }

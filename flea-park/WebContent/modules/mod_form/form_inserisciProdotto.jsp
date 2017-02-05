@@ -10,9 +10,6 @@
 				<div class="card-image">
 					<img alt="default-image" src="https://maxcdn.icons8.com/app/uploads/2016/02/material-icons-1.png" class="responsive-image">
 				</div>
-				<div class="card-content">
-					<div class="row"></div>
-				</div>
 				<div class="card-action contaier">
 					<div class="row">
 						<div class="col s12 input-field">

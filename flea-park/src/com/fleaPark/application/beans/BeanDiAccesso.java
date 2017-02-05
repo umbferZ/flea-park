@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.beans
  * Type: BeanDiAccesso
- * Last update: 31-gen-2017 18.10.48
+ * Last update: 3-feb-2017 23.55.06
  * 
  */
 package com.fleaPark.application.beans;
@@ -23,6 +23,20 @@ public class BeanDiAccesso {
     private String password;
 
     private String email;
+
+    public boolean accedi() {
+        C_UC_Access controller = new C_UC_Access();
+        Utente user = controller.accedi(email, password);
+        if (user != null) {
+            nome = user.getNome();
+            cognome = user.getCognome();
+            email = user.getEmail();
+            password = user.getPassword();
+            idUtente = user.getIdUtente();
+            return true;
+        }
+        return false;
+    }
 
     public String getCognome() {
         return cognome;
@@ -44,6 +58,11 @@ public class BeanDiAccesso {
         return password;
     }
 
+    public void registrati() {
+        C_UC_Access controller = new C_UC_Access();
+        controller.registrati(nome, cognome, email, password);
+    }
+
     public void setCognome(String cognome) {
         this.cognome = cognome;
     }
@@ -63,25 +82,5 @@ public class BeanDiAccesso {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public boolean accedi() {
-        C_UC_Access controller = new C_UC_Access();
-        Utente user = controller.accedi(email, password);
-        if (user != null) {
-            nome = user.getNome();
-            cognome = user.getCognome();
-            email = user.getEmail();
-            password = user.getPassword();
-            idUtente = user.getIdUtente();
-            return true;
-        }
-        return false;
-    }
-
-    public void registrati() {
-        C_UC_Access controller = new C_UC_Access();
-        controller.registrati(nome, cognome, email, password);
-    }
-
 
 }

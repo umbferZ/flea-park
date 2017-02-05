@@ -1,4 +1,4 @@
-<div class="navbar">
+<div class="navbar-fixed">
 	<nav class="">
 		<%
 		    if (session.getAttribute("utente") != null) {
@@ -28,7 +28,6 @@
 			%>
 			<a href="index.jsp" class="brand-logo center">Flea Park</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="#" id="btn_search"><i class="material-icons tiny left">search</i>Search</a></li>
 				<%
 				    if (session.getAttribute("utente") != null) {
 				%>
@@ -53,9 +52,10 @@
 <%
     } else {
 %>
-<jsp:include page="/modules/mod_card/cardCartIndicator.jsp"></jsp:include>
+<%-- <jsp:include page="/modules/mod_card/cardCartIndicator.jsp"></jsp:include> --%>
 <jsp:include page="/modules/mod_sideBar/sidebar.jsp"></jsp:include>
 <%
     }
 %>
 <jsp:include page="./barSearch.jsp"></jsp:include>
+

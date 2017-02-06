@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.people
  * Type: Utente
- * Last update: 3-feb-2017 23.55.06
+ * Last update: 6-feb-2017 1.34.21
  * 
  */
 package com.fleaPark.model.people;
@@ -32,10 +32,10 @@ public class Utente {
     private String nome;
 
     private String password;
-//    @OneToMany(mappedBy = "venditore", cascade = CascadeType.ALL)
-//    private List<Prodotto> acquisti;
-//    @OneToMany(mappedBy = "acquirente", cascade = CascadeType.ALL)
-//    private List<Prodotto> prodotti;
+    // @OneToMany(mappedBy = "venditore", cascade = CascadeType.ALL)
+    // private List<Prodotto> acquisti;
+    // @OneToMany(mappedBy = "acquirente", cascade = CascadeType.ALL)
+    // private List<Prodotto> prodotti;
 
     public Utente() {
         super();
@@ -49,9 +49,9 @@ public class Utente {
         this.password = password;
     }
 
-//    public List<Prodotto> getAcquisti() {
-//        return acquisti;
-//    }
+    // public List<Prodotto> getAcquisti() {
+    // return acquisti;
+    // }
 
     public String getCognome() {
         return nome;
@@ -73,13 +73,13 @@ public class Utente {
         return password;
     }
 
-//    public List<Prodotto> getProdotti() {
-//        return prodotti;
-//    }
+    // public List<Prodotto> getProdotti() {
+    // return prodotti;
+    // }
 
-//    public void setAcquisti(List<Prodotto> acquisti) {
-//        this.acquisti = acquisti;
-//    }
+    // public void setAcquisti(List<Prodotto> acquisti) {
+    // this.acquisti = acquisti;
+    // }
 
     public void setCognome(String lastName) {
         nome = lastName;
@@ -101,8 +101,8 @@ public class Utente {
         this.password = password;
     }
 
-//    public void setProdotti(List<Prodotto> prodotti) {
-//        this.prodotti = prodotti;
-//    }
+    // public void setProdotti(List<Prodotto> prodotti) {
+    // this.prodotti = prodotti;
+    // }
 
 }

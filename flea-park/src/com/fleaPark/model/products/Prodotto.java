@@ -5,22 +5,17 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products
  * Type: Prodotto
- * Last update: 3-feb-2017 23.55.06
+ * Last update: 6-feb-2017 1.34.21
  * 
  */
 package com.fleaPark.model.products;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-
-import com.fleaPark.model.people.Utente;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+
+import com.fleaPark.model.people.Utente;
 
 /**
  * The Class Prodotto.
@@ -31,7 +26,7 @@ public class Prodotto {
 
     private int idProdotto;
 
-     private Utente acquirente;
+    private Utente acquirente;
 
     private String descrizione;
 
@@ -47,10 +42,10 @@ public class Prodotto {
         super();
     }
 
-     @ManyToOne
-     public Utente getAcquirente() {
-     return acquirente;
-     }
+    @ManyToOne
+    public Utente getAcquirente() {
+        return acquirente;
+    }
 
     @ManyToOne
     public Categoria getCategoria() {

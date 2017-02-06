@@ -6,7 +6,6 @@
 <jsp:include page="includes/link.jsp"></jsp:include>
 </head>
 <body>
-	<jsp:include page="/modules/mod_bar/barNav.jsp"></jsp:include>
 	<div id="content">
 		<div class="row">
 			<div class="col s9">
@@ -28,7 +27,7 @@
 		</div>
 	</div>
 	<jsp:include page="/modules/mod_card/cardCartIndicator.jsp"></jsp:include>
-	<jsp:include page="modules/mod_footer/footer.jsp" />
+	<jsp:include page="/components/cmp_footer/footer.jsp" />
 	<jsp:include page="includes/script.jsp"></jsp:include>
 </body>
 </html>

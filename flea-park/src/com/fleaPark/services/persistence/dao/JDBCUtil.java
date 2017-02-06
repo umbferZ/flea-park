@@ -1,3 +1,13 @@
+/*
+ * 
+ * Created by Umberto Ferracci from urania's PC
+ * email: umberto.ferracci@gmail.com
+ * Project: fleaPark
+ * Package: com.fleaPark.services.persistence.dao
+ * Type: JDBCUtil
+ * Last update: 6-feb-2017 1.34.20
+ * 
+ */
 package com.fleaPark.services.persistence.dao;
 
 import java.sql.Connection;
@@ -5,7 +15,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 
 public class JDBCUtil {
     // JDBC driver name and database URL

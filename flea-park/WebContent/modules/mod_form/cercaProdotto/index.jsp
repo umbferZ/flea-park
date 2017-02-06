@@ -10,7 +10,6 @@
 <script type='text/javascript' src='js/jquery-2.2.0.js'></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-
 		var form = $('#cerca');
 		form.on('submit', function(e) {
 			e.preventDefault();

@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.controls
  * Type: C_UC_Prodotto
- * Last update: 3-feb-2017 23.55.05
+ * Last update: 6-feb-2017 1.34.21
  * 
  */
 package com.fleaPark.application.controls;
@@ -17,6 +17,11 @@ import com.fleaPark.model.products.Categoria;
 import com.fleaPark.model.products.Prodotto;
 
 public class C_UC_Prodotto {
+
+    public List<Prodotto> cerca(String ricerca) {
+        DaoFactory factory = DaoFactory.getInstance();
+        return factory.getProdottoDao().getProdottoLikeParolaChiave(ricerca);
+    }
 
     public Categoria getCategoria(int idCategoria) {
         DaoFactory factory = DaoFactory.getInstance();

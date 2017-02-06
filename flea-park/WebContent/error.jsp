@@ -8,7 +8,7 @@
 <jsp:include page="includes/link.jsp"></jsp:include>
 </head>
 <body class="grey lighten-4">
-	<jsp:include page="/modules/mod_bar/barNav.jsp"></jsp:include>
+	<jsp:include page="/components/cmp_bar/barNav.jsp"></jsp:include>
 	<div class="container" id="content">
 		<p>
 			Error:

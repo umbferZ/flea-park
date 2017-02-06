@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products
  * Type: Categoria
- * Last update: 3-feb-2017 23.55.06
+ * Last update: 6-feb-2017 1.34.21
  * 
  */
 package com.fleaPark.model.products;
@@ -30,7 +30,7 @@ public class Categoria {
     private String nome;
     @ManyToOne
     private Categoria parent;
-    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Categoria> sottocategorie;
 
     public Categoria() {

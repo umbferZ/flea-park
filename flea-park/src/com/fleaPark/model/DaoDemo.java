@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model
  * Type: DaoDemo
- * Last update: 3-feb-2017 23.55.05
+ * Last update: 6-feb-2017 1.34.21
  * 
  */
 package com.fleaPark.model;
@@ -39,16 +39,15 @@ public class DaoDemo {
         /*
          * Creazione utenti
          */
-        List<Utente> utenti = new ArrayList<Utente>();
+        List<Utente> utenti = new ArrayList<>();
         utenti.add(new Utente("Jack", "Sparrow", "jack@sparrow", "js"));
         utenti.add(new Utente("Hector", "Barbossa", "hector@barbossa", "p"));
         utenti.add(new Utente("Will", "Turner", "will@turner", "p"));
         utenti.add(new Utente("Elizabeth", "Swann", "elizabeth@swann", "p"));
         utenti.add(new Utente("Tia", "Dalma", "tia@dalma", "p"));
         utenti.add(new Utente("Sao", "Feng", "sao@feng", "p"));
-        for (Utente u : utenti) {
+        for (Utente u : utenti)
             factory.getUtenteDao().insert(u);
-        }
         utenti = factory.getUtenteDao().getAll();
 
         for (Categoria c : list)
@@ -57,7 +56,7 @@ public class DaoDemo {
                 p.setNome("prodotto - " + i + " di " + c.getNome());
                 p.setCategoria(c);
                 p.setVenditore(utenti.get(i % utenti.size()));
-                p.setAcquirente(utenti.get((i * i + 519) % utenti.size()));
+                p.setAcquirente(utenti.get(((i * i) + 519) % utenti.size()));
                 p.setDescrizione("descizione del prodotto " + i + " di " + c.getNome());
                 factory.getProdottoDao().insert(p);
             }

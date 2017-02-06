@@ -21,7 +21,7 @@
 <jsp:include page="includes/link.jsp"></jsp:include>
 </head>
 <body>
-	<jsp:include page="/modules/mod_bar/barNav.jsp"></jsp:include>
+	<jsp:include page="/components/cmp_bar/barNav.jsp"></jsp:include>
 	<div id="content">
 		<%
 		    if (session.getAttribute("utente") != null) {
@@ -38,8 +38,12 @@
 		<%
 		    }
 		%>
+		<ul>
+		<li>ultimi inserimenti</li>
+		<li>prodotti più osservati</li>
+		</ul>
 	</div>
-	<jsp:include page="modules/mod_footer/footer.jsp" />
+	<jsp:include page="components/cmp_footer/footer.jsp" />
 	<jsp:include page="includes/script.jsp"></jsp:include>
 </body>
 </html>

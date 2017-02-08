@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.standAlone.view.listener
  * Type: MouseSpy
- * Last update: 6-feb-2017 1.34.21
+ * Last update: 7-feb-2017 22.56.12
  * 
  */
 package com.fleaPark.application.standAlone.view.listener;
@@ -23,13 +23,11 @@ public class MouseSpy implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        // TODO Auto-generated method stub
 
     }
 

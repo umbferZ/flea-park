@@ -5,15 +5,14 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.beans
  * Type: BeanRicerca
- * Last update: 6-feb-2017 1.34.20
+ * Last update: 7-feb-2017 22.56.12
  * 
  */
-package com.fleaPark.application.beans;
+package com.fleaPark.application.controls.ricerca;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fleaPark.application.controls.C_UC_Prodotto;
 import com.fleaPark.model.products.Prodotto;
 
 public class BeanRicerca {
@@ -26,7 +25,7 @@ public class BeanRicerca {
     }
 
     public void cerca(String ricerca) {
-        C_UC_Prodotto controller = new C_UC_Prodotto();
+        C_UC_Ricerca controller = new C_UC_Ricerca();
         List<Prodotto> result = controller.cerca(ricerca);
         for (Prodotto p : result) {
             BeanProdotto bp = new BeanProdotto();

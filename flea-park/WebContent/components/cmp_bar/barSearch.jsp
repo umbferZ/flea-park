@@ -1,4 +1,4 @@
-<%@page import="com.fleaPark.application.beans.BeanCategoria"%>
+<%@page import="com.fleaPark.application.controls.ricerca.BeanCategoria"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <nav>
 	<div class="nav-wrapper">

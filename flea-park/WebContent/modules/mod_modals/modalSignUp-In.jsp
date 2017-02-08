@@ -1,6 +1,6 @@
 <%@page import="com.fleaPark.tools.debug.Message4Debug"%>
 <div id="signUp" class="modal">
-	<jsp:useBean id="beanDiAccesso" class="com.fleaPark.application.beans.BeanDiAccesso"></jsp:useBean>
+	<jsp:useBean id="beanDiAccesso" class="com.fleaPark.application.controls.accesso.BeanDiAccesso"></jsp:useBean>
 	<jsp:setProperty property="nome" name="beanDiAccesso" />
 	<jsp:setProperty property="cognome" name="beanDiAccesso" />
 	<jsp:setProperty property="email" name="beanDiAccesso" />
@@ -13,8 +13,8 @@
 	    if (request.getParameter("accedi") != null) {
 	        if (beanDiAccesso.accedi()) {
 	            session.setAttribute("utente", beanDiAccesso);
-	            response.sendRedirect("index.jsp");
-	        }
+		            response.sendRedirect("index.jsp");
+		        }
 	    }
 	%>
 	<div class="modal-content">

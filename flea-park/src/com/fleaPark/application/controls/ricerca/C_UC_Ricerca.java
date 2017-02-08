@@ -3,12 +3,12 @@
  * Created by Umberto Ferracci from urania's PC
  * email: umberto.ferracci@gmail.com
  * Project: fleaPark
- * Package: com.fleaPark.application.controls
- * Type: C_UC_Prodotto
- * Last update: 6-feb-2017 1.34.21
+ * Package: com.fleaPark.application.controls.ricerca
+ * Type: C_UC_Ricerca
+ * Last update: 7-feb-2017 22.56.12
  * 
  */
-package com.fleaPark.application.controls;
+package com.fleaPark.application.controls.ricerca;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import com.fleaPark.model.DaoFactory;
 import com.fleaPark.model.products.Categoria;
 import com.fleaPark.model.products.Prodotto;
 
-public class C_UC_Prodotto {
+public class C_UC_Ricerca {
 
     public List<Prodotto> cerca(String ricerca) {
         DaoFactory factory = DaoFactory.getInstance();
@@ -32,6 +32,26 @@ public class C_UC_Prodotto {
     public List<Categoria> getCategorie() {
         DaoFactory factory = DaoFactory.getInstance();
         return factory.getCategoriaDao().getAll();
+    }
+
+    public BeanProdottoDettagli getDettagliProdottoById(int idProdotto) {
+
+        Prodotto p = DaoFactory.getInstance().getProdottoDao().getById(idProdotto, false);
+        BeanProdottoDettagli beanPrDe = new BeanProdottoDettagli();
+        beanPrDe.setProdottoNome(p.getNome());
+        beanPrDe.setProdottoDescrizione(p.getDescrizione());
+        beanPrDe.setProdottoCategoriaNome(p.getCategoria().getNome());
+        beanPrDe.setProdottoPrezzo(p.getPrezzo());
+        return beanPrDe;
+    }
+
+    public BeanVenditoreDettagli getVenditoreByProdottoId(int idProdotto) {
+        Prodotto p = DaoFactory.getInstance().getProdottoDao().getById(idProdotto, false);
+        BeanVenditoreDettagli beanVD = new BeanVenditoreDettagli();
+        beanVD.setVenditoreCognome(p.getVenditore().getCognome());
+        beanVD.setVenditoreNome(p.getVenditore().getNome());
+        beanVD.setVenditoreId(p.getVenditore().getIdUtente());
+        return beanVD;
     }
 
     public void inserisciProdotto(String nome, String descrizione, int prezzo, int idCategoria) {

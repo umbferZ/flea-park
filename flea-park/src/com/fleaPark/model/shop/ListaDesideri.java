@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.shop
  * Type: ListaDesideri
- * Last update: 6-feb-2017 1.34.21
+ * Last update: 7-feb-2017 22.56.12
  * 
  */
 package com.fleaPark.model.shop;

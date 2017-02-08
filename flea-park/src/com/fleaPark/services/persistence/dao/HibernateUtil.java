@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.services.persistence.dao
  * Type: HibernateUtil
- * Last update: 6-feb-2017 1.34.21
+ * Last update: 7-feb-2017 22.56.12
  * 
  */
 package com.fleaPark.services.persistence.dao;
@@ -24,8 +24,7 @@ public class HibernateUtil {
             sessionFactory = new Configuration().configure().buildSessionFactory();
         } catch (Throwable ex) {
             System.err.println("Initial SessionFactory creation failed." + ex);
-            throw new ExceptionInInitializerError(ex); // FIXME change this
-                                                       // exception
+            throw new ExceptionInInitializerError(ex);
         }
     }
 

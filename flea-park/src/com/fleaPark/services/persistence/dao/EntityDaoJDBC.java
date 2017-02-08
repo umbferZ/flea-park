@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.services.persistence.dao
  * Type: EntityDaoJDBC
- * Last update: 6-feb-2017 1.34.20
+ * Last update: 7-feb-2017 22.56.12
  * 
  */
 package com.fleaPark.services.persistence.dao;
@@ -17,31 +17,26 @@ public abstract class EntityDaoJDBC<T, ID extends Serializable> implements Entit
 
     @Override
     public void delete(T entity) {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     public List<T> getAll() {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public List<T> getByExample(T exampleInstance, String[] excludeProperty) {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public T getById(Serializable id, boolean lock) {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public T insert(T entity) {
-        // TODO Auto-generated method stub
         return null;
     }
 

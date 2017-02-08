@@ -3,12 +3,12 @@
  * Created by Umberto Ferracci from urania's PC
  * email: umberto.ferracci@gmail.com
  * Project: fleaPark
- * Package: com.fleaPark.application.controls
+ * Package: com.fleaPark.application.controls.accesso
  * Type: C_UC_Access
- * Last update: 6-feb-2017 1.34.21
+ * Last update: 7-feb-2017 22.56.12
  * 
  */
-package com.fleaPark.application.controls;
+package com.fleaPark.application.controls.accesso;
 
 import com.fleaPark.model.DaoFactory;
 import com.fleaPark.model.people.Utente;

@@ -5,12 +5,13 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products
  * Type: Prodotto
- * Last update: 6-feb-2017 1.34.21
+ * Last update: 7-feb-2017 22.56.12
  * 
  */
 package com.fleaPark.model.products;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -42,12 +43,12 @@ public class Prodotto {
         super();
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     public Utente getAcquirente() {
         return acquirente;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     public Categoria getCategoria() {
         return categoria;
     }
@@ -70,7 +71,7 @@ public class Prodotto {
         return prezzo;
     }
 
-    @ManyToOne(targetEntity = Utente.class)
+    @ManyToOne(targetEntity = Utente.class, fetch = FetchType.LAZY)
     public Utente getVenditore() {
         return venditore;
     }

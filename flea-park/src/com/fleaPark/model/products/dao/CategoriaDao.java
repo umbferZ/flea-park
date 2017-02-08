@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products.dao
  * Type: CategoriaDao
- * Last update: 6-feb-2017 1.34.21
+ * Last update: 7-feb-2017 22.56.12
  * 
  */
 package com.fleaPark.model.products.dao;
@@ -20,6 +20,7 @@ import com.fleaPark.services.persistence.dao.EntityDaoHibernate;
 public interface CategoriaDao extends EntityDao<Categoria, Integer> {
     public class CategoriaDaoHibernate extends EntityDaoHibernate<Categoria, Integer> implements CategoriaDao {
 
+        @SuppressWarnings("rawtypes")
         @Override
         protected List<Class> dependingClasses() {
             List<Class> classes = new ArrayList<>();

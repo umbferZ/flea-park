@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.people.dao
  * Type: UtenteDao
- * Last update: 6-feb-2017 1.34.21
+ * Last update: 7-feb-2017 22.56.12
  * 
  */
 package com.fleaPark.model.people.dao;
@@ -19,7 +19,6 @@ import com.fleaPark.model.people.Utente;
 import com.fleaPark.model.products.Prodotto;
 import com.fleaPark.services.persistence.dao.EntityDao;
 import com.fleaPark.services.persistence.dao.EntityDaoHibernate;
-import com.fleaPark.tools.debug.Message4Debug;
 
 public interface UtenteDao extends EntityDao<Utente, Integer> {
     public Utente getUtenteByEmailAndPassword(String email, String password) throws Exception;
@@ -28,7 +27,6 @@ public interface UtenteDao extends EntityDao<Utente, Integer> {
         @SuppressWarnings("unchecked")
         @Override
         public Utente getUtenteByEmailAndPassword(String email, String password) throws Exception {
-            Message4Debug.addTrace(this.getClass().getName() + ".getByEmailAndPassword()");
             String sql = " from Utente u where u.email=:email and u.password=:password";
             Query query = super.openSession().createQuery(sql);
             query.setParameter("email", email);

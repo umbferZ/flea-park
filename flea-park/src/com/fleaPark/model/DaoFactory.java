@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model
  * Type: DaoFactory
- * Last update: 6-feb-2017 1.34.21
+ * Last update: 7-feb-2017 22.56.12
  * 
  */
 package com.fleaPark.model;
@@ -13,19 +13,24 @@ package com.fleaPark.model;
 import com.fleaPark.model.people.dao.UtenteDao;
 import com.fleaPark.model.products.dao.CategoriaDao;
 import com.fleaPark.model.products.dao.ProdottoDao;
+import com.fleaPark.tools.debug.Message4Debug;
 
 public class DaoFactory {
     private static DaoFactory instance = null;
+    private static int instanceCount = 0;
+    private static long timer = 0;
 
-    public synchronized static DaoFactory getInstance() {
-        if (instance == null)
+    public static DaoFactory getInstance() {
+        if (instance == null) {
             instance = new DaoFactory();
+            instanceCount++;
+            timer = System.currentTimeMillis();
+        }
+        Message4Debug.log("DaoFactory.instanceCount = " + instanceCount + " at time " + timer);
         return instance;
     }
 
-    private DaoFactory() {
-        // TODO Auto-generated constructor stub
-    }
+    private DaoFactory() {}
 
     public CategoriaDao getCategoriaDao() {
         return new CategoriaDao.CategoriaDaoHibernate();

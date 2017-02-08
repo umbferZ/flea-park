@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.services.persistence.dao
  * Type: DAOHibernate_new
- * Last update: 6-feb-2017 1.34.21
+ * Last update: 7-feb-2017 22.56.12
  * 
  */
 package com.fleaPark.services.persistence.dao;
@@ -77,7 +77,6 @@ public class DAOHibernate_new<T, ID extends Serializable> implements EntityDao<T
      */
     @Override
     public void delete(T entity) {
-        // TODO Auto-generated method stub
 
     }
 
@@ -87,7 +86,6 @@ public class DAOHibernate_new<T, ID extends Serializable> implements EntityDao<T
      */
     @Override
     public List<T> getAll() {
-        // TODO Auto-generated method stub
         return null;
     }
 
@@ -99,7 +97,6 @@ public class DAOHibernate_new<T, ID extends Serializable> implements EntityDao<T
      */
     @Override
     public List<T> getByExample(T exampleInstance, String[] excludeProperty) {
-        // TODO Auto-generated method stub
         return null;
     }
 
@@ -110,7 +107,6 @@ public class DAOHibernate_new<T, ID extends Serializable> implements EntityDao<T
      */
     @Override
     public T getById(ID id, boolean lock) {
-        // TODO Auto-generated method stub
         return null;
     }
 

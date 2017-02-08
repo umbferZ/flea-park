@@ -1,16 +1,30 @@
+<jsp:useBean id="bpd" class="com.fleaPark.application.controls.ricerca.BeanProdottoDettagli"></jsp:useBean>
+<jsp:setProperty property="prodottoId" name="bpd" />
+<%
+    if (request.getParameter("prodottoId") != null) {
+        bpd.getDettagliProdottoById();
+%>
 <div class="card">
 	<div class="card-image">
 		<img alt="default-image" src="https://maxcdn.icons8.com/app/uploads/2016/02/material-icons-1.png" class="responsive-image">
-		<span class="card-title"> predisporre carosello nella card</span>
+		<span class="card-title black-text"> predisporre carosello nella card</span>
 	</div>
 	<div class="card-content">
 		<div class="card-title">
-			Nome prodotto
-			<span class="right">0,00 &euro;</span>
+			${bpd.prodottoNome}
+			<span class="right"> ${bpd.prodottoPrezzo} &euro; </span>
 		</div>
-		<p>descrizione del prodotto</p>
+		<p>${bpd.prodottoDescrizione}</p>
 	</div>
 	<div class="card-action center">
-		<a href="" class="btn"><i class="material-icons right"></i>aggiungi al carrello</a>
+		<form method="post" name="addCarrello">
+			<input type="hidden" name="" value="" />
+			<button class="btn" name="" value="">
+				<i class="material-icons right">shop</i>aggiungi al carrello
+			</button>
+		</form>
 	</div>
 </div>
+<%
+    }
+%>

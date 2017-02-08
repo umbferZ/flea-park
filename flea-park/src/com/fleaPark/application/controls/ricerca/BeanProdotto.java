@@ -5,12 +5,10 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.beans
  * Type: BeanProdotto
- * Last update: 6-feb-2017 1.34.21
+ * Last update: 7-feb-2017 22.56.12
  * 
  */
-package com.fleaPark.application.beans;
-
-import com.fleaPark.application.controls.C_UC_Prodotto;
+package com.fleaPark.application.controls.ricerca;
 
 public class BeanProdotto {
     private int prodottoId;
@@ -51,7 +49,7 @@ public class BeanProdotto {
     }
 
     public void inserisciProdotto() {
-        C_UC_Prodotto controller = new C_UC_Prodotto();
+        C_UC_Ricerca controller = new C_UC_Ricerca();
         controller.inserisciProdotto(categoriaNome, prodottoDescrizione, prodottoPrezzo, categoriaId);
     }
 

@@ -1,5 +1,5 @@
-<%@page import="com.fleaPark.application.beans.BeanCategoria"%>
-<jsp:useBean id="beanCat" class="com.fleaPark.application.beans.BeanCategoria"></jsp:useBean>
+<%@page import="com.fleaPark.application.controls.ricerca.BeanCategoria"%>
+<jsp:useBean id="beanCat" class="com.fleaPark.application.controls.ricerca.BeanCategoria"></jsp:useBean>
 <div class="row">
 	<div class="col s12 m3">
 		<div class="card-panel">Istruzioni</div>

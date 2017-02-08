@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products.dao
  * Type: ProdottoDao
- * Last update: 6-feb-2017 1.34.21
+ * Last update: 7-feb-2017 22.56.12
  * 
  */
 package com.fleaPark.model.products.dao;
@@ -28,9 +28,16 @@ public interface ProdottoDao extends EntityDao<Prodotto, Integer> {
 
         @Override
         public List<Prodotto> getProdottoLikeParolaChiave(String parolachiave) {
-            String sql = " from Prodotto p where p.nome like :parolaChiave";
+            // TODO: Trovare modo per interrogazione multipla (JOIN?)
+            String[] words = parolachiave.split(" ");
+            String q = "p.nome like :" + words[0];
+
+            for (String w : words)
+                q += " AND p.nome like :w";
+            String sql = "from Prodotto p where p.nome like :parolaChiave";
             Query query = super.openSession().createQuery(sql);
-            query.setParameter("parolaChiave", "%" + parolachiave + "%");
+            for (String w : words)
+                query.setParameter("parolaChiave", "%" + w + "%");
             List<Prodotto> list = query.list();
             closeSession();
             return list;

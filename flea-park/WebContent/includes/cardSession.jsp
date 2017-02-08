@@ -54,12 +54,14 @@
 		</div>
 	</div>
 </div>
-<pre class="container">
-    stackTrace:
+<code class="container">
+	stackTrace:
 	<%
-    }
     List<String> ss = Message4Debug.getStack();
-    for (String s : ss)
-        out.write("\n" + s);
+        for (String s : ss)
+            out.write("\n" + s);
 %>
-	</pre>
+</code>
+<%
+    }
+%>

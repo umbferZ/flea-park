@@ -1,5 +1,5 @@
 
-<%@page import="com.fleaPark.application.controls.ricerca.BeanProdotto"%>
+<%@page import="com.fleaPark.application.controls.ricerca.BeanRicercaProdotto"%>
 <jsp:useBean id="beanRicerca" class="com.fleaPark.application.controls.ricerca.BeanRicerca"></jsp:useBean>
 <a href="">ricerca avanzata</a>
 <%
@@ -13,7 +13,7 @@
 </p>
 <ul class="collection">
 	<%
-	    for (BeanProdotto bp : beanRicerca.getProdotti()) {
+	    for (BeanRicercaProdotto bp : beanRicerca.getProdotti()) {
 	%>
 	<li class="collection-item avatar activator ">
 		<i class="material-icons circle">folder</i>
@@ -43,7 +43,7 @@
 		console.log(form.serialize());
 		$.ajax({
 			type : 'POST',
-			url : 'modules/mod_form/cercaProdotto/cardProdotto.jsp',
+			url : 'modules/cercaProdotto/cardProdotto.jsp',
 			data : form.serialize(),
 			dataType : 'html',
 			success : function(data) {
@@ -56,7 +56,7 @@
 		});
 		$.ajax({
             type : 'POST',
-            url : 'modules/mod_form/cercaProdotto/cardVenditore.jsp',
+            url : 'modules/cercaProdotto/cardVenditore.jsp',
             data : form.serialize(),
             dataType : 'html',
             success : function(data) {

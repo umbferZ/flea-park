@@ -22,25 +22,14 @@
 </head>
 <body>
 	<jsp:include page="/components/cmp_bar/barNav.jsp"></jsp:include>
+	<jsp:include page="/modules/crudProdotti/index.jsp"></jsp:include>
 	<div id="content">
-		<%
-		    if (session.getAttribute("utente") != null) {
-		%>
-		<div class="container">
-			<jsp:include page="/modules/mod_form/form_inserisciProdotto.jsp"></jsp:include>
-		</div>
-		<%
-		    } else {
-		%>
-		<div class="section-not-pad-bot" style="min-height: 700px;">
+		<div class="section-not-pad-bot">
 			<jsp:include page="./modules/slider.jsp" />
 		</div>
-		<%
-		    }
-		%>
 		<ul>
-		<li>ultimi inserimenti</li>
-		<li>prodotti più osservati</li>
+			<li>ultimi inserimenti</li>
+			<li>prodotti più osservati</li>
 		</ul>
 	</div>
 	<jsp:include page="components/cmp_footer/footer.jsp" />

@@ -7,18 +7,21 @@
 		$('.materialboxed').materialbox();
 		$('.slider').slider({
 			full_width : true,
-			height : $(window).height() - 64,
+			height : 400,
 			transiction : 200
 		});
 		$('.scrollspy').scrollSpy();
-		$('.modal-trigger').leanModal();
+		$('.modal').modal();
 		$('.tooltipped').tooltip({
 			delay : 50
 		});
 
 		$(".dropdown-button").dropdown();
 		$('.parallax').parallax();
-		$('.button-collapse').sideNav();
+		$('.button-collapse').sideNav({
+			menuWidth : 300,
+			closeOnClick : false
+		});
 		$('select').material_select();
 		$('.datepicker').pickadate({
 			selectMonths : true,
@@ -26,9 +29,9 @@
 		});
 	});
 	$("select").material_select('destroy');
-	$("a, button,.btn, .btn-floating").addClass("waves-effect");
+//	$("a, button,.btn, .btn-floating").addClass("waves-effect");
 	height = $(window).height()
-	$("#content").css({
-		"min-height" : height
-	});
+	// $("#content").css({
+	// "min-height" : height
+	// });
 })(jQuery); // end of jQuery name space

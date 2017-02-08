@@ -18,7 +18,7 @@ import com.fleaPark.model.products.Prodotto;
 public class BeanRicerca {
 
     private String ricerca;
-    private List<BeanProdotto> prodotti;
+    private List<BeanRicercaProdotto> prodotti;
 
     public BeanRicerca() {
         prodotti = new ArrayList<>();
@@ -28,10 +28,8 @@ public class BeanRicerca {
         C_UC_Ricerca controller = new C_UC_Ricerca();
         List<Prodotto> result = controller.cerca(ricerca);
         for (Prodotto p : result) {
-            BeanProdotto bp = new BeanProdotto();
-            bp.setCategoriaId(p.getCategoria().getId());
+            BeanRicercaProdotto bp = new BeanRicercaProdotto();
             bp.setCategoriaNome(p.getCategoria().getNome());
-            bp.setProdottoDescrizione(p.getDescrizione());
             bp.setProdottoId(p.getIdProdotto());
             bp.setProdottoNome(p.getNome());
             bp.setProdottoPrezzo(p.getPrezzo());
@@ -39,7 +37,7 @@ public class BeanRicerca {
         }
     }
 
-    public List<BeanProdotto> getProdotti() {
+    public List<BeanRicercaProdotto> getProdotti() {
         return prodotti;
     }
 
@@ -47,7 +45,7 @@ public class BeanRicerca {
         return ricerca;
     }
 
-    public void setProdotti(List<BeanProdotto> prodotti) {
+    public void setProdotti(List<BeanRicercaProdotto> prodotti) {
         this.prodotti = prodotti;
     }
 

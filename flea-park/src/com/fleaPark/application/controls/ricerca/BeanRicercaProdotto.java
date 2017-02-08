@@ -3,37 +3,25 @@
  * Created by Umberto Ferracci from urania's PC
  * email: umberto.ferracci@gmail.com
  * Project: fleaPark
- * Package: com.fleaPark.application.beans
- * Type: BeanProdotto
- * Last update: 7-feb-2017 22.56.12
+ * Package: com.fleaPark.application.controls.ricerca
+ * Type: BeanRicercaProdotto
+ * Last update: 8-feb-2017 3.24.26
  * 
  */
 package com.fleaPark.application.controls.ricerca;
 
-public class BeanProdotto {
+public class BeanRicercaProdotto {
     private int prodottoId;
-    private String prodottoDescrizione;
     private String prodottoNome;
     private int prodottoPrezzo;
-
-    private int categoriaId;
-
     private String categoriaNome;
 
-    public BeanProdotto() {
+    public BeanRicercaProdotto() {
         super();
-    }
-
-    public int getCategoriaId() {
-        return categoriaId;
     }
 
     public String getCategoriaNome() {
         return categoriaNome;
-    }
-
-    public String getProdottoDescrizione() {
-        return prodottoDescrizione;
     }
 
     public int getProdottoId() {
@@ -48,21 +36,8 @@ public class BeanProdotto {
         return prodottoPrezzo;
     }
 
-    public void inserisciProdotto() {
-        C_UC_Ricerca controller = new C_UC_Ricerca();
-        controller.inserisciProdotto(categoriaNome, prodottoDescrizione, prodottoPrezzo, categoriaId);
-    }
-
-    public void setCategoriaId(int categoriaId) {
-        this.categoriaId = categoriaId;
-    }
-
     public void setCategoriaNome(String categoriaNome) {
         this.categoriaNome = categoriaNome;
-    }
-
-    public void setProdottoDescrizione(String prodottoDescrizione) {
-        this.prodottoDescrizione = prodottoDescrizione;
     }
 
     public void setProdottoId(int prodottoId) {

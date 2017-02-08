@@ -6,8 +6,7 @@
 %>
 <div class="card">
 	<div class="card-image">
-		<img alt="default-image" src="https://maxcdn.icons8.com/app/uploads/2016/02/material-icons-1.png" class="responsive-image">
-		<span class="card-title black-text"> predisporre carosello nella card</span>
+		<img alt="default-image" src="http://d0od.wpengine.netdna-cdn.com/wp-content/uploads/2014/10/material-wallpaper-full.jpg" class="responsive-image">
 	</div>
 	<div class="card-content">
 		<div class="card-title">

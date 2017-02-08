@@ -1,9 +1,12 @@
 
-<form method="post" id="cerca" name="cerca">
+<form id="cerca" name="cerca">
 	<div class="row">
 		<div class="input-field">
 			<input id="search" type="search" name="prodotto" required>
-			<label class="label-icon" for="search"> <i class="material-icons">search</i></label> <i class="material-icons">close</i>
+			<label class="label-icon" for="search">
+				<i class="material-icons">search</i>
+			</label>
+			<i class="material-icons">close</i>
 		</div>
 	</div>
 </form>
@@ -15,7 +18,7 @@
 			e.preventDefault();
 			$.ajax({
 				type : 'POST',
-				url : 'modules/mod_form/cercaProdotto/controller.jsp',
+				url : 'modules/cercaProdotto/controller.jsp',
 				data : form.serialize(),
 				dataType : 'html',
 				success : function(data) {

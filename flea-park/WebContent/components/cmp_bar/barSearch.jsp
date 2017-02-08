@@ -1,9 +1,9 @@
 <%@page import="com.fleaPark.application.controls.ricerca.BeanCategoria"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <nav>
-	<div class="nav-wrapper">
+	<div class="nav-wrapper search">
 		<div class="col s12">
-			<jsp:include page="/modules/mod_form/cercaProdotto/index.jsp"></jsp:include>
+			<jsp:include page="/modules/cercaProdotto/index.jsp"></jsp:include>
 		</div>
 	</div>
 </nav>

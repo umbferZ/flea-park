@@ -1,23 +1,17 @@
 <%@page import="com.fleaPark.application.controls.ricerca.BeanCategoria"%>
 <jsp:useBean id="beanCat" class="com.fleaPark.application.controls.ricerca.BeanCategoria"></jsp:useBean>
-<div class="row">
-	<div class="col s12 m3">
-		<div class="card-panel">Istruzioni</div>
-	</div>
-	<div class="col s12 m6">
+<div class="row" id="test1">
+	<div class="col s12">
 		<form method="get">
 			<div class="card">
-				<div class="card-image">
-					<img alt="default-image" src="https://maxcdn.icons8.com/app/uploads/2016/02/material-icons-1.png" class="responsive-image">
-				</div>
 				<div class="card-action contaier">
 					<div class="row">
-						<div class="col s12 input-field">
+						<div class="col s12 m10 input-field">
 							<i class="material-icons prefix">edit</i>
 							<input type="text" name="nome" id="nome" required="required">
 							<label class="active" for="nome">Nome</label>
 						</div>
-						<div class="col s12 input-field">
+						<div class="col s12 m2 input-field">
 							<i class="material-icons prefix">attach_money</i>
 							<input type="text" name="prezzo" id="prezzo" required="required">
 							<label class="active" for="prezzo">prezzo</label>

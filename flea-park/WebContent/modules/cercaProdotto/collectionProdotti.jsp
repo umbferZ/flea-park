@@ -19,12 +19,11 @@
 		<i class="material-icons circle">folder</i>
 		<span class="title"><%=bp.getProdottoNome()%></span>
 		<p>
-			<%=bp.getProdottoPrezzo()%>
-			&euro; <br>
 			<%=bp.getCategoriaNome()%>
 		</p>
 		<span class="secondary-content">
-			<i class="material-icons">pageview</i>
+			<%=bp.getProdottoPrezzo()%>
+			&euro;
 		</span>
 		<form name="p" id="p">
 			<input type="hidden" name="prodottoId" value="<%=bp.getProdottoId()%>">
@@ -52,21 +51,21 @@
 			error : function() {
 				$('#dettagliProdotto').html("<p>errore imprevisto</p>");
 			},
-			timeout: 2000
+			timeout : 2000
 		});
 		$.ajax({
-            type : 'POST',
-            url : 'modules/cercaProdotto/cardVenditore.jsp',
-            data : form.serialize(),
-            dataType : 'html',
-            success : function(data) {
-                $('#dettagliVenditore').html(data);
-            },
-            error : function() {
-                $('#dettagliVenditore').html("<p>errore imprevisto</p>");
-            },
-            timeout: 2000
-        });
+			type : 'POST',
+			url : 'modules/cercaProdotto/cardVenditore.jsp',
+			data : form.serialize(),
+			dataType : 'html',
+			success : function(data) {
+				$('#dettagliVenditore').html(data);
+			},
+			error : function() {
+				$('#dettagliVenditore').html("<p>errore imprevisto</p>");
+			},
+			timeout : 2000
+		});
 	})
 </script>
 <%

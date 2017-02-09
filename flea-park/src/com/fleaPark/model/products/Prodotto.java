@@ -5,15 +5,17 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products
  * Type: Prodotto
- * Last update: 7-feb-2017 22.56.12
+ * Last update: 9-feb-2017 1.50.41
  * 
  */
 package com.fleaPark.model.products;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fleaPark.model.people.Utente;
@@ -24,31 +26,39 @@ import com.fleaPark.model.people.Utente;
 
 @Entity
 public class Prodotto {
-
-    private int idProdotto;
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "acquirente")
     private Utente acquirente;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "categoria")
+    private Categoria categoria;
+
+    @Column(name = "descrizione")
     private String descrizione;
 
+    @Id
+    @GeneratedValue
+    private int idProdotto;
+
+    @Column(name = "nome")
     private String nome;
 
-    private int prezzo;
+    @Column(name = "prezzo")
+    private double prezzo;
 
+    @ManyToOne(targetEntity = Utente.class ,fetch = FetchType.LAZY)
+    @JoinColumn(name = "venditore")
     private Utente venditore;
-
-    private Categoria categoria;
 
     public Prodotto() {
         super();
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
     public Utente getAcquirente() {
         return acquirente;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
     public Categoria getCategoria() {
         return categoria;
     }
@@ -57,8 +67,6 @@ public class Prodotto {
         return descrizione;
     }
 
-    @Id
-    @GeneratedValue
     public int getIdProdotto() {
         return idProdotto;
     }
@@ -67,11 +75,10 @@ public class Prodotto {
         return nome;
     }
 
-    public int getPrezzo() {
+    public double getPrezzo() {
         return prezzo;
     }
 
-    @ManyToOne(targetEntity = Utente.class, fetch = FetchType.LAZY)
     public Utente getVenditore() {
         return venditore;
     }
@@ -96,7 +103,7 @@ public class Prodotto {
         this.nome = nome;
     }
 
-    public void setPrezzo(int prezzo) {
+    public void setPrezzo(double prezzo) {
         this.prezzo = prezzo;
     }
 

@@ -20,41 +20,35 @@ import javax.persistence.Id;
  */
 @Entity
 public class Utente {
-
+    @Column(name = "cognome")
     private String cognome;
+
     @Column(unique = true)
     private String email;
 
     @Id
     @GeneratedValue
+    @Column(name = "idUtente")
     private int idUtente;
 
+    @Column(name = "nome")
     private String nome;
 
+    @Column(name = "password")
     private String password;
-    // @OneToMany(mappedBy = "venditore", cascade = CascadeType.ALL)
-    // private List<Prodotto> acquisti;
-    // @OneToMany(mappedBy = "acquirente", cascade = CascadeType.ALL)
-    // private List<Prodotto> prodotti;
 
-    public Utente() {
-        super();
-    }
+    public Utente() {}
 
-    public Utente(String firstName, String lastName, String email, String password) {
+    public Utente(String nome, String cognome, String email, String password) {
         super();
-        cognome = firstName;
-        nome = lastName;
+        this.nome = nome;
+        this.cognome = cognome;
         this.email = email;
         this.password = password;
     }
 
-    // public List<Prodotto> getAcquisti() {
-    // return acquisti;
-    // }
-
     public String getCognome() {
-        return nome;
+        return cognome;
     }
 
     public String getEmail() {
@@ -66,23 +60,15 @@ public class Utente {
     }
 
     public String getNome() {
-        return cognome;
+        return nome;
     }
 
     public String getPassword() {
         return password;
     }
 
-    // public List<Prodotto> getProdotti() {
-    // return prodotti;
-    // }
-
-    // public void setAcquisti(List<Prodotto> acquisti) {
-    // this.acquisti = acquisti;
-    // }
-
     public void setCognome(String lastName) {
-        nome = lastName;
+        cognome = lastName;
     }
 
     public void setEmail(String email) {
@@ -94,15 +80,11 @@ public class Utente {
     }
 
     public void setNome(String firstName) {
-        cognome = firstName;
+        nome = firstName;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
-
-    // public void setProdotti(List<Prodotto> prodotti) {
-    // this.prodotti = prodotti;
-    // }
 
 }

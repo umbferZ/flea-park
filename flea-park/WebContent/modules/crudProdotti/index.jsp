@@ -3,26 +3,37 @@
     if (request.getParameter("iMieiProdotti") != null) {
 %>
 <div class="container">
+	<h5 class="center">I miei prodotti</h5>
 	<div class="row">
-		<div class="row">
-			<div class="col s12">
-				<ul class="tabs">
-					<li class="tab col s6">
-						<a class="active" href="#tuttiProdotti">Tutti i prodotti</a>
-					</li>
-					<li class="tab col s6">
-						<a href="#nuovoProdotto">Nuovo prodotto</a>
-					</li>
-				</ul>
-			</div>
-			<div id="tuttiProdotti" class="col s12">
-				<jsp:include page="/modules/crudProdotti/inserisciNuovoProdotto.jsp"></jsp:include>
-			</div>
-			<div id="nuovoProdotto" class="col s12">
-				<jsp:include page="/modules/crudProdotti/inserisciNuovoProdotto.jsp"></jsp:include>
-			</div>
-		</div>
+		<jsp:include page="/modules/crudProdotti/mostraProdotti.jsp"></jsp:include>
 	</div>
+</div>
+<div class="fixed-action-btn click-to-toggle">
+	<a class="btn-floating btn-large red">
+		<i class="large material-icons">more_vert</i>
+	</a>
+	<ul>
+		<li>
+			<a class="btn-floating red">
+				<i class="material-icons">add</i>
+			</a>
+		</li>
+		<li>
+			<a class="btn-floating yellow darken-1">
+				<i class="material-icons">format_quote</i>
+			</a>
+		</li>
+		<li>
+			<a class="btn-floating green">
+				<i class="material-icons">publish</i>
+			</a>
+		</li>
+		<li>
+			<a class="btn-floating blue">
+				<i class="material-icons">attach_file</i>
+			</a>
+		</li>
+	</ul>
 </div>
 <%
     }

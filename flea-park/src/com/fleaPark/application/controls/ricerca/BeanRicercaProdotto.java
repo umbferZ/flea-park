@@ -13,7 +13,7 @@ package com.fleaPark.application.controls.ricerca;
 public class BeanRicercaProdotto {
     private int prodottoId;
     private String prodottoNome;
-    private int prodottoPrezzo;
+    private double prodottoPrezzo;
     private String categoriaNome;
 
     public BeanRicercaProdotto() {
@@ -32,7 +32,7 @@ public class BeanRicercaProdotto {
         return prodottoNome;
     }
 
-    public int getProdottoPrezzo() {
+    public double getProdottoPrezzo() {
         return prodottoPrezzo;
     }
 
@@ -48,7 +48,7 @@ public class BeanRicercaProdotto {
         this.prodottoNome = prodottoNome;
     }
 
-    public void setProdottoPrezzo(int prodottoPrezzo) {
+    public void setProdottoPrezzo(double prodottoPrezzo) {
         this.prodottoPrezzo = prodottoPrezzo;
     }
 }

@@ -14,7 +14,7 @@ public class BeanProdottoDettagli {
     public int prodottoId;
     private String prodottoNome;
     private String prodottoDescrizione;
-    private int prodottoPrezzo;
+    private double prodottoPrezzo;
     private String prodottoCategoriaNome;
 
     public void getDettagliProdottoById() {
@@ -43,7 +43,7 @@ public class BeanProdottoDettagli {
         return prodottoNome;
     }
 
-    public int getProdottoPrezzo() {
+    public double getProdottoPrezzo() {
         return prodottoPrezzo;
     }
 
@@ -63,7 +63,7 @@ public class BeanProdottoDettagli {
         this.prodottoNome = prodottoNome;
     }
 
-    public void setProdottoPrezzo(int i) {
+    public void setProdottoPrezzo(double i) {
         prodottoPrezzo = i;
     }
 }

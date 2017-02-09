@@ -1,7 +1,7 @@
 <%@page import="com.fleaPark.application.controls.ricerca.BeanCategoria"%>
 <jsp:useBean id="beanCat" class="com.fleaPark.application.controls.ricerca.BeanCategoria"></jsp:useBean>
-<div class="row" id="test1">
-	<div class="col s12">
+<div class="row" id="nuovoProdotto">
+	<div class="col s12 m8 offset-m2">
 		<form method="get">
 			<div class="card">
 				<div class="card-action contaier">

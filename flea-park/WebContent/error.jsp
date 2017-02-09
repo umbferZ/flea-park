@@ -22,7 +22,7 @@
 			Cause:
 			<%=exception.getCause()%>
 		</p>
-		<code>
+		<pre>
 			StackTrace:
 			<%
 		    StringWriter stringWriter = new StringWriter();
@@ -32,7 +32,7 @@
 		    printWriter.close();
 		    stringWriter.close();
 		%>
-		</code>
+		</pre>
 	</div>
 	<jsp:include page="includes/script.jsp"></jsp:include>
 </body>

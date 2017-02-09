@@ -16,6 +16,7 @@ import java.util.List;
 import org.hibernate.Query;
 
 import com.fleaPark.model.people.Utente;
+import com.fleaPark.model.products.Categoria;
 import com.fleaPark.model.products.Prodotto;
 import com.fleaPark.services.persistence.dao.EntityDao;
 import com.fleaPark.services.persistence.dao.EntityDaoHibernate;
@@ -43,6 +44,7 @@ public interface UtenteDao extends EntityDao<Utente, Integer> {
         protected List<Class> dependingClasses() {
             List<Class> classes = new ArrayList<>();
             classes.add(Prodotto.class);
+            classes.add(Categoria.class);
             return null;
         }
 

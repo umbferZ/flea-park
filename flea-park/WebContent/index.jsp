@@ -1,3 +1,4 @@
+<%@page import="javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT"%>
 <%@ page errorPage="/error.jsp"%>
 <jsp:include page="/includes/languageCheck.jsp"></jsp:include>
 <%
@@ -24,14 +25,13 @@
 	<jsp:include page="/components/cmp_bar/barNav.jsp"></jsp:include>
 	<jsp:include page="/modules/crudProdotti/index.jsp"></jsp:include>
 	<div id="content">
-		<div class="section-not-pad-bot">
-			<jsp:include page="./modules/slider.jsp" />
-		</div>
+		<div class="section-not-pad-bot"></div>
 		<ul>
 			<li>ultimi inserimenti</li>
 			<li>prodotti più osservati</li>
 		</ul>
 	</div>
+	<jsp:include page="./modules/slider.jsp" />
 	<jsp:include page="components/cmp_footer/footer.jsp" />
 	<jsp:include page="includes/script.jsp"></jsp:include>
 </body>

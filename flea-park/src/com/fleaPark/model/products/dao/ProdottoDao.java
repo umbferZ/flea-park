@@ -24,6 +24,8 @@ import com.fleaPark.services.persistence.dao.EntityDaoHibernate;
 public interface ProdottoDao extends EntityDao<Prodotto, Integer> {
     public List<Prodotto> getProdottoLikeParolaChiave(String parolachiave);
 
+    public List<Prodotto> getProdottoByIdUtente(Utente utente);
+
     public class ProdottoDaoHibernate extends EntityDaoHibernate<Prodotto, Integer> implements ProdottoDao {
 
         @Override
@@ -50,6 +52,16 @@ public interface ProdottoDao extends EntityDao<Prodotto, Integer> {
             classes.add(Utente.class);
             classes.add(Categoria.class);
             return classes;
+        }
+
+        @Override
+        public List<Prodotto> getProdottoByIdUtente(Utente utente) {
+            String q = "from Prodotto p where venditore=:idUtente";
+            Query query = super.openSession().createQuery(q);
+            query.setParameter("idUtente", utente);
+            List<Prodotto> list = query.list();
+            closeSession();
+            return list;
         }
 
     }

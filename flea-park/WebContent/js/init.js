@@ -19,7 +19,7 @@
 		$(".dropdown-button").dropdown();
 		$('.parallax').parallax();
 		$('.button-collapse').sideNav({
-			menuWidth : 300,
+			menuWidth : 400,
 			closeOnClick : false
 		});
 		$('select').material_select();
@@ -29,9 +29,9 @@
 		});
 	});
 	$("select").material_select('destroy');
-//	$("a, button,.btn, .btn-floating").addClass("waves-effect");
+	// $("a, button,.btn, .btn-floating").addClass("waves-effect");
 	height = $(window).height()
-	// $("#content").css({
-	// "min-height" : height
-	// });
+	$("#content").css({
+		"min-height" : height
+	});
 })(jQuery); // end of jQuery name space

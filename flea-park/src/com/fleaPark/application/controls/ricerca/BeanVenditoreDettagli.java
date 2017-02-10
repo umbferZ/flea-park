@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.controls.ricerca
  * Type: BeanVenditoreDettagli
- * Last update: 10-feb-2017 12.15.03
+ * Last update: 10-feb-2017 18.13.15
  * 
  */
 package com.fleaPark.application.controls.ricerca;
@@ -14,9 +14,10 @@ import com.fleaPark.tools.debug.Message4Debug;
 
 public class BeanVenditoreDettagli {
     private int prodottoId;
+    private String venditoreCognome;
+    private String venditoreFoto;
     private int venditoreId;
     private String venditoreNome;
-    private String venditoreCognome;
 
     public int getProdottoId() {
         return prodottoId;
@@ -24,6 +25,10 @@ public class BeanVenditoreDettagli {
 
     public String getVenditoreCognome() {
         return venditoreCognome;
+    }
+
+    public String getVenditoreFoto() {
+        return venditoreFoto;
     }
 
     public int getVenditoreId() {
@@ -42,6 +47,10 @@ public class BeanVenditoreDettagli {
         this.venditoreCognome = venditoreCognome;
     }
 
+    public void setVenditoreFoto(String venditoreFoto) {
+        this.venditoreFoto = venditoreFoto;
+    }
+
     public void setVenditoreId(int venditoreId) {
         this.venditoreId = venditoreId;
     }
@@ -57,6 +66,6 @@ public class BeanVenditoreDettagli {
         venditoreCognome = beanVD.venditoreCognome;
         venditoreId = beanVD.prodottoId;
         venditoreNome = beanVD.venditoreNome;
-
+        venditoreFoto = beanVD.venditoreFoto;
     }
 }

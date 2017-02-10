@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.controls.ricerca
  * Type: BeanCategoria
- * Last update: 10-feb-2017 12.15.04
+ * Last update: 10-feb-2017 18.13.15
  * 
  */
 package com.fleaPark.application.controls.ricerca;
@@ -26,7 +26,7 @@ public class BeanCategoria {
     public BeanCategoria getBeanCategoria(int id) {
         C_UC_Ricerca controller = new C_UC_Ricerca();
         Categoria c = controller.getCategoria(id);
-        idCategoria = c.getId();
+        idCategoria = c.getIdCategoria();
         nome = c.getNome();
         return this;
     }
@@ -37,7 +37,7 @@ public class BeanCategoria {
         List<BeanCategoria> result = new ArrayList<>();
         for (Categoria c : list) {
             BeanCategoria b = new BeanCategoria();
-            b.setIdCategoria(c.getId());
+            b.setIdCategoria(c.getIdCategoria());
             b.setNome(c.getNome());
             result.add(b);
         }

@@ -6,7 +6,7 @@
 %>
 <div class="card">
 	<div class="card-image">
-		<img alt="default-image" src="https://s-media-cache-ak0.pinimg.com/564x/e0/7d/06/e07d0688389b79d19a014fd12d9bea28.jpg" class="responsive-image">
+		<img alt="default-image" src="${bvd.venditoreFoto }" class="responsive-image">
 		<span class="card-title">${bvd.venditoreNome} ${bvd.venditoreCognome}</span>
 	</div>
 	<div class="card-content">

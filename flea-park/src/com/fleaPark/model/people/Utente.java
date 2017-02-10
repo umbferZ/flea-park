@@ -5,21 +5,34 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.people
  * Type: Utente
- * Last update: 10-feb-2017 12.15.04
+ * Last update: 10-feb-2017 18.13.15
  * 
  */
 package com.fleaPark.model.people;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import com.fleaPark.model.DaoFactory;
+import com.fleaPark.model.media.Foto;
+import com.fleaPark.model.products.Prodotto;
 
 /**
  * The Class Utente.
  */
 @Entity
 public class Utente {
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "utente", cascade = CascadeType.ALL)
+    public UtenteInfo utenteInfo;
+
     @Column(name = "cognome")
     private String cognome;
 
@@ -36,6 +49,18 @@ public class Utente {
 
     @Column(name = "password")
     private String password;
+
+    @OneToMany(mappedBy = "venditore", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Prodotto> prodotti;
+
+    public static void main(String[] args) {
+        UtenteInfo uI = new UtenteInfo();
+        uI.setCopertina(new Foto("nomeCopertina", "pathCopertina"));
+        uI.setProfilo(new Foto("nomeProfilo", "pathProfilo"));
+        Utente u = new Utente("Dao name", "Dao cognome", "Dao email", "Dao password");
+        u.setUtenteInfo(uI);
+        DaoFactory.getInstance().getUtenteDao().insert(u);
+    }
 
     public Utente() {}
 
@@ -66,6 +91,14 @@ public class Utente {
         return password;
     }
 
+    public List<Prodotto> getProdotti() {
+        return prodotti;
+    }
+
+    public UtenteInfo getUtenteInfo() {
+        return utenteInfo;
+    }
+
     public void setCognome(String lastName) {
         cognome = lastName;
     }
@@ -84,6 +117,14 @@ public class Utente {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setProdotti(List<Prodotto> prodotti) {
+        this.prodotti = prodotti;
+    }
+
+    public void setUtenteInfo(UtenteInfo utenteInfo) {
+        this.utenteInfo = utenteInfo;
     }
 
 }

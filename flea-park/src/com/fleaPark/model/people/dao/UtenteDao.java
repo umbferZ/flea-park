@@ -5,19 +5,16 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.people.dao
  * Type: UtenteDao
- * Last update: 10-feb-2017 12.15.04
+ * Last update: 10-feb-2017 18.13.15
  * 
  */
 package com.fleaPark.model.people.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
 
 import com.fleaPark.model.people.Utente;
-import com.fleaPark.model.products.Categoria;
-import com.fleaPark.model.products.Prodotto;
 import com.fleaPark.services.persistence.dao.EntityDao;
 import com.fleaPark.services.persistence.dao.EntityDaoHibernate;
 
@@ -42,9 +39,11 @@ public interface UtenteDao extends EntityDao<Utente, Integer> {
         @SuppressWarnings("rawtypes")
         @Override
         protected List<Class> dependingClasses() {
-            List<Class> classes = new ArrayList<>();
-            classes.add(Prodotto.class);
-            classes.add(Categoria.class);
+            // List<Class> classes = new ArrayList<>();
+            // classes.add(Prodotto.class);
+            // classes.add(Categoria.class);
+            // classes.add(UtenteInfo.class);
+            // classes.add(Foto.class);
             return null;
         }
 

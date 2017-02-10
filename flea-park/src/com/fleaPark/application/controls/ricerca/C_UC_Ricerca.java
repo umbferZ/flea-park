@@ -5,18 +5,18 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.controls.ricerca
  * Type: C_UC_Ricerca
- * Last update: 10-feb-2017 12.15.04
+ * Last update: 10-feb-2017 18.13.15
  * 
  */
 package com.fleaPark.application.controls.ricerca;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fleaPark.model.DaoFactory;
+import com.fleaPark.model.media.Foto;
 import com.fleaPark.model.products.Categoria;
-import com.fleaPark.model.products.Prezzo;
 import com.fleaPark.model.products.Prodotto;
-import com.fleaPark.model.products.Valuta;
 
 public class C_UC_Ricerca {
 
@@ -45,6 +45,10 @@ public class C_UC_Ricerca {
         beanPrDe.setProdottoCategoriaNome(p.getCategoria().getNome());
         beanPrDe.setProdottoPrezzo(p.getPrezzo().getValore());
         beanPrDe.setProdottoValuta(p.getPrezzo().getValuta().name());
+        List<String> gallery = new ArrayList<>();
+        for (Foto f : p.getFoto())
+            gallery.add(f.getPercorso() + f.getNome());
+        beanPrDe.setProdottoGallery(gallery);
         return beanPrDe;
     }
 
@@ -54,19 +58,8 @@ public class C_UC_Ricerca {
         beanVD.setVenditoreCognome(p.getVenditore().getCognome());
         beanVD.setVenditoreNome(p.getVenditore().getNome());
         beanVD.setVenditoreId(p.getVenditore().getIdUtente());
+        beanVD.setVenditoreFoto(p.getVenditore().getUtenteInfo().getProfilo().getNome());
         return beanVD;
-    }
-
-    public void inserisciProdotto(String nome, String descrizione, int prezzo, int idCategoria) {
-        DaoFactory factory = DaoFactory.getInstance();
-        Categoria categoria = factory.getCategoriaDao().getById(idCategoria, true);
-        Prodotto p = new Prodotto();
-        p.setNome(nome);
-        p.setDescrizione(descrizione);
-        p.setPrezzo(new Prezzo(prezzo, Valuta.EUR));
-        p.setCategoria(categoria);
-        factory.getProdottoDao().insert(p);
-
     }
 
 }

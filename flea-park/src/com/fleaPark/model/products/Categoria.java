@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products
  * Type: Categoria
- * Last update: 10-feb-2017 12.15.04
+ * Last update: 10-feb-2017 18.13.15
  * 
  */
 package com.fleaPark.model.products;
@@ -18,6 +18,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -25,16 +26,17 @@ import javax.persistence.OneToMany;
 public class Categoria {
     @Id
     @GeneratedValue
-    private int id;
+    private int idCategoria;
 
     @Column(unique = true)
     private String nome;
 
     @ManyToOne
+    @JoinColumn(name = "parent")
     private Categoria parent;
 
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Categoria> sottocategorie;
+    private List<Categoria> sons;
 
     public Categoria() {
         super();
@@ -50,8 +52,8 @@ public class Categoria {
         this.parent = parent;
     }
 
-    public int getId() {
-        return id;
+    public int getIdCategoria() {
+        return idCategoria;
     }
 
     public String getNome() {
@@ -63,11 +65,11 @@ public class Categoria {
     }
 
     public List<Categoria> getSottocategorie() {
-        return sottocategorie;
+        return sons;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdCategoria(int id) {
+        idCategoria = id;
     }
 
     public void setNome(String nome) {
@@ -79,7 +81,7 @@ public class Categoria {
     }
 
     public void setSottocategorie(List<Categoria> sottocategorie) {
-        this.sottocategorie = sottocategorie;
+        sons = sottocategorie;
     }
 
 }

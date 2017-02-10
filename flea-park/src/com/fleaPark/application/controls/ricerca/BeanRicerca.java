@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.controls.ricerca
  * Type: BeanRicerca
- * Last update: 10-feb-2017 12.15.04
+ * Last update: 10-feb-2017 18.13.15
  * 
  */
 package com.fleaPark.application.controls.ricerca;
@@ -17,8 +17,8 @@ import com.fleaPark.model.products.Prodotto;
 
 public class BeanRicerca {
 
-    private String ricerca;
     private List<BeanRicercaProdotto> prodotti;
+    private String ricerca;
 
     public BeanRicerca() {
         prodotti = new ArrayList<>();
@@ -30,7 +30,7 @@ public class BeanRicerca {
         for (Prodotto p : result) {
             BeanRicercaProdotto bp = new BeanRicercaProdotto();
             bp.setCategoriaNome(p.getCategoria().getNome());
-            bp.setProdottoId(p.getId());
+            bp.setProdottoId(p.getIdProdotto());
             bp.setProdottoNome(p.getNome());
             bp.setProdottoPrezzo(p.getPrezzo().getValore());
             bp.setPrdottoValuta(p.getPrezzo().getValuta().name());

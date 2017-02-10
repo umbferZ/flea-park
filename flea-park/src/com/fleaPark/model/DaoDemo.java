@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model
  * Type: DaoDemo
- * Last update: 10-feb-2017 12.15.04
+ * Last update: 10-feb-2017 18.13.15
  * 
  */
 package com.fleaPark.model;
@@ -13,7 +13,9 @@ package com.fleaPark.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fleaPark.model.media.Foto;
 import com.fleaPark.model.people.Utente;
+import com.fleaPark.model.people.UtenteInfo;
 import com.fleaPark.model.products.Categoria;
 import com.fleaPark.model.products.Prezzo;
 import com.fleaPark.model.products.Prodotto;
@@ -48,8 +50,13 @@ public class DaoDemo {
         utenti.add(new Utente("Elizabeth", "Swann", "elizabeth@swann", "p"));
         utenti.add(new Utente("Tia", "Dalma", "tia@dalma", "p"));
         utenti.add(new Utente("Sao", "Feng", "sao@feng", "p"));
-        for (Utente u : utenti)
+        for (Utente u : utenti) {
+            UtenteInfo info = new UtenteInfo();
+            info.setCopertina(new Foto("http://www.memic.net/sfondi/images/desktop/natura/01950_palmontheleft_1680x1050.jpg", ""));
+            info.setProfilo(new Foto("http://i.ndtvimg.com/i/2015-11/pirates-of-the-caribbean_640x480_41447300092.jpg", ""));
+            u.setUtenteInfo(info);
             factory.getUtenteDao().insert(u);
+        }
         utenti = factory.getUtenteDao().getAll();
 
         /*
@@ -70,10 +77,10 @@ public class DaoDemo {
                 "Gregorio Samsa, svegliandosi una mattina da sogni agitati, si trovò trasformato, nel suo letto, in un enorme insetto immondo. Riposava sulla schiena, dura come una corazza, e sollevando un poco il capo vedeva il suo ventre arcuato, bruno e diviso in tanti segmenti ricurvi, in cima a cui la coperta da letto, vicina a scivolar giù tutta, si manteneva a fatica. Le gambe, numerose e sottili da far pietà, rispetto alla sua corporatura normale, tremolavano senza tregua in un confuso luccichio dinanzi ai suoi occhi. Cosa m’è avvenuto? pensò. Non era un sogno. La sua camera, una stanzetta di giuste proporzioni, soltanto un po’ piccola, se ne stava tranquilla fra le quattro ben note pareti. Sulla tavola, un campionario disfatto di tessuti - Samsa era commesso viaggiatore e sopra, appeso alla parete, un ritratto, ritagliato da lui - non era molto - da una rivista illustrata e messo dentro una bella cornice dorata: raffigurava una donna seduta, ma ben dritta sul busto, con un berretto e un boa di pelliccia; essa levava incontro a chi guardava un pesante manicotto, in cui scompariva tutto l’avambraccio. Lo sguardo di Gregorio si rivolse allora verso la finestra, e il cielo fosco (si sentivano ");
         double d;
         Prezzo pr;
+
         for (Categoria c : list)
             for (int i = 0; i < 7; i++) {
-                d = ((double) ((i * 112722) % 473) + 6) + 0.29;
-                Prodotto p = new Prodotto();
+                d = ((double) ((i * 112722) % 473) + (int) (Math.random() * 1000)) + 0.29;
                 switch (i % 4) {
                     case 0:
                         pr = new Prezzo(d, Valuta.EUR);
@@ -88,12 +95,22 @@ public class DaoDemo {
                         pr = new Prezzo(d, Valuta.DOLLAR);
 
                 }
+                List<Foto> gallery = new ArrayList<>();
+                gallery.add(new Foto("https://upload.wikimedia.org/wikipedia/commons/0/08/Gran_Torino.jpg", ""));
+                gallery.add(new Foto("https://ccpublic.blob.core.windows.net/cc-temp/listing/91/574/3348923-1973-ford-gran-torino-std.jpg", ""));
+                gallery.add(new Foto("http://www.fordcarsinfo.com/wp-content/uploads/2016/01/1967-ford-mustang-gt-500.jpg", ""));
+                gallery.add(new Foto("http://roa.h-cdn.co/assets/cm/14/47/980x551/546b4f041be7b_-_2015-mustang-gt-010-lg.jpg", ""));
+                gallery.add(new Foto("http://pictures.topspeed.com/IMG/crop/201604/ford-mustang-gt-820--13_800x0w.jpg", ""));
+                gallery.add(new Foto("http://assets.nydailynews.com/polopoly_fs/1.1948350.1411403259!/img/httpImage/image.jpg_gen/derivatives/article_750/2015-ford-mustang-gt-front-3-4.jpg", ""));
+
+                Prodotto p = new Prodotto();
                 p.setNome("prodotto " + i + " di " + c.getNome());
                 p.setCategoria(c);
                 p.setVenditore(utenti.get(i % utenti.size()));
                 p.setAcquirente(utenti.get(((i * i) + 519) % utenti.size()));
                 p.setDescrizione(descrizioni.get(((i * i) + 235) % descrizioni.size()).substring(0, 250));
                 p.setPrezzo(pr);
+                p.setFoto(gallery);
                 factory.getProdottoDao().insert(p);
             }
     }

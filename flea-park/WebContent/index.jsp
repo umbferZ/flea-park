@@ -23,25 +23,34 @@
 </head>
 <body>
 	<jsp:include page="/components/cmp_bar/barNav.jsp"></jsp:include>
-	<%
-	    if (session.getAttribute("utente") != null) {
-	%>
-	<jsp:include page="/modules/crudProdotti/index.jsp"></jsp:include>
-	<%
-	    } else {
-	%>
-	<p>Errore insapettato</p>
-	<%
-	    }
-	%>
 	<div id="content">
+		<%
+		    if (session.getAttribute("utente") != null) {
+		%>
+		<jsp:include page="/modules/crudProdotti/index.jsp"></jsp:include>
+		<%
+		    } else {
+		%>
+		<%
+		    }
+		%>
+		<%
+		    if (request.getParameter("cercaProdotto") != null) {
+		%>
+		<jsp:include page="/modules/cercaProdotto/index.jsp"></jsp:include>
+		<%
+		    } else {
+		%>
 		<div class="section-not-pad-bot"></div>
 		<ul>
 			<li>ultimi inserimenti</li>
 			<li>prodotti più osservati</li>
 		</ul>
+		<jsp:include page="/modules/slider.jsp" />
+		<%
+		    }
+		%>
 	</div>
-	<jsp:include page="./modules/slider.jsp" />
 	<jsp:include page="components/cmp_footer/footer.jsp" />
 	<jsp:include page="includes/script.jsp"></jsp:include>
 </body>

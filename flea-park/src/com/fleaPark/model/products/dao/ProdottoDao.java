@@ -5,18 +5,16 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products.dao
  * Type: ProdottoDao
- * Last update: 10-feb-2017 12.15.04
+ * Last update: 10-feb-2017 18.13.15
  * 
  */
 package com.fleaPark.model.products.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
 
 import com.fleaPark.model.people.Utente;
-import com.fleaPark.model.products.Categoria;
 import com.fleaPark.model.products.Prodotto;
 import com.fleaPark.services.persistence.dao.EntityDao;
 import com.fleaPark.services.persistence.dao.EntityDaoHibernate;
@@ -60,10 +58,12 @@ public interface ProdottoDao extends EntityDao<Prodotto, Integer> {
         @SuppressWarnings("rawtypes")
         @Override
         protected List<Class> dependingClasses() {
-            List<Class> classes = new ArrayList<>();
-            classes.add(Utente.class);
-            classes.add(Categoria.class);
-            return classes;
+            // List<Class> classes = new ArrayList<>();
+            // classes.add(Utente.class);
+            // classes.add(Categoria.class);
+            // classes.add(Foto.class);
+            // classes.add(UtenteInfo.class);
+            return null;
         }
 
     }

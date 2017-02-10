@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.services.persistence.dao
  * Type: EntityDaoHibernate
- * Last update: 10-feb-2017 12.15.04
+ * Last update: 10-feb-2017 18.13.15
  * 
  */
 package com.fleaPark.services.persistence.dao;
@@ -248,6 +248,7 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
      *
      * @return the list
      */
+    @Deprecated
     @SuppressWarnings("rawtypes")
     protected abstract List<Class> dependingClasses();
 

@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.controls.crudProdotti
  * Type: BeanIMieiProdotti
- * Last update: 10-feb-2017 12.15.04
+ * Last update: 10-feb-2017 18.13.15
  * 
  */
 package com.fleaPark.application.controls.crudProdotti;
@@ -74,7 +74,7 @@ public class BeanIMieiProdotti {
             BeanIMieiProdotti b = new BeanIMieiProdotti();
             b.utenteId = utenteId;
             b.prodottoDescrizione = p.getDescrizione();
-            b.prodottoId = p.getId();
+            b.prodottoId = p.getIdProdotto();
             b.prodottoPrezzo = p.getPrezzo().getValore();
             b.prodottoNome = p.getNome();
             b.prodottoValuta = p.getPrezzo().getValuta().name();

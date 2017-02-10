@@ -30,6 +30,19 @@
 		<!-- Drop and re-create the database schema on startup -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 
+		<!-- Mapping Media -->
+		<mapping class="com.fleaPark.model.media.Foto" />
+
+		<!-- Mapping People -->
+		<mapping class="com.fleaPark.model.people.Utente" />
+		<mapping class="com.fleaPark.model.people.UtenteInfo" />
+
+		<!-- Mapping Products -->
+		<mapping class="com.fleaPark.model.products.Categoria" />
+		<mapping class="com.fleaPark.model.products.Prodotto" />
+		<mapping class="com.fleaPark.model.products.Prezzo" />
+		<mapping class="com.fleaPark.model.products.Valuta" />
+
 	</session-factory>
 </hibernate-configuration>
 

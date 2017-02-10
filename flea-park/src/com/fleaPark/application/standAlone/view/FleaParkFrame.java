@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.standAlone.view
  * Type: FleaParkFrame
- * Last update: 10-feb-2017 12.15.04
+ * Last update: 10-feb-2017 18.13.15
  * 
  */
 package com.fleaPark.application.standAlone.view;
@@ -26,12 +26,12 @@ public class FleaParkFrame extends JFrame {
      *
      */
     private static final long serialVersionUID = 1L;
-    private JMenuBar menuBar;
+    private JPanel bottomPanel;
     private Container c;
     private JPanel leftPanel;
+    private JMenuBar menuBar;
     private JPanel rightPanel;
     private JPanel topPanel;
-    private JPanel bottomPanel;
 
     public FleaParkFrame() {
         super("FleaPark");

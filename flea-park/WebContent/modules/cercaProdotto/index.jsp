@@ -1,31 +1,27 @@
 
-<form id="cerca" name="cerca">
-	<div class="row">
-		<div class="input-field">
-			<input id="search" type="search" name="prodotto" required>
-			<label class="label-icon" for="search">
-				<i class="material-icons">search</i>
-			</label>
-			<i class="material-icons">close</i>
+<%
+    if (request.getParameter("cercaProdotto") != null) {
+%>
+<div class="row">
+	<div class="col s12 m3">
+		<div class="side-scrollable">
+			<div class="side-scrollable-content">
+				<jsp:include page="/modules/cercaProdotto/collectionProdotti.jsp"></jsp:include>
+			</div>
 		</div>
 	</div>
-</form>
-<script type='text/javascript' src='js/jquery-2.2.0.js'></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		var form = $('#cerca');
-		form.on('submit', function(e) {
-			e.preventDefault();
-			$.ajax({
-				type : 'POST',
-				url : 'modules/cercaProdotto/controller.jsp',
-				data : form.serialize(),
-				dataType : 'html',
-				success : function(data) {
-					$('#content').html(data);
-				}
-			});
-
-		});
-	});
-</script>
+	<div class="col s12 m6">
+		<div class="container" id="dettagliProdotto">
+			<jsp:include page="/modules/cercaProdotto/cardProdotto.jsp"></jsp:include>
+			<p class="center">Seleziona un elemento per vedere i dettagli</p>
+		</div>
+	</div>
+	<div class="col s12 m3 ">
+		<div class="container" id="dettagliVenditore">
+			<jsp:include page="/modules/cercaProdotto/cardVenditore.jsp"></jsp:include>
+		</div>
+	</div>
+</div>
+<%
+    }
+%>

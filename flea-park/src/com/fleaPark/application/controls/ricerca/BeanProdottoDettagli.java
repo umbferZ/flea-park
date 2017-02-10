@@ -5,19 +5,22 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.controls.ricerca
  * Type: BeanProdottoDettagli
- * Last update: 10-feb-2017 12.15.04
+ * Last update: 10-feb-2017 18.13.15
  * 
  */
 package com.fleaPark.application.controls.ricerca;
 
+import java.util.List;
+
 public class BeanProdottoDettagli {
     public int prodottoId;
-    private String prodottoNome;
-    private String prodottoDescrizione;
-    private double prodottoPrezzo;
-    private String prodottoValuta;
-
     private String prodottoCategoriaNome;
+    private String prodottoDescrizione;
+    private List<String> prodottoGallery;
+    private String prodottoNome;
+    private double prodottoPrezzo;
+
+    private String prodottoValuta;
 
     public void getDettagliProdottoById() {
         C_UC_Ricerca controller = new C_UC_Ricerca();
@@ -28,6 +31,7 @@ public class BeanProdottoDettagli {
         prodottoNome = pbd.prodottoNome;
         prodottoPrezzo = pbd.prodottoPrezzo;
         prodottoValuta = pbd.prodottoValuta;
+        prodottoGallery = pbd.prodottoGallery;
     }
 
     public String getProdottoCategoriaNome() {
@@ -36,6 +40,10 @@ public class BeanProdottoDettagli {
 
     public String getProdottoDescrizione() {
         return prodottoDescrizione;
+    }
+
+    public List<String> getProdottoGallery() {
+        return prodottoGallery;
     }
 
     public int getProdottoId() {
@@ -60,6 +68,10 @@ public class BeanProdottoDettagli {
 
     public void setProdottoDescrizione(String prodottoDescrizione) {
         this.prodottoDescrizione = prodottoDescrizione;
+    }
+
+    public void setProdottoGallery(List<String> prodottoGallery) {
+        this.prodottoGallery = prodottoGallery;
     }
 
     public void setProdottoId(int prodottoID) {

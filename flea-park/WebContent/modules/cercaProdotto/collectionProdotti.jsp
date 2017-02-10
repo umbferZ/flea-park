@@ -3,7 +3,7 @@
 <jsp:useBean id="beanRicerca" class="com.fleaPark.application.controls.ricerca.BeanRicerca"></jsp:useBean>
 <a href="">ricerca avanzata</a>
 <%
-    beanRicerca.cerca(request.getParameter("prodotto"));
+    beanRicerca.cerca(request.getParameter("cercaProdotto"));
 			if (beanRicerca.getProdotti().size() != 0) {
 %>
 <p>
@@ -25,13 +25,14 @@
 		<i class="material-icons circle">folder</i>
 		<span class="title" id="titolo"><%=bp.getProdottoNome()%></span>
 		<p>
+			in
 			<%=bp.getCategoriaNome()%>
 		</p>
 		<span class="secondary-content">
 			<span id="prezzo"><%=bp.getProdottoPrezzo()%></span>
 			<%=bp.getPrdottoValuta()%>
 		</span>
-		<form name="p" id="p">
+		<form>
 			<input type="hidden" name="prodottoId" value="<%=bp.getProdottoId()%>">
 		</form>
 	</li>
@@ -54,6 +55,7 @@
 				dataType : 'html',
 				success : function(data) {
 					$j('#dettagliProdotto').html(data);
+
 				},
 				error : function() {
 					$j('#dettagliProdotto').html("<p>errore imprevisto</p>");
@@ -67,6 +69,7 @@
 				dataType : 'html',
 				success : function(data) {
 					$j('#dettagliVenditore').html(data);
+					$('.card').show();
 				},
 				error : function() {
 					$j('#dettagliVenditore').html("<p>errore imprevisto</p>");
@@ -75,34 +78,34 @@
 			});
 
 		});
-// 		var $grid = $j('.collection');
-// 		$grid.isotope({
-// 			itemSelector : '.collection-item',
-// 			layoutMode : 'masonry',
-// 			getSortData : {
-// 				titolo : '#titolo',
-// 				categoria : '[data-category]',
-// 				prezzo : function(itemElem) {
-// 					var weight = $j(itemElem).find('#prezzo').text();
-// 					return parseFloat(weight.replace(/[\(\)]/g, ''));
-// 				}
-// 			}
-// 		});
-// 		$j('.sort-by-button-group').on('click', 'button', function() {
-// 			var sortValue = $j(this).attr('data-sort-value');
-// 			$grid.isotope({
-// 				sortBy : sortValue
-// 			});
-// 		});
+		// 		var $grid = $j('.collection');
+		// 		$grid.isotope({
+		// 			itemSelector : '.collection-item',
+		// 			layoutMode : 'masonry',
+		// 			getSortData : {
+		// 				titolo : '#titolo',
+		// 				categoria : '[data-category]',
+		// 				prezzo : function(itemElem) {
+		// 					var weight = $j(itemElem).find('#prezzo').text();
+		// 					return parseFloat(weight.replace(/[\(\)]/g, ''));
+		// 				}
+		// 			}
+		// 		});
+		// 		$j('.sort-by-button-group').on('click', 'button', function() {
+		// 			var sortValue = $j(this).attr('data-sort-value');
+		// 			$grid.isotope({
+		// 				sortBy : sortValue
+		// 			});
+		// 		});
 
-// 		$j('.button-group').each(function(i, buttonGroup) {
-// 			var $buttonGroup = $j(buttonGroup);
-// 			$buttonGroup.on('click', 'button', function() {
-// 				$buttonGroup.find('.is-checked').removeClass('is-checked');
-// 				$j(this).addClass('is-checked');
-// 			});
-// 		});
-// 		$grid.isotope('layout');
+		// 		$j('.button-group').each(function(i, buttonGroup) {
+		// 			var $buttonGroup = $j(buttonGroup);
+		// 			$buttonGroup.on('click', 'button', function() {
+		// 				$buttonGroup.find('.is-checked').removeClass('is-checked');
+		// 				$j(this).addClass('is-checked');
+		// 			});
+		// 		});
+		// 		$grid.isotope('layout');
 	});
 </script>
 <%

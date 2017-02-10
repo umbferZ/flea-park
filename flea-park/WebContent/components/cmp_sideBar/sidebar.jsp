@@ -2,10 +2,10 @@
 	<li>
 		<div class="userView">
 			<div class="background">
-				<img src="http://colorfully.eu/wp-content/uploads/2012/08/hand-print-fingers-print-facebook-cover.jpg">
+				<img src="${utente.fotoCopertina }">
 			</div>
 			<a href="#!user">
-				<img class="circle waves-effect waves-circle" src="https://www.youtube.com/yts/img/avatar_720-vflYJnzBZ.png">
+				<img class="circle waves-effect waves-circle" src="${utente.fotoProfilo }">
 			</a>
 			<span class="name">${utente.nome} ${utente.cognome}</span>
 			<span class="email">${utente.email}</span>

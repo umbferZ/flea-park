@@ -5,12 +5,11 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products.dao
  * Type: CategoriaDao
- * Last update: 10-feb-2017 12.15.04
+ * Last update: 10-feb-2017 18.13.15
  * 
  */
 package com.fleaPark.model.products.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.fleaPark.model.products.Categoria;
@@ -23,8 +22,8 @@ public interface CategoriaDao extends EntityDao<Categoria, Integer> {
         @SuppressWarnings("rawtypes")
         @Override
         protected List<Class> dependingClasses() {
-            List<Class> classes = new ArrayList<>();
-            classes.add(Categoria.class);
+            // List<Class> classes = new ArrayList<>();
+            // classes.add(Categoria.class);
             return null;
         }
 

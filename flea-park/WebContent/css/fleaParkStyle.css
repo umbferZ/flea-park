@@ -98,13 +98,12 @@ a link {
 }
 html {
   font-size: 15px;
-  font-family: GillSans, Calibri, Trebuchet, sans-serif;
 }
 .side-nav li > a > i.material-icons {
   margin: 0px;
 }
 .side-nav .userView {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(127, 127, 127, 0.5);
 }
 .side-nav .userView span {
   color: #fff;
@@ -115,6 +114,10 @@ html {
 .side-nav .userView .logout {
   padding-bottom: 16px;
   font-weight: 400;
+}
+.side-nav .userView .circle {
+  height: 100px;
+  width: 100px;
 }
 .side-scrollable {
   height: 80vh;

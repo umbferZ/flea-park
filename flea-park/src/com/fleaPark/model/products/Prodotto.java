@@ -5,19 +5,25 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products
  * Type: Prodotto
- * Last update: 10-feb-2017 12.15.04
+ * Last update: 10-feb-2017 18.13.15
  * 
  */
 package com.fleaPark.model.products;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
+import com.fleaPark.model.media.Foto;
 import com.fleaPark.model.people.Utente;
 
 /**
@@ -37,10 +43,13 @@ public class Prodotto {
     @Column(name = "descrizione")
     private String descrizione;
 
+    @OneToMany(targetEntity = Foto.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Foto> foto;
+
     @Id
     @GeneratedValue
-    @Column(name = "id")
-    private int id;
+    @Column(name = "idProdotto")
+    private int idProdotto;
 
     @Column(name = "nome")
     private String nome;
@@ -65,8 +74,12 @@ public class Prodotto {
         return descrizione;
     }
 
-    public int getId() {
-        return id;
+    public List<Foto> getFoto() {
+        return foto;
+    }
+
+    public int getIdProdotto() {
+        return idProdotto;
     }
 
     public String getNome() {
@@ -94,8 +107,12 @@ public class Prodotto {
         this.descrizione = descrizione;
     }
 
-    public void setId(int idProdotto) {
-        id = idProdotto;
+    public void setFoto(List<Foto> foto) {
+        this.foto = foto;
+    }
+
+    public void setIdProdotto(int idProdotto) {
+        this.idProdotto = idProdotto;
     }
 
     public void setNome(String nome) {

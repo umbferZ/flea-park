@@ -5,17 +5,17 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.controls.ricerca
  * Type: BeanRicercaProdotto
- * Last update: 10-feb-2017 12.15.04
+ * Last update: 10-feb-2017 18.13.15
  * 
  */
 package com.fleaPark.application.controls.ricerca;
 
 public class BeanRicercaProdotto {
+    private String categoriaNome;
+    private String prdottoValuta;
     private int prodottoId;
     private String prodottoNome;
     private double prodottoPrezzo;
-    private String prdottoValuta;
-    private String categoriaNome;
 
     public BeanRicercaProdotto() {
         super();

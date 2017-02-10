@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.services.persistence.dao
  * Type: JDBCUtil
- * Last update: 10-feb-2017 12.15.04
+ * Last update: 10-feb-2017 18.13.15
  * 
  */
 package com.fleaPark.services.persistence.dao;
@@ -17,13 +17,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class JDBCUtil {
+    static final String DB_URL = "jdbc:mysql://localhost/fleaPark";
     // JDBC driver name and database URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/fleaPark";
 
+    static final String PASS = "fleaPark";
     // Database credentials
     static final String USER = "fleaPark";
-    static final String PASS = "fleaPark";
 
     public static void main(String[] args) {
         Connection conn = null;

@@ -98,6 +98,7 @@ a link {
 }
 html {
   font-size: 15px;
+  font-family: GillSans, Calibri, Trebuchet, sans-serif;
 }
 .side-nav li > a > i.material-icons {
   margin: 0px;

@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.services.persistence.dao
  * Type: DAOHibernate
- * Last update: 7-feb-2017 22.56.12
+ * Last update: 10-feb-2017 12.15.04
  * 
  */
 package com.fleaPark.services.persistence.dao;

@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.controls.ricerca
  * Type: C_UC_Ricerca
- * Last update: 7-feb-2017 22.56.12
+ * Last update: 10-feb-2017 12.15.04
  * 
  */
 package com.fleaPark.application.controls.ricerca;
@@ -14,7 +14,9 @@ import java.util.List;
 
 import com.fleaPark.model.DaoFactory;
 import com.fleaPark.model.products.Categoria;
+import com.fleaPark.model.products.Prezzo;
 import com.fleaPark.model.products.Prodotto;
+import com.fleaPark.model.products.Valuta;
 
 public class C_UC_Ricerca {
 
@@ -41,7 +43,8 @@ public class C_UC_Ricerca {
         beanPrDe.setProdottoNome(p.getNome());
         beanPrDe.setProdottoDescrizione(p.getDescrizione());
         beanPrDe.setProdottoCategoriaNome(p.getCategoria().getNome());
-        beanPrDe.setProdottoPrezzo(p.getPrezzo());
+        beanPrDe.setProdottoPrezzo(p.getPrezzo().getValore());
+        beanPrDe.setProdottoValuta(p.getPrezzo().getValuta().name());
         return beanPrDe;
     }
 
@@ -60,7 +63,7 @@ public class C_UC_Ricerca {
         Prodotto p = new Prodotto();
         p.setNome(nome);
         p.setDescrizione(descrizione);
-        p.setPrezzo(prezzo);
+        p.setPrezzo(new Prezzo(prezzo, Valuta.EUR));
         p.setCategoria(categoria);
         factory.getProdottoDao().insert(p);
 

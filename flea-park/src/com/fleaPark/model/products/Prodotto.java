@@ -5,14 +5,14 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products
  * Type: Prodotto
- * Last update: 9-feb-2017 1.50.41
+ * Last update: 10-feb-2017 12.15.04
  * 
  */
 package com.fleaPark.model.products;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -26,11 +26,11 @@ import com.fleaPark.model.people.Utente;
 
 @Entity
 public class Prodotto {
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "acquirente")
     private Utente acquirente;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "categoria")
     private Categoria categoria;
 
@@ -39,21 +39,19 @@ public class Prodotto {
 
     @Id
     @GeneratedValue
-    private int idProdotto;
+    @Column(name = "id")
+    private int id;
 
     @Column(name = "nome")
     private String nome;
 
-    @Column(name = "prezzo")
-    private double prezzo;
+    private Prezzo prezzo;
 
-    @ManyToOne(targetEntity = Utente.class ,fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "venditore")
     private Utente venditore;
 
-    public Prodotto() {
-        super();
-    }
+    public Prodotto() {}
 
     public Utente getAcquirente() {
         return acquirente;
@@ -67,15 +65,16 @@ public class Prodotto {
         return descrizione;
     }
 
-    public int getIdProdotto() {
-        return idProdotto;
+    public int getId() {
+        return id;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public double getPrezzo() {
+    @Embedded
+    public Prezzo getPrezzo() {
         return prezzo;
     }
 
@@ -95,15 +94,15 @@ public class Prodotto {
         this.descrizione = descrizione;
     }
 
-    public void setIdProdotto(int idProdotto) {
-        this.idProdotto = idProdotto;
+    public void setId(int idProdotto) {
+        id = idProdotto;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void setPrezzo(double prezzo) {
+    public void setPrezzo(Prezzo prezzo) {
         this.prezzo = prezzo;
     }
 

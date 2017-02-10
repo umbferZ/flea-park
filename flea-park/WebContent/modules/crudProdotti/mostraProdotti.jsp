@@ -5,7 +5,8 @@
     iMieiProdotti.prendiProdotti();
 %>
 <%
-    if (true) {
+    int i = 1;
+    if (i != 2) {
 %>
 <%
     for (BeanIMieiProdotti b : iMieiProdotti.getiMieiProdotti()) {
@@ -17,7 +18,8 @@
 		</div>
 		<div class="card-content">
 			<div class="card-title lighten">
-				<span class="card-title right "><%=b.getProdottoPrezzo()%>&euro;
+				<span class="right" ><%=b.getProdottoPrezzo()%>
+					<span class="regular"><%=b.getProdottoValuta()%></span>
 				</span>
 				<%=b.getProdottoNome()%>
 			</div>
@@ -26,7 +28,7 @@
 			</p>
 		</div>
 		<div class="card-action center">
-			<a href="#" class="btn-floating left">
+			<a href="#modal-cancella-<%=b.getProdottoId()%>" class="btn-floating left">
 				<i class="material-icons red">delete</i>
 			</a>
 			<a href="#" class="btn-floating right">
@@ -35,9 +37,30 @@
 		</div>
 	</div>
 </div>
+<div class="modal bottom-sheet" id="modal-cancella-<%=b.getProdottoId()%>">
+	<div class="modal-content">
+		<h6 class="center">
+			Sicuro di voler cancellare <b><%=b.getProdottoNome()%></b> dai tuoi prodotti?
+		</h6>
+	</div>
+	<div class="modal-footer">
+		<div class="container">
+			<form id="cancellaProdotto">
+				<input type="hidden" name="prodottoId" value="<%=b.getProdottoId()%>">
+				<button class="modal-action modal-close btn-flat red left white-text" name="cancellaProdotto" value="true">
+					<i class="material-icons left">delete</i>Cancella
+				</button>
+			</form>
+			<a href="#!" class="modal-action modal-close btn-flat blue right white-text">
+				<i class="material-icons left">close</i>Annulla
+			</a>
+		</div>
+	</div>
+</div>
 <%
     }
 %>
+inserisci qui javascript e ajax
 <%
     } else {
 %>

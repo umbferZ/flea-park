@@ -5,46 +5,45 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products
  * Type: Prezzo
- * Last update: 7-feb-2017 22.56.12
+ * Last update: 10-feb-2017 12.15.04
  * 
  */
 package com.fleaPark.model.products;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
-/**
- * The Class Price.
- */
-@Entity
+@Embeddable
 public class Prezzo {
-    private char currency;
-    private int value;
+    @Column(name = "valore")
+    private double valore;
+    @Enumerated(EnumType.STRING)
+    private Valuta valuta;
 
     public Prezzo() {
-        super();
+
     }
 
-    public Prezzo(int value, char c) {
-        this.value = value;
-        currency = c;
+    public Prezzo(double valore, Valuta valuta) {
+        this.valore = valore;
+        this.valuta = valuta;
     }
 
-    @Id
-    public char getCurrency() {
-        return currency;
+    public double getValore() {
+        return valore;
     }
 
-    @Id
-    public int getValue() {
-        return value;
+    public Valuta getValuta() {
+        return valuta;
     }
 
-    public void setCurrency(char currency) {
-        this.currency = currency;
+    public void setValore(double valore) {
+        this.valore = valore;
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public void setValuta(Valuta valuta) {
+        this.valuta = valuta;
     }
 }

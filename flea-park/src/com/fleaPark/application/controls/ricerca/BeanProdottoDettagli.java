@@ -3,9 +3,9 @@
  * Created by Umberto Ferracci from urania's PC
  * email: umberto.ferracci@gmail.com
  * Project: fleaPark
- * Package: com.fleaPark.application.beans
+ * Package: com.fleaPark.application.controls.ricerca
  * Type: BeanProdottoDettagli
- * Last update: 7-feb-2017 22.56.12
+ * Last update: 10-feb-2017 12.15.04
  * 
  */
 package com.fleaPark.application.controls.ricerca;
@@ -15,6 +15,8 @@ public class BeanProdottoDettagli {
     private String prodottoNome;
     private String prodottoDescrizione;
     private double prodottoPrezzo;
+    private String prodottoValuta;
+
     private String prodottoCategoriaNome;
 
     public void getDettagliProdottoById() {
@@ -25,6 +27,7 @@ public class BeanProdottoDettagli {
         prodottoId = pbd.prodottoId;
         prodottoNome = pbd.prodottoNome;
         prodottoPrezzo = pbd.prodottoPrezzo;
+        prodottoValuta = pbd.prodottoValuta;
     }
 
     public String getProdottoCategoriaNome() {
@@ -47,6 +50,10 @@ public class BeanProdottoDettagli {
         return prodottoPrezzo;
     }
 
+    public String getProdottoValuta() {
+        return prodottoValuta;
+    }
+
     public void setProdottoCategoriaNome(String prodottoCategoriaNome) {
         this.prodottoCategoriaNome = prodottoCategoriaNome;
     }
@@ -56,7 +63,7 @@ public class BeanProdottoDettagli {
     }
 
     public void setProdottoId(int prodottoID) {
-        this.prodottoId = prodottoID;
+        prodottoId = prodottoID;
     }
 
     public void setProdottoNome(String prodottoNome) {
@@ -65,5 +72,9 @@ public class BeanProdottoDettagli {
 
     public void setProdottoPrezzo(double i) {
         prodottoPrezzo = i;
+    }
+
+    public void setProdottoValuta(String prodottoValura) {
+        prodottoValuta = prodottoValura;
     }
 }

@@ -1,3 +1,13 @@
+/*
+ * 
+ * Created by Umberto Ferracci from urania's PC
+ * email: umberto.ferracci@gmail.com
+ * Project: fleaPark
+ * Package: com.fleaPark.application.controls.ricerca
+ * Type: BeanVenditoreDettagli
+ * Last update: 10-feb-2017 12.15.03
+ * 
+ */
 package com.fleaPark.application.controls.ricerca;
 
 import com.fleaPark.tools.debug.Message4Debug;
@@ -8,32 +18,32 @@ public class BeanVenditoreDettagli {
     private String venditoreNome;
     private String venditoreCognome;
 
-    public String getVenditoreCognome() {
-        return venditoreCognome;
-    }
-
-    public void setVenditoreCognome(String venditoreCognome) {
-        this.venditoreCognome = venditoreCognome;
-    }
-
     public int getProdottoId() {
         return prodottoId;
     }
 
-    public void setProdottoId(int prodottoId) {
-        this.prodottoId = prodottoId;
+    public String getVenditoreCognome() {
+        return venditoreCognome;
     }
 
     public int getVenditoreId() {
         return venditoreId;
     }
 
-    public void setVenditoreId(int venditoreId) {
-        this.venditoreId = venditoreId;
-    }
-
     public String getVenditoreNome() {
         return venditoreNome;
+    }
+
+    public void setProdottoId(int prodottoId) {
+        this.prodottoId = prodottoId;
+    }
+
+    public void setVenditoreCognome(String venditoreCognome) {
+        this.venditoreCognome = venditoreCognome;
+    }
+
+    public void setVenditoreId(int venditoreId) {
+        this.venditoreId = venditoreId;
     }
 
     public void setVenditoreNome(String venditoreNome) {
@@ -44,9 +54,9 @@ public class BeanVenditoreDettagli {
         Message4Debug.log("\t\t\t\t\tprodottoID by bean: " + prodottoId);
         C_UC_Ricerca controller = new C_UC_Ricerca();
         BeanVenditoreDettagli beanVD = controller.getVenditoreByProdottoId(prodottoId);
-        this.venditoreCognome = beanVD.venditoreCognome;
-        this.venditoreId = beanVD.prodottoId;
-        this.venditoreNome = beanVD.venditoreNome;
+        venditoreCognome = beanVD.venditoreCognome;
+        venditoreId = beanVD.prodottoId;
+        venditoreNome = beanVD.venditoreNome;
 
     }
 }

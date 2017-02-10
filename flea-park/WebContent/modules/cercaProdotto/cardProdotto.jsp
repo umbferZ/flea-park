@@ -11,7 +11,7 @@
 	<div class="card-content">
 		<div class="card-title">
 			${bpd.prodottoNome}
-			<span class="right"> ${bpd.prodottoPrezzo} &euro; </span>
+			<span class="right"> ${bpd.prodottoPrezzo} ${bpd.prodottoValuta } </span>
 		</div>
 		<p>${bpd.prodottoDescrizione}</p>
 	</div>

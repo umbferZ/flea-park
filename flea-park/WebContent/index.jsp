@@ -23,7 +23,17 @@
 </head>
 <body>
 	<jsp:include page="/components/cmp_bar/barNav.jsp"></jsp:include>
+	<%
+	    if (session.getAttribute("utente") != null) {
+	%>
 	<jsp:include page="/modules/crudProdotti/index.jsp"></jsp:include>
+	<%
+	    } else {
+	%>
+	<p>Errore insapettato</p>
+	<%
+	    }
+	%>
 	<div id="content">
 		<div class="section-not-pad-bot"></div>
 		<ul>

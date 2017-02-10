@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.people
  * Type: Utente
- * Last update: 7-feb-2017 22.56.12
+ * Last update: 10-feb-2017 12.15.04
  * 
  */
 package com.fleaPark.model.people;
@@ -40,7 +40,6 @@ public class Utente {
     public Utente() {}
 
     public Utente(String nome, String cognome, String email, String password) {
-        super();
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;

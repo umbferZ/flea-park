@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products.dao
  * Type: ProdottoDao
- * Last update: 7-feb-2017 22.56.12
+ * Last update: 10-feb-2017 12.15.04
  * 
  */
 package com.fleaPark.model.products.dao;
@@ -22,24 +22,36 @@ import com.fleaPark.services.persistence.dao.EntityDao;
 import com.fleaPark.services.persistence.dao.EntityDaoHibernate;
 
 public interface ProdottoDao extends EntityDao<Prodotto, Integer> {
-    public List<Prodotto> getProdottoLikeParolaChiave(String parolachiave);
-
     public List<Prodotto> getProdottoByIdUtente(Utente utente);
 
+    public List<Prodotto> getProdottoLikeParolaChiave(String parolachiave);
+
     public class ProdottoDaoHibernate extends EntityDaoHibernate<Prodotto, Integer> implements ProdottoDao {
+
+        @Override
+        public List<Prodotto> getProdottoByIdUtente(Utente utente) {
+            String q = "from Prodotto p where venditore=:idUtente";
+            Query query = super.openSession().createQuery(q);
+            query.setParameter("idUtente", utente);
+            List<Prodotto> list = query.list();
+            closeSession();
+            return list;
+        }
 
         @Override
         public List<Prodotto> getProdottoLikeParolaChiave(String parolachiave) {
             // TODO: Trovare modo per interrogazione multipla (JOIN?)
             String[] words = parolachiave.split(" ");
-            String q = "p.nome like :" + words[0];
+            String q = " p.nome like :" + words[0] + " OR p.descrizione like :" + words[0];
 
             for (String w : words)
-                q += " AND p.nome like :w";
-            String sql = "from Prodotto p where p.nome like :parolaChiave";
+                q += " OR p.nome like :" + w + " OR p.descrizione like :" + w;
+
+            // String sql = "from Prodotto p where p.nome like :parolaChiave";
+            String sql = "from Prodotto p where " + q;
             Query query = super.openSession().createQuery(sql);
             for (String w : words)
-                query.setParameter("parolaChiave", "%" + w + "%");
+                query.setParameter(w, "%" + w + "%");
             List<Prodotto> list = query.list();
             closeSession();
             return list;
@@ -52,16 +64,6 @@ public interface ProdottoDao extends EntityDao<Prodotto, Integer> {
             classes.add(Utente.class);
             classes.add(Categoria.class);
             return classes;
-        }
-
-        @Override
-        public List<Prodotto> getProdottoByIdUtente(Utente utente) {
-            String q = "from Prodotto p where venditore=:idUtente";
-            Query query = super.openSession().createQuery(q);
-            query.setParameter("idUtente", utente);
-            List<Prodotto> list = query.list();
-            closeSession();
-            return list;
         }
 
     }

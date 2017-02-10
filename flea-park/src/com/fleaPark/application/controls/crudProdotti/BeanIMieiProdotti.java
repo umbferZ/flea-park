@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.controls.crudProdotti
  * Type: BeanIMieiProdotti
- * Last update: 9-feb-2017 0.19.40
+ * Last update: 10-feb-2017 12.15.04
  * 
  */
 package com.fleaPark.application.controls.crudProdotti;
@@ -25,8 +25,18 @@ public class BeanIMieiProdotti {
 
     private String prodottoNome;
     private double prodottoPrezzo;
+    private String prodottoValuta;
 
     private int utenteId;
+
+    public static void main(String[] args) {
+        BeanIMieiProdotti iMiei = new BeanIMieiProdotti();
+        iMiei.setUtenteId(3);
+        iMiei.prendiProdotti();
+        List<BeanIMieiProdotti> list = iMiei.getiMieiProdotti();
+        for (BeanIMieiProdotti b : list)
+            Message4Debug.log("" + b.getProdottoNome() + " ");
+    }
 
     public List<BeanIMieiProdotti> getiMieiProdotti() {
         return iMieiProdotti;
@@ -48,21 +58,26 @@ public class BeanIMieiProdotti {
         return prodottoPrezzo;
     }
 
+    public String getProdottoValuta() {
+        return prodottoValuta;
+    }
+
     public int getUtenteId() {
         return utenteId;
     }
 
     public void prendiProdotti() {
         Message4Debug.log("idUtente \t\t\t" + utenteId);
-        C_UC_Prodotti controller = new C_UC_Prodotti();
-        List<Prodotto> prodotti = controller.prendiProdotti(1);
+        C_UC_GestioneProdotto controller = new C_UC_GestioneProdotto();
+        List<Prodotto> prodotti = controller.prendiProdotti(utenteId);
         for (Prodotto p : prodotti) {
             BeanIMieiProdotti b = new BeanIMieiProdotti();
             b.utenteId = utenteId;
             b.prodottoDescrizione = p.getDescrizione();
-            b.prodottoId = p.getIdProdotto();
-            b.prodottoPrezzo = p.getPrezzo();
+            b.prodottoId = p.getId();
+            b.prodottoPrezzo = p.getPrezzo().getValore();
             b.prodottoNome = p.getNome();
+            b.prodottoValuta = p.getPrezzo().getValuta().name();
             iMieiProdotti.add(b);
         }
 
@@ -88,18 +103,12 @@ public class BeanIMieiProdotti {
         this.prodottoPrezzo = prodottoPrezzo;
     }
 
-    public void setUtenteId(int utenteId) {
-        this.utenteId = utenteId;
+    public void setProdottoValuta(String prodottoValuta) {
+        this.prodottoValuta = prodottoValuta;
     }
 
-    public static void main(String[] args) {
-        BeanIMieiProdotti iMiei = new BeanIMieiProdotti();
-        iMiei.setUtenteId(3);
-        iMiei.prendiProdotti();
-        List<BeanIMieiProdotti> list = iMiei.getiMieiProdotti();
-        for (BeanIMieiProdotti b : list) {
-            Message4Debug.log("" + b.getProdottoNome() + " ");
-        }
+    public void setUtenteId(int utenteId) {
+        this.utenteId = utenteId;
     }
 
 }

@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.services.persistence.dao
  * Type: EntityDaoHibernate
- * Last update: 8-feb-2017 1.18.30
+ * Last update: 10-feb-2017 12.15.04
  * 
  */
 package com.fleaPark.services.persistence.dao;
@@ -195,7 +195,7 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         Transaction transaction = null;
         try {
             transaction = s.beginTransaction();
-            s.saveOrUpdate(entity);
+            s.persist(entity);
             s.flush();
             transaction.commit();
         } catch (HibernateException e) {

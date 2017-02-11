@@ -12,23 +12,28 @@ package com.fleaPark.services.persistence.dao;
 
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.classic.Session;
+
+import com.fleaPark.tools.debug.Message4Debug;
 
 /**
  * The Class HibernateUtil.
  */
 public class HibernateUtil {
     private static final SessionFactory concreteSessionFactory;
+
     static {
         try {
 
-            concreteSessionFactory = ConfigUtil.getInstance().getConfig().buildSessionFactory();
+            concreteSessionFactory = new AnnotationConfiguration().configure("hibernate.cfg.xml").buildSessionFactory();
         } catch (Throwable ex) {
             throw new ExceptionInInitializerError(ex);
         }
     }
 
     public static Session getSession() throws HibernateException {
+
         return concreteSessionFactory.openSession();
     }
 

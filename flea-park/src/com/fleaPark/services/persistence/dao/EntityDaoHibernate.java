@@ -33,7 +33,6 @@ import com.fleaPark.tools.debug.Message4Debug;
  */
 public abstract class EntityDaoHibernate<T, ID extends Serializable> implements EntityDao<T, ID> {
 
-    private AnnotationConfiguration config;
     private Class<T> persistentClass;
 
     private Session session;
@@ -48,8 +47,7 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
     @SuppressWarnings("unchecked")
     public EntityDaoHibernate() {
         persistentClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-        config = ConfigUtil.getInstance().getConfig();
-        // config.configure("hibernate.cfg.xml");
+
     }
 
     /**
@@ -127,14 +125,7 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         return entity;
     }
 
-    /**
-     * Gets the config.
-     *
-     * @return the config
-     */
-    public AnnotationConfiguration getConfig() {
-        return config;
-    }
+
 
     /**
      * Gets the persistent class.
@@ -177,15 +168,7 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         return entity;
     }
 
-    /**
-     * Sets the config.
-     *
-     * @param config the new config
-     */
-    public void setConfig(AnnotationConfiguration config) {
-        this.config = config;
 
-    }
 
     /**
      * Sets the persistent class.
@@ -196,20 +179,12 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         this.persistentClass = persistentClass;
     }
 
-    /**
-     * Sets the session.
-     *
-     * @param s the new session
-     */
-    public void setSession(Session s) {
-        this.session = s;
-    }
+
 
     /**
      * Close session.
      */
     protected void closeSession() {
-        // FIXME trovare soluzione per le troppe connessioni
         countCloseSession++;
         Message4Debug.log("session number " + countCloseSession + " closed");
         // config.buildSessionFactory().getCurrentSession().close();
@@ -237,7 +212,6 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
      * @return the session
      */
     protected Session openSession() {
-        // FIXME : trovare soluzione per le troppe connessioni
         countOpenSession++;
         Message4Debug.log("Opening session number " + countOpenSession);
         return HibernateUtil.getSession();

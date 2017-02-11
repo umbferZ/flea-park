@@ -36,16 +36,7 @@ public interface UtenteDao extends EntityDao<Utente, Integer> {
             throw new Exception("corrispondenza non trovata");
         }
 
-        @SuppressWarnings("rawtypes")
-        @Override
-        protected List<Class> dependingClasses() {
-            // List<Class> classes = new ArrayList<>();
-            // classes.add(Prodotto.class);
-            // classes.add(Categoria.class);
-            // classes.add(UtenteInfo.class);
-            // classes.add(Foto.class);
-            return null;
-        }
+
 
     }
 

@@ -23,6 +23,8 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Example;
 
+import com.fleaPark.tools.debug.Message4Debug;
+
 /**
  * The Class EntityDaoHibernate.
  *
@@ -34,55 +36,21 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
     private AnnotationConfiguration config;
     private Class<T> persistentClass;
 
-    private Session session; // FIXME remove this attribute
+    private Session session;
+
+    private static long countOpenSession = 0;
+    private static long countCloseSession = 0;
 
     /**
      * Instantiates a new entity dao hibernate.
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+
+    @SuppressWarnings("unchecked")
     public EntityDaoHibernate() {
         persistentClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-        config = new AnnotationConfiguration();
-        config.addAnnotatedClass(persistentClass);
-        List<Class> classes = dependingClasses();
-        if (classes != null)
-            for (Class c : classes)
-                config.addAnnotatedClass(c);
-        config.configure("hibernate.cfg.xml");
+        config = ConfigUtil.getInstance().getConfig();
+        // config.configure("hibernate.cfg.xml");
     }
-
-    // /**
-    // * Instantiates a new entity dao hibernate.
-    // *
-    // * @param classes the classes
-    // */
-    // @SuppressWarnings({ "unchecked", "rawtypes" })
-    // @Deprecated
-    // public EntityDaoHibernate(List<Class> classes) {
-    // Message4Debug.addTrace(this.getClass().getName() + ".contructor() for
-    // entity");
-    // persistentClass = (Class<T>) ((ParameterizedType)
-    // getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-    // config = new AnnotationConfiguration();
-    // config.addAnnotatedClass(persistentClass);
-    // if (classes != null)
-    // for (Class c : classes)
-    // config.addAnnotatedClass(c);
-    // config.configure("hibernate.cfg.xml");
-    // Message4Debug.addTrace(persistentClass.getName());
-    // }
-
-    // /**
-    // * Adds the annotated class.
-    // *
-    // * @param t the t
-    // */
-    // @Deprecated
-    // public void addAnnotatedClass(@SuppressWarnings("rawtypes") Class t) {
-    // Message4Debug.addTrace(this.getClass().getName() +
-    // ".addAnnotatedClass()");
-    // config.addAnnotatedClass(t);
-    // }
 
     /**
      * Clear.
@@ -148,12 +116,14 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
     @SuppressWarnings("unchecked")
     public T getById(ID id, boolean lock) {
         T entity;
-        Session s = config.buildSessionFactory().openSession();
+        Session s = openSession();
         if (lock)
-            entity = (T) s.load(getPersistentClass(), id, LockMode.UPGRADE);
+            // entity = (T) s.load(getPersistentClass(), id, LockMode.UPGRADE);
+            entity = (T) s.get(getPersistentClass(), id);
         else
-            entity = (T) s.load(getPersistentClass(), id);
-        config.buildSessionFactory().getCurrentSession().close();
+            // entity = (T) s.load(getPersistentClass(), id);
+            entity = (T) s.get(getPersistentClass(), id);
+        closeSession();
         return entity;
     }
 
@@ -202,7 +172,7 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
             if (transaction != null)
                 transaction.rollback();
         } finally {
-            s.close();
+            closeSession();
         }
         return entity;
     }
@@ -240,17 +210,11 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
      */
     protected void closeSession() {
         // FIXME trovare soluzione per le troppe connessioni
-        config.buildSessionFactory().getCurrentSession().close();
+        countCloseSession++;
+        Message4Debug.log("session number " + countCloseSession + " closed");
+        // config.buildSessionFactory().getCurrentSession().close();
+        HibernateUtil.getSession().close();
     }
-
-    /**
-     * Depending classes.
-     *
-     * @return the list
-     */
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    protected abstract List<Class> dependingClasses();
 
     /**
      * Find by criteria.
@@ -274,12 +238,10 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
      */
     protected Session openSession() {
         // FIXME : trovare soluzione per le troppe connessioni
-        // Session s = config.buildSessionFactory().getCurrentSession();
-        // if (config.buildSessionFactory().isClosed()) {
-        return config.buildSessionFactory().openSession();
-        // } else {
-        // return config.buildSessionFactory().getCurrentSession();
-        // }
+        countOpenSession++;
+        Message4Debug.log("Opening session number " + countOpenSession);
+        return HibernateUtil.getSession();
+
     }
 
 }

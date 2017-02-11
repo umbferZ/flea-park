@@ -35,7 +35,7 @@ public class DaoDemo {
         List<Categoria> list = factory.getCategoriaDao().getAll();
         String nomeCategoria = "";
         for (Categoria c : list)
-            for (int i = 0; i < 1; i++) {
+            for (int i = 0; i < 5; i++) {
                 nomeCategoria = c.getNome() + " - " + i;
                 factory.getCategoriaDao().insert(new Categoria(nomeCategoria, c));
             }
@@ -79,7 +79,7 @@ public class DaoDemo {
         Prezzo pr;
 
         for (Categoria c : list)
-            for (int i = 0; i < 7; i++) {
+            for (int i = 0; i < 10; i++) {
                 d = ((double) ((i * 112722) % 473) + (int) (Math.random() * 1000)) + 0.29;
                 switch (i % 4) {
                     case 0:

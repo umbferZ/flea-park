@@ -55,16 +55,7 @@ public interface ProdottoDao extends EntityDao<Prodotto, Integer> {
             return list;
         }
 
-        @SuppressWarnings("rawtypes")
-        @Override
-        protected List<Class> dependingClasses() {
-            // List<Class> classes = new ArrayList<>();
-            // classes.add(Utente.class);
-            // classes.add(Categoria.class);
-            // classes.add(Foto.class);
-            // classes.add(UtenteInfo.class);
-            return null;
-        }
+ 
 
     }
 

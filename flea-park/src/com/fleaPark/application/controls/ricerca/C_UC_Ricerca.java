@@ -38,7 +38,7 @@ public class C_UC_Ricerca {
 
     public BeanProdottoDettagli getDettagliProdottoById(int idProdotto) {
 
-        Prodotto p = DaoFactory.getInstance().getProdottoDao().getById(idProdotto, false);
+        Prodotto p = DaoFactory.getInstance().getProdottoDao().getById(idProdotto, true);
         BeanProdottoDettagli beanPrDe = new BeanProdottoDettagli();
         beanPrDe.setProdottoNome(p.getNome());
         beanPrDe.setProdottoDescrizione(p.getDescrizione());

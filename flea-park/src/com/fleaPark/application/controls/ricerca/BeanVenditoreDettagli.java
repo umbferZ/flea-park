@@ -60,7 +60,6 @@ public class BeanVenditoreDettagli {
     }
 
     public void validate() {
-        Message4Debug.log("\t\t\t\t\tprodottoID by bean: " + prodottoId);
         C_UC_Ricerca controller = new C_UC_Ricerca();
         BeanVenditoreDettagli beanVD = controller.getVenditoreByProdottoId(prodottoId);
         venditoreCognome = beanVD.venditoreCognome;

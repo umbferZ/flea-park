@@ -10,30 +10,33 @@
  */
 package com.fleaPark.services.persistence.dao;
 
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import org.hibernate.classic.Session;
 
 /**
  * The Class HibernateUtil.
  */
 public class HibernateUtil {
-    private static final SessionFactory sessionFactory;
-
+    private static final SessionFactory concreteSessionFactory;
     static {
         try {
-            sessionFactory = new Configuration().configure().buildSessionFactory();
+
+            concreteSessionFactory = ConfigUtil.getInstance().getConfig().buildSessionFactory();
         } catch (Throwable ex) {
-            System.err.println("Initial SessionFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);
         }
     }
 
-    /**
-     * Gets the session factory.
-     *
-     * @return the session factory
-     */
-    public static SessionFactory getSessionFactory() {
-        return sessionFactory;
+    public static Session getSession() throws HibernateException {
+        return concreteSessionFactory.openSession();
     }
+
+    // public static void main(String... args) {
+    // Session session = getSession();
+    // session.beginTransaction();
+    // User user = (User) session.get(User.class, new Integer(1));
+    // System.out.println(user.getName());
+    // session.close();
+    // }
 }

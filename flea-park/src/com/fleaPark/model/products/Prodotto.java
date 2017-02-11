@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products
  * Type: Prodotto
- * Last update: 10-feb-2017 18.13.15
+ * Last update: 11-feb-2017 17.10.28
  * 
  */
 package com.fleaPark.model.products;
@@ -40,7 +40,7 @@ public class Prodotto {
     @JoinColumn(name = "categoria")
     private Categoria categoria;
 
-    @Column(name = "descrizione")
+    @Column(name = "descrizione", length = 10000)
     private String descrizione;
 
     @OneToMany(targetEntity = Foto.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -54,6 +54,7 @@ public class Prodotto {
     @Column(name = "nome")
     private String nome;
 
+    @Embedded
     private Prezzo prezzo;
 
     @ManyToOne
@@ -86,7 +87,6 @@ public class Prodotto {
         return nome;
     }
 
-    @Embedded
     public Prezzo getPrezzo() {
         return prezzo;
     }

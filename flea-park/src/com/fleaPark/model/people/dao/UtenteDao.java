@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.people.dao
  * Type: UtenteDao
- * Last update: 10-feb-2017 18.13.15
+ * Last update: 11-feb-2017 17.10.28
  * 
  */
 package com.fleaPark.model.people.dao;
@@ -35,8 +35,6 @@ public interface UtenteDao extends EntityDao<Utente, Integer> {
                 return list.get(0);
             throw new Exception("corrispondenza non trovata");
         }
-
-
 
     }
 

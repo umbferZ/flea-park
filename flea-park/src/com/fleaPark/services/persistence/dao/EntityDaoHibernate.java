@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.services.persistence.dao
  * Type: EntityDaoHibernate
- * Last update: 10-feb-2017 18.13.15
+ * Last update: 11-feb-2017 17.12.20
  * 
  */
 package com.fleaPark.services.persistence.dao;
@@ -16,14 +16,10 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
-import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Example;
-
-import com.fleaPark.tools.debug.Message4Debug;
 
 /**
  * The Class EntityDaoHibernate.
@@ -33,12 +29,12 @@ import com.fleaPark.tools.debug.Message4Debug;
  */
 public abstract class EntityDaoHibernate<T, ID extends Serializable> implements EntityDao<T, ID> {
 
-    private Class<T> persistentClass;
-
-    private Session session;
+    private static long countCloseSession = 0;
 
     private static long countOpenSession = 0;
-    private static long countCloseSession = 0;
+
+    private Class<T> persistentClass;
+    private Session session;
 
     /**
      * Instantiates a new entity dao hibernate.
@@ -102,6 +98,7 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
             for (String exclude : excludeProperty)
                 example.excludeProperty(exclude);
         crit.add(example);
+        closeSession();
         return crit.list();
     }
 
@@ -124,8 +121,6 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         closeSession();
         return entity;
     }
-
-
 
     /**
      * Gets the persistent class.
@@ -168,8 +163,6 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         return entity;
     }
 
-
-
     /**
      * Sets the persistent class.
      *
@@ -179,16 +172,11 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         this.persistentClass = persistentClass;
     }
 
-
-
     /**
      * Close session.
      */
     protected void closeSession() {
-        countCloseSession++;
-        Message4Debug.log("session number " + countCloseSession + " closed");
-        // config.buildSessionFactory().getCurrentSession().close();
-        HibernateUtil.getSession().close();
+        HibernateUtil.closeSession();
     }
 
     /**
@@ -202,8 +190,9 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         Criteria crit = openSession().createCriteria(getPersistentClass());
         for (Criterion c : criterion)
             crit.add(c);
+        List<T> l = crit.list();
         closeSession();
-        return crit.list();
+        return l;
     }
 
     /**
@@ -212,8 +201,6 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
      * @return the session
      */
     protected Session openSession() {
-        countOpenSession++;
-        Message4Debug.log("Opening session number " + countOpenSession);
         return HibernateUtil.getSession();
 
     }

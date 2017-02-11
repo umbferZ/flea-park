@@ -5,10 +5,9 @@
 				bpd.getDettagliProdottoById();
 %>
 <div class="card">
-	<div class="card-image">
-		<!-- 		<img alt="default-image" src="http://d0od.wpengine.netdna-cdn.com/wp-content/uploads/2014/10/material-wallpaper-full.jpg" class="responsive-image"> -->
-		<div class="slider">
-			<ul class="slides">
+	<div class="card-image ">
+		<div class="slider ">
+			<ul class="slides ">
 				<%
 				    for (String src : bpd.getProdottoGallery()) {
 				%>
@@ -22,13 +21,27 @@
 		</div>
 	</div>
 	<div class="card-content">
-		<div class="card-title">
-			${bpd.prodottoNome}
-			<span class="right"> ${bpd.prodottoPrezzo} ${bpd.prodottoValuta } </span>
-		</div>
+		<span class="card-title activator grey-text text-darken-4">
+			<i class="material-icons right">more_vert</i> ${bpd.prodottoNome}
+		</span>
+		<p class="truncate activator">${bpd.prodottoDescrizione}</p>
+	</div>
+	<div class="card-reveal">
+		<span class="card-title grey-text text-darken-4">
+			<i class="material-icons right">close</i> ${bpd.prodottoNome}
+		</span>
 		<p>${bpd.prodottoDescrizione}</p>
+		<div class="center">
+			<form method="post" name="addCarrello">
+				<input type="hidden" name="" value="" />
+				<button class="btn" name="" value="">
+					<i class="material-icons left">shop</i>${bpd.prodottoPrezzo} ${bpd.prodottoValuta }
+				</button>
+			</form>
+		</div>
 	</div>
 	<div class="card-action center">
+		<div class="card-title ">${bpd.prodottoPrezzo}${bpd.prodottoValuta }</div>
 		<form method="post" name="addCarrello">
 			<input type="hidden" name="" value="" />
 			<button class="btn" name="" value="">
@@ -37,7 +50,6 @@
 		</form>
 	</div>
 </div>
-<
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.slider').slider({

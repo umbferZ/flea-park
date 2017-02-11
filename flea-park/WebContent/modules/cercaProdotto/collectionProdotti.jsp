@@ -1,45 +1,51 @@
 
 <%@page import="com.fleaPark.application.controls.ricerca.BeanRicercaProdotto"%>
 <jsp:useBean id="beanRicerca" class="com.fleaPark.application.controls.ricerca.BeanRicerca"></jsp:useBean>
-<a href="">ricerca avanzata</a>
 <%
     beanRicerca.cerca(request.getParameter("cercaProdotto"));
 			if (beanRicerca.getProdotti().size() != 0) {
 %>
-<p>
-	Trovati
-	<%=beanRicerca.getProdotti().size()%>
-	prodotti
-</p>
+<div class="card-panel">
+	<a href="" class="center">ricerca avanzata</a>
+	<p class="center">
+		Trovati
+		<%=beanRicerca.getProdotti().size()%>
+		prodotti
+	</p>
+</div>
 <!-- <div class="button-group sort-by-button-group"> -->
 <!-- 	<button class="button is-checked" data-sort-value="original-order">original order</button> -->
 <!-- 	<button class="button" data-sort-value="titolo">nome</button> -->
 <!-- 	<button class="button" data-sort-value="prezzo">prezzo</button> -->
 <!-- 	<button class="button" data-sort-value="categoria">categoria</button> -->
 <!-- </div> -->
-<ul class="collection">
-	<%
-	    for (BeanRicercaProdotto bp : beanRicerca.getProdotti()) {
-	%>
-	<li class="collection-item avatar activator" data-category="<%=bp.getCategoriaNome().replace(" ", "-")%>">
-		<i class="material-icons circle">folder</i>
-		<span class="title" id="titolo"><%=bp.getProdottoNome()%></span>
-		<p>
-			in
-			<%=bp.getCategoriaNome()%>
-		</p>
-		<span class="secondary-content">
-			<span id="prezzo"><%=bp.getProdottoPrezzo()%></span>
-			<%=bp.getPrdottoValuta()%>
-		</span>
-		<form>
-			<input type="hidden" name="prodottoId" value="<%=bp.getProdottoId()%>">
-		</form>
-	</li>
-	<%
-	    }
-	%>
-</ul>
+<div class="side-scrollable">
+	<div class="side-scrollable-content">
+		<ul class="collection">
+			<%
+			    for (BeanRicercaProdotto bp : beanRicerca.getProdotti()) {
+			%>
+			<li class="collection-item avatar activator" data-category="<%=bp.getCategoriaNome().replace(" ", "-")%>">
+				<i class="material-icons circle">folder</i>
+				<span class="title" id="titolo"><%=bp.getProdottoNome()%></span>
+				<p>
+					in
+					<%=bp.getCategoriaNome()%>
+				</p>
+				<span class="secondary-content">
+					<span id="prezzo"><%=bp.getProdottoPrezzo()%></span>
+					<%=bp.getPrdottoValuta()%>
+				</span>
+				<form>
+					<input type="hidden" name="prodottoId" value="<%=bp.getProdottoId()%>">
+				</form>
+			</li>
+			<%
+			    }
+			%>
+		</ul>
+	</div>
+</div>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript">
 	$j = jQuery.noConflict();

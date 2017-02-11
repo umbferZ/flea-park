@@ -5,7 +5,7 @@
 				<img src="${utente.fotoCopertina }">
 			</div>
 			<a href="#!user">
-				<img class="circle waves-effect waves-circle" src="${utente.fotoProfilo }">
+				<img class="circle" src="${utente.fotoProfilo }">
 			</a>
 			<span class="name">${utente.nome} ${utente.cognome}</span>
 			<span class="email">${utente.email}</span>
@@ -38,9 +38,15 @@
 						{
 							'height' : '100%',
 							'width' : '100%',
-
 							'background' : 'url("' + imageUrl
 									+ '") repeat scroll 50% 50% / cover'
 						});
+				imageUrl = $('.circle').attr('src');
+
+				$('.circle').css(
+						{
+							'background' : 'url("' + imageUrl
+									+ '") repeat scroll 50% 50% / cover'
+						}).attr('src', ' ');
 			});
 </script>

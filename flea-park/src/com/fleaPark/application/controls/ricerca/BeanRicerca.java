@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.controls.ricerca
  * Type: BeanRicerca
- * Last update: 11-feb-2017 17.10.28
+ * Last update: 13-feb-2017 4.41.54
  * 
  */
 package com.fleaPark.application.controls.ricerca;
@@ -34,6 +34,7 @@ public class BeanRicerca {
             bp.setProdottoNome(p.getNome());
             bp.setProdottoPrezzo(p.getPrezzo().getValore());
             bp.setPrdottoValuta(p.getPrezzo().getValuta().name());
+            bp.setProdottoFoto(p.getFoto().get(0).getNome());
             prodotti.add(bp);
         }
     }

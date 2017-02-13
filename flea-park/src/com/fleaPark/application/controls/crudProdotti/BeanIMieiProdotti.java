@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.controls.crudProdotti
  * Type: BeanIMieiProdotti
- * Last update: 11-feb-2017 17.10.28
+ * Last update: 13-feb-2017 4.41.54
  * 
  */
 package com.fleaPark.application.controls.crudProdotti;
@@ -13,8 +13,9 @@ package com.fleaPark.application.controls.crudProdotti;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.umbZfer.debug.Message4Debug;
+
 import com.fleaPark.model.products.Prodotto;
-import com.fleaPark.tools.debug.Message4Debug;
 
 public class BeanIMieiProdotti {
     private List<BeanIMieiProdotti> iMieiProdotti = new ArrayList<>();

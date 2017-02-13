@@ -5,11 +5,12 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products
  * Type: Prodotto
- * Last update: 11-feb-2017 17.10.28
+ * Last update: 13-feb-2017 4.41.54
  * 
  */
 package com.fleaPark.model.products;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -22,6 +23,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fleaPark.model.media.Foto;
 import com.fleaPark.model.people.Utente;
@@ -39,6 +42,14 @@ public class Prodotto {
     @ManyToOne
     @JoinColumn(name = "categoria")
     private Categoria categoria;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "data_acquisto")
+    private Calendar dataAcquisto;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "data_inserimento")
+    private Calendar dataInserimento;
 
     @Column(name = "descrizione", length = 10000)
     private String descrizione;
@@ -71,6 +82,14 @@ public class Prodotto {
         return categoria;
     }
 
+    public Calendar getDataAcquisto() {
+        return dataAcquisto;
+    }
+
+    public Calendar getDataInserimento() {
+        return dataInserimento;
+    }
+
     public String getDescrizione() {
         return descrizione;
     }
@@ -101,6 +120,14 @@ public class Prodotto {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public void setDataAcquisto(Calendar dataAcquisto) {
+        this.dataAcquisto = dataAcquisto;
+    }
+
+    public void setDataInserimento(Calendar dataInserimento) {
+        this.dataInserimento = dataInserimento;
     }
 
     public void setDescrizione(String descrizione) {

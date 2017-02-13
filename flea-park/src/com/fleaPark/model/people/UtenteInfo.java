@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.people
  * Type: UtenteInfo
- * Last update: 11-feb-2017 17.10.28
+ * Last update: 13-feb-2017 4.41.54
  * 
  */
 package com.fleaPark.model.people;

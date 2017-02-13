@@ -3,12 +3,12 @@
  * Created by Umberto Ferracci from urania's PC
  * email: umberto.ferracci@gmail.com
  * Project: fleaPark
- * Package: com.fleaPark.services.persistence.dao
+ * Package: org.umbZfer.services.persistence.dao.hibernate
  * Type: HibernateUtil
- * Last update: 11-feb-2017 17.12.20
+ * Last update: 13-feb-2017 4.41.54
  * 
  */
-package com.fleaPark.services.persistence.dao;
+package org.umbZfer.services.persistence.dao.hibernate;
 
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;

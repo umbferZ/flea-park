@@ -3,12 +3,12 @@
  * Created by Umberto Ferracci from urania's PC
  * email: umberto.ferracci@gmail.com
  * Project: fleaPark
- * Package: com.fleaPark.services.persistence.dao
+ * Package: org.umbZfer.services.persistence.dao
  * Type: EntityDao
- * Last update: 11-feb-2017 17.12.20
+ * Last update: 13-feb-2017 4.41.54
  * 
  */
-package com.fleaPark.services.persistence.dao;
+package org.umbZfer.services.persistence.dao;
 
 import java.io.Serializable;
 import java.util.List;
@@ -19,7 +19,7 @@ import java.util.List;
  * @param <T> the generic type
  * @param <ID> the generic type
  */
-public interface EntityDao<T, ID extends Serializable> {
+public interface EntityDao<T, ID extends Serializable> extends ChangeDB {
 
     /**
      * Delete.

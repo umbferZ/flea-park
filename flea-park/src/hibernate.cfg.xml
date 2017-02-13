@@ -43,6 +43,11 @@
 		<mapping class="com.fleaPark.model.products.Prezzo" />
 		<mapping class="com.fleaPark.model.products.Valuta" />
 
+		<!-- Mapping Place -->
+		<mapping class="com.fleaPark.model.place.Nazione" />
+		<mapping class="com.fleaPark.model.place.Regione" />
+		<mapping class="com.fleaPark.model.place.Provincia" />
+		<mapping class="com.fleaPark.model.place.Comune" />
 	</session-factory>
 </hibernate-configuration>
 

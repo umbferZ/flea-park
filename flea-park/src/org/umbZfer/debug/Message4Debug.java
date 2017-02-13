@@ -3,12 +3,12 @@
  * Created by Umberto Ferracci from urania's PC
  * email: umberto.ferracci@gmail.com
  * Project: fleaPark
- * Package: com.fleaPark.tools.debug
+ * Package: org.umbZfer.debug
  * Type: Message4Debug
- * Last update: 11-feb-2017 17.10.28
+ * Last update: 13-feb-2017 4.41.54
  * 
  */
-package com.fleaPark.tools.debug;
+package org.umbZfer.debug;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

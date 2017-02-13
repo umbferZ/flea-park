@@ -26,7 +26,7 @@
 			    for (BeanRicercaProdotto bp : beanRicerca.getProdotti()) {
 			%>
 			<li class="collection-item avatar activator" data-category="<%=bp.getCategoriaNome().replace(" ", "-")%>">
-				<i class="material-icons circle">folder</i>
+				<img src="<%=bp.getProdottoFoto()%>" alt="" class="circle">
 				<span class="title" id="titolo"><%=bp.getProdottoNome()%></span>
 				<p>
 					in

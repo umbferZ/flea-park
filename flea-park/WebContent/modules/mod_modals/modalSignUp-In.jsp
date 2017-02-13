@@ -1,4 +1,4 @@
-<%@page import="com.fleaPark.tools.debug.Message4Debug"%>
+<%@page import="org.umbZfer.debug.Message4Debug"%>
 <div id="signUp" class="modal">
 	<jsp:useBean id="beanDiAccesso" class="com.fleaPark.application.controls.accesso.BeanDiAccesso"></jsp:useBean>
 	<jsp:setProperty property="nome" name="beanDiAccesso" />

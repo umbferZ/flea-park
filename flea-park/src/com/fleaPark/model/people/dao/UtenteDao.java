@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.people.dao
  * Type: UtenteDao
- * Last update: 11-feb-2017 17.10.28
+ * Last update: 13-feb-2017 4.41.54
  * 
  */
 package com.fleaPark.model.people.dao;
@@ -13,10 +13,10 @@ package com.fleaPark.model.people.dao;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.umbZfer.services.persistence.dao.EntityDao;
+import org.umbZfer.services.persistence.dao.hibernate.EntityDaoHibernate;
 
 import com.fleaPark.model.people.Utente;
-import com.fleaPark.services.persistence.dao.EntityDao;
-import com.fleaPark.services.persistence.dao.EntityDaoHibernate;
 
 public interface UtenteDao extends EntityDao<Utente, Integer> {
     public Utente getUtenteByEmailAndPassword(String email, String password) throws Exception;

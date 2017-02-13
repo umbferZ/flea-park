@@ -3,12 +3,12 @@
  * Created by Umberto Ferracci from urania's PC
  * email: umberto.ferracci@gmail.com
  * Project: fleaPark
- * Package: com.fleaPark.services.persistence.dao
+ * Package: org.umbZfer.services.persistence.dao.hibernate
  * Type: EntityDaoHibernate
- * Last update: 11-feb-2017 17.12.20
+ * Last update: 13-feb-2017 4.41.54
  * 
  */
-package com.fleaPark.services.persistence.dao;
+package org.umbZfer.services.persistence.dao.hibernate;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -20,6 +20,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Example;
+import org.umbZfer.services.persistence.dao.EntityDao;
 
 /**
  * The Class EntityDaoHibernate.
@@ -28,10 +29,6 @@ import org.hibernate.criterion.Example;
  * @param <ID> the generic type
  */
 public abstract class EntityDaoHibernate<T, ID extends Serializable> implements EntityDao<T, ID> {
-
-    private static long countCloseSession = 0;
-
-    private static long countOpenSession = 0;
 
     private Class<T> persistentClass;
     private Session session;
@@ -54,10 +51,18 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         closeSession();
     }
 
+    public void createQuery(String sql) {
+        Session s = openSession();
+        Transaction tx = s.beginTransaction();
+        s.createQuery(sql).executeUpdate();
+        tx.commit();
+        closeSession();
+    }
+
     /*
      * (non-Javadoc)
      * @see
-     * com.fleaPark.services.persistence.dao.EntityDao#delete(java.lang.Object)
+     * org.umbZfer.services.persistence.dao.EntityDao#delete(java.lang.Object)
      */
     @Override
     public void delete(T entity) {
@@ -75,7 +80,7 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
 
     /*
      * (non-Javadoc)
-     * @see com.fleaPark.services.persistence.dao.EntityDao#getAll()
+     * @see org.umbZfer.services.persistence.dao.EntityDao#getAll()
      */
     @Override
     public List<T> getAll() {
@@ -86,7 +91,7 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
     /*
      * (non-Javadoc)
      * @see
-     * com.fleaPark.services.persistence.dao.EntityDao#getByExample(java.lang.
+     * org.umbZfer.services.persistence.dao.EntityDao#getByExample(java.lang.
      * Object, java.lang.String[])
      */
     @Override
@@ -104,7 +109,7 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
 
     /*
      * (non-Javadoc)
-     * @see com.fleaPark.services.persistence.dao.EntityDao#getById(java.io.
+     * @see org.umbZfer.services.persistence.dao.EntityDao#getById(java.io.
      * Serializable, boolean)
      */
     @Override
@@ -140,10 +145,15 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         return session;
     }
 
+    @Override
+    public void importDump() {
+
+    }
+
     /*
      * (non-Javadoc)
      * @see
-     * com.fleaPark.services.persistence.dao.EntityDao#insert(java.lang.Object)
+     * org.umbZfer.services.persistence.dao.EntityDao#insert(java.lang.Object)
      */
     @Override
     public T insert(T entity) {
@@ -151,7 +161,7 @@ public abstract class EntityDaoHibernate<T, ID extends Serializable> implements 
         Transaction transaction = null;
         try {
             transaction = s.beginTransaction();
-            s.persist(entity);
+            s.saveOrUpdate(entity);
             s.flush();
             transaction.commit();
         } catch (HibernateException e) {

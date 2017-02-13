@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products
  * Type: Prodotto
- * Last update: 13-feb-2017 4.41.54
+ * Last update: 13-feb-2017 7.07.17
  * 
  */
 package com.fleaPark.model.products;
@@ -20,7 +20,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -36,11 +35,9 @@ import com.fleaPark.model.people.Utente;
 @Entity
 public class Prodotto {
     @ManyToOne
-    @JoinColumn(name = "acquirente")
     private Utente acquirente;
 
     @ManyToOne
-    @JoinColumn(name = "categoria")
     private Categoria categoria;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -51,7 +48,7 @@ public class Prodotto {
     @Column(name = "data_inserimento")
     private Calendar dataInserimento;
 
-    @Column(name = "descrizione", length = 10000)
+    @Column(length = 10000)
     private String descrizione;
 
     @OneToMany(targetEntity = Foto.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -59,17 +56,14 @@ public class Prodotto {
 
     @Id
     @GeneratedValue
-    @Column(name = "idProdotto")
-    private int idProdotto;
+    private int id;
 
-    @Column(name = "nome")
     private String nome;
 
     @Embedded
     private Prezzo prezzo;
 
     @ManyToOne
-    @JoinColumn(name = "venditore")
     private Utente venditore;
 
     public Prodotto() {}
@@ -98,8 +92,8 @@ public class Prodotto {
         return foto;
     }
 
-    public int getIdProdotto() {
-        return idProdotto;
+    public int getId() {
+        return id;
     }
 
     public String getNome() {
@@ -138,8 +132,8 @@ public class Prodotto {
         this.foto = foto;
     }
 
-    public void setIdProdotto(int idProdotto) {
-        this.idProdotto = idProdotto;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setNome(String nome) {

@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.controls.crudProdotti
  * Type: BeanIMieiProdotti
- * Last update: 13-feb-2017 4.41.54
+ * Last update: 13-feb-2017 7.07.17
  * 
  */
 package com.fleaPark.application.controls.crudProdotti;
@@ -21,14 +21,12 @@ public class BeanIMieiProdotti {
     private List<BeanIMieiProdotti> iMieiProdotti = new ArrayList<>();
 
     private String prodottoDescrizione;
-
     private int prodottoId;
-
     private String prodottoNome;
     private double prodottoPrezzo;
     private String prodottoValuta;
-
     private int utenteId;
+    private boolean venduto;
 
     public static void main(String[] args) {
         BeanIMieiProdotti iMiei = new BeanIMieiProdotti();
@@ -67,6 +65,10 @@ public class BeanIMieiProdotti {
         return utenteId;
     }
 
+    public boolean isVenduto() {
+        return venduto;
+    }
+
     public void prendiProdotti() {
         Message4Debug.log("idUtente \t\t\t" + utenteId);
         C_UC_GestioneProdotto controller = new C_UC_GestioneProdotto();
@@ -75,10 +77,11 @@ public class BeanIMieiProdotti {
             BeanIMieiProdotti b = new BeanIMieiProdotti();
             b.utenteId = utenteId;
             b.prodottoDescrizione = p.getDescrizione();
-            b.prodottoId = p.getIdProdotto();
+            b.prodottoId = p.getId();
             b.prodottoPrezzo = p.getPrezzo().getValore();
             b.prodottoNome = p.getNome();
             b.prodottoValuta = p.getPrezzo().getValuta().name();
+            b.venduto = p.getAcquirente() == null ? false : true;
             iMieiProdotti.add(b);
         }
 
@@ -110,6 +113,10 @@ public class BeanIMieiProdotti {
 
     public void setUtenteId(int utenteId) {
         this.utenteId = utenteId;
+    }
+
+    public void setVenduto(boolean venduto) {
+        this.venduto = venduto;
     }
 
 }

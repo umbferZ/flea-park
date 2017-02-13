@@ -5,17 +5,15 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.people
  * Type: UtenteInfo
- * Last update: 13-feb-2017 4.41.54
+ * Last update: 13-feb-2017 7.07.17
  * 
  */
 package com.fleaPark.model.people;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
@@ -25,54 +23,52 @@ import com.fleaPark.model.media.Foto;
 public class UtenteInfo {
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "copertina")
-    private Foto copertina;
+    private Foto fotoCopertina;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Foto fotoProfilo;
 
     @Id
     @GeneratedValue
-    private int idUtenteInfo;
+    private int id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "profilo")
-    private Foto profilo;
-
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "utenteInfo", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private Utente utente;
 
     public UtenteInfo() {}
 
     public UtenteInfo(Foto copertina, Foto profile) {
-        this.copertina = copertina;
-        profilo = profile;
+        fotoCopertina = copertina;
+        fotoProfilo = profile;
     }
 
-    public Foto getCopertina() {
-        return copertina;
+    public Foto getFotoCopertina() {
+        return fotoCopertina;
     }
 
-    public int getIdUtenteInfo() {
-        return idUtenteInfo;
+    public Foto getFotoProfilo() {
+        return fotoProfilo;
     }
 
-    public Foto getProfilo() {
-        return profilo;
+    public int getId() {
+        return id;
     }
 
     public Utente getUtente() {
         return utente;
     }
 
-    public void setCopertina(Foto copertina) {
-        this.copertina = copertina;
+    public void setFotoCopertina(Foto fotoCopertina) {
+        this.fotoCopertina = fotoCopertina;
     }
 
-    public void setIdUtenteInfo(int idUtenteInfo) {
-        this.idUtenteInfo = idUtenteInfo;
+    public void setFotoProfilo(Foto fotoProfilo) {
+        this.fotoProfilo = fotoProfilo;
     }
 
-    public void setProfilo(Foto profile) {
-        profilo = profile;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setUtente(Utente utente) {

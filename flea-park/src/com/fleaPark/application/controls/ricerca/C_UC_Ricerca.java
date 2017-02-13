@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.controls.ricerca
  * Type: C_UC_Ricerca
- * Last update: 13-feb-2017 4.41.54
+ * Last update: 13-feb-2017 7.07.17
  * 
  */
 package com.fleaPark.application.controls.ricerca;
@@ -22,7 +22,7 @@ public class C_UC_Ricerca {
 
     public List<Prodotto> cerca(String ricerca) {
         DaoFactory factory = DaoFactory.getInstance();
-        return factory.getProdottoDao().getProdottoLikeParolaChiave(ricerca);
+        return factory.getProdottoDao().getProdottoNonVendutoLikeParolaChiave(ricerca);
     }
 
     public Categoria getCategoria(int idCategoria) {
@@ -57,8 +57,8 @@ public class C_UC_Ricerca {
         BeanVenditoreDettagli beanVD = new BeanVenditoreDettagli();
         beanVD.setVenditoreCognome(p.getVenditore().getCognome());
         beanVD.setVenditoreNome(p.getVenditore().getNome());
-        beanVD.setVenditoreId(p.getVenditore().getIdUtente());
-        beanVD.setVenditoreFoto(p.getVenditore().getUtenteInfo().getProfilo().getNome());
+        beanVD.setVenditoreId(p.getVenditore().getId());
+        beanVD.setVenditoreFoto(p.getVenditore().getUtenteInfo().getFotoProfilo().getNome());
         return beanVD;
     }
 

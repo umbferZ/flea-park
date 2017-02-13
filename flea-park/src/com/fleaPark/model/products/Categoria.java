@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products
  * Type: Categoria
- * Last update: 13-feb-2017 4.41.54
+ * Last update: 13-feb-2017 7.07.17
  * 
  */
 package com.fleaPark.model.products;
@@ -18,7 +18,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -26,13 +25,13 @@ import javax.persistence.OneToMany;
 public class Categoria {
     @Id
     @GeneratedValue
-    private int idCategoria;
+    private int id;
 
     @Column(unique = true)
     private String nome;
 
     @ManyToOne
-    @JoinColumn(name = "parent")
+    // @JoinColumn(name = "parent")
     private Categoria parent;
 
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -52,8 +51,8 @@ public class Categoria {
         this.parent = parent;
     }
 
-    public int getIdCategoria() {
-        return idCategoria;
+    public int getId() {
+        return id;
     }
 
     public String getNome() {
@@ -68,8 +67,8 @@ public class Categoria {
         return sons;
     }
 
-    public void setIdCategoria(int id) {
-        idCategoria = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setNome(String nome) {

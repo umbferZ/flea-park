@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.place
  * Type: Nazione
- * Last update: 13-feb-2017 4.41.54
+ * Last update: 13-feb-2017 7.07.17
  * 
  */
 package com.fleaPark.model.place;
@@ -19,7 +19,6 @@ import javax.persistence.OneToMany;
 @Entity
 public class Nazione {
     @Id
-    // @GeneratedValue
     private int id;
     private String nome;
     @OneToMany(mappedBy = "nazione")

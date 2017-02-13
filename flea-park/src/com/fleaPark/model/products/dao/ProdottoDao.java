@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products.dao
  * Type: ProdottoDao
- * Last update: 13-feb-2017 4.41.54
+ * Last update: 13-feb-2017 7.07.17
  * 
  */
 package com.fleaPark.model.products.dao;
@@ -22,13 +22,13 @@ import com.fleaPark.model.products.Prodotto;
 public interface ProdottoDao extends EntityDao<Prodotto, Integer> {
     public List<Prodotto> getProdottoByIdUtente(Utente utente);
 
-    public List<Prodotto> getProdottoLikeParolaChiave(String parolachiave);
+    public List<Prodotto> getProdottoNonVendutoLikeParolaChiave(String parolachiave);
 
     public class ProdottoDaoHibernate extends EntityDaoHibernate<Prodotto, Integer> implements ProdottoDao {
 
         @Override
         public List<Prodotto> getProdottoByIdUtente(Utente utente) {
-            String q = "from Prodotto p where venditore=:idUtente";
+            String q = "FROM Prodotto p WHERE venditore=:idUtente";
             Query query = super.openSession().createQuery(q);
             query.setParameter("idUtente", utente);
             List<Prodotto> list = query.list();
@@ -37,16 +37,16 @@ public interface ProdottoDao extends EntityDao<Prodotto, Integer> {
         }
 
         @Override
-        public List<Prodotto> getProdottoLikeParolaChiave(String parolachiave) {
+        public List<Prodotto> getProdottoNonVendutoLikeParolaChiave(String parolachiave) {
             // TODO: Trovare modo per interrogazione multipla (JOIN?)
             String[] words = parolachiave.split(" ");
-            String q = " p.nome like :" + words[0] + " OR p.descrizione like :" + words[0];
+            String q = " p.nome LIKE :" + words[0] + " OR p.descrizione LIKE :" + words[0];
 
             for (String w : words)
-                q += " OR p.nome like :" + w + " OR p.descrizione like :" + w;
+                q += " OR p.nome LIKE :" + w + " OR p.descrizione LIKE :" + w;
 
             // String sql = "from Prodotto p where p.nome like :parolaChiave";
-            String sql = "from Prodotto p where " + q;
+            String sql = "FROM Prodotto p WHERE " + q + " AND acquirente_id IS NULL";
             Query query = super.openSession().createQuery(sql);
             for (String w : words)
                 query.setParameter(w, "%" + w + "%");

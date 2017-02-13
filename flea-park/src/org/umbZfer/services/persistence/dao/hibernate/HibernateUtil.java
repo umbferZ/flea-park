@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: org.umbZfer.services.persistence.dao.hibernate
  * Type: HibernateUtil
- * Last update: 13-feb-2017 4.41.54
+ * Last update: 13-feb-2017 7.07.17
  * 
  */
 package org.umbZfer.services.persistence.dao.hibernate;

@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.people
  * Type: Utente
- * Last update: 13-feb-2017 4.41.54
+ * Last update: 13-feb-2017 7.07.17
  * 
  */
 package com.fleaPark.model.people;
@@ -21,8 +21,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import com.fleaPark.model.DaoFactory;
-import com.fleaPark.model.media.Foto;
 import com.fleaPark.model.products.Prodotto;
 
 /**
@@ -30,10 +28,12 @@ import com.fleaPark.model.products.Prodotto;
  */
 @Entity
 public class Utente {
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "utente", cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     public UtenteInfo utenteInfo;
 
-    @Column(name = "cognome")
+    @OneToMany(mappedBy = "acquirente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Prodotto> acquisti;
+
     private String cognome;
 
     @Column(unique = true)
@@ -41,26 +41,14 @@ public class Utente {
 
     @Id
     @GeneratedValue
-    @Column(name = "idUtente")
-    private int idUtente;
+    private int id;
 
-    @Column(name = "nome")
     private String nome;
 
-    @Column(name = "password")
     private String password;
 
     @OneToMany(mappedBy = "venditore", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Prodotto> prodotti;
-
-    public static void main(String[] args) {
-        UtenteInfo uI = new UtenteInfo();
-        uI.setCopertina(new Foto("nomeCopertina", "pathCopertina"));
-        uI.setProfilo(new Foto("nomeProfilo", "pathProfilo"));
-        Utente u = new Utente("Dao name", "Dao cognome", "Dao email", "Dao password");
-        u.setUtenteInfo(uI);
-        DaoFactory.getInstance().getUtenteDao().insert(u);
-    }
 
     public Utente() {}
 
@@ -79,8 +67,8 @@ public class Utente {
         return email;
     }
 
-    public int getIdUtente() {
-        return idUtente;
+    public int getId() {
+        return id;
     }
 
     public String getNome() {
@@ -107,8 +95,8 @@ public class Utente {
         this.email = email;
     }
 
-    public void setIdUtente(int idUser) {
-        idUtente = idUser;
+    public void setIdUtente(int id) {
+        this.id = id;
     }
 
     public void setNome(String firstName) {

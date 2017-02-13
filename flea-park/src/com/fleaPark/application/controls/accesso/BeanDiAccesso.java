@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.controls.accesso
  * Type: BeanDiAccesso
- * Last update: 13-feb-2017 4.41.54
+ * Last update: 13-feb-2017 7.07.17
  * 
  */
 package com.fleaPark.application.controls.accesso;
@@ -33,9 +33,9 @@ public class BeanDiAccesso {
             cognome = user.getCognome();
             email = user.getEmail();
             password = user.getPassword();
-            idUtente = user.getIdUtente();
-            fotoCopertina = user.getUtenteInfo().getCopertina().getNome();
-            fotoProfilo = user.getUtenteInfo().getProfilo().getNome();
+            idUtente = user.getId();
+            fotoCopertina = user.getUtenteInfo().getFotoCopertina().getNome();
+            fotoProfilo = user.getUtenteInfo().getFotoProfilo().getNome();
             return true;
         }
         return false;

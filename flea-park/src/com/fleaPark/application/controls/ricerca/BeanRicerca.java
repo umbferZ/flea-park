@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.controls.ricerca
  * Type: BeanRicerca
- * Last update: 13-feb-2017 4.41.54
+ * Last update: 13-feb-2017 7.07.17
  * 
  */
 package com.fleaPark.application.controls.ricerca;
@@ -30,7 +30,7 @@ public class BeanRicerca {
         for (Prodotto p : result) {
             BeanRicercaProdotto bp = new BeanRicercaProdotto();
             bp.setCategoriaNome(p.getCategoria().getNome());
-            bp.setProdottoId(p.getIdProdotto());
+            bp.setProdottoId(p.getId());
             bp.setProdottoNome(p.getNome());
             bp.setProdottoPrezzo(p.getPrezzo().getValore());
             bp.setPrdottoValuta(p.getPrezzo().getValuta().name());

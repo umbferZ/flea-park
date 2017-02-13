@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.place
  * Type: Provincia
- * Last update: 13-feb-2017 4.41.54
+ * Last update: 13-feb-2017 7.07.17
  * 
  */
 package com.fleaPark.model.place;
@@ -22,7 +22,6 @@ public class Provincia {
     @OneToMany(mappedBy = "provincia")
     private List<Comune> comuni;
     @Id
-    // @GeneratedValue
     private int id;
     private String nome;
     @ManyToOne

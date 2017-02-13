@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.media
  * Type: Foto
- * Last update: 13-feb-2017 4.41.54
+ * Last update: 13-feb-2017 7.07.17
  * 
  */
 package com.fleaPark.model.media;
@@ -18,7 +18,7 @@ import javax.persistence.Id;
 public class Foto {
     @Id
     @GeneratedValue
-    private int idFoto;
+    private int id;
 
     private String nome;
 
@@ -31,8 +31,8 @@ public class Foto {
         this.percorso = percorso;
     }
 
-    public int getIdFoto() {
-        return idFoto;
+    public int getId() {
+        return id;
     }
 
     public String getNome() {
@@ -43,8 +43,8 @@ public class Foto {
         return percorso;
     }
 
-    public void setIdFoto(int idFoto) {
-        this.idFoto = idFoto;
+    public void setId(int idFoto) {
+        id = idFoto;
     }
 
     public void setNome(String nome) {

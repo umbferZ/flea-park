@@ -27,15 +27,15 @@
 			%>
 			<li class="collection-item avatar activator" data-category="<%=bp.getCategoriaNome().replace(" ", "-")%>">
 				<img src="<%=bp.getProdottoFoto()%>" alt="" class="circle">
-				<span class="title" id="titolo"><%=bp.getProdottoNome()%></span>
+				<span class="title truncate" id="titolo"><%=bp.getProdottoNome()%></span>
 				<p>
 					in
-					<%=bp.getCategoriaNome()%>
+					<a href="?categoria=<%=bp.getCategoriaNome()%>"><%=bp.getCategoriaNome()%></a>
 				</p>
-				<span class="secondary-content">
+				<p class="accentColor right-align">
 					<span id="prezzo"><%=bp.getProdottoPrezzo()%></span>
 					<%=bp.getPrdottoValuta()%>
-				</span>
+				</p>
 				<form>
 					<input type="hidden" name="prodottoId" value="<%=bp.getProdottoId()%>">
 				</form>

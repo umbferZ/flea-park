@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.place
  * Type: Comune
- * Last update: 13-feb-2017 4.41.54
+ * Last update: 13-feb-2017 7.07.17
  * 
  */
 package com.fleaPark.model.place;
@@ -18,7 +18,6 @@ import javax.persistence.ManyToOne;
 public class Comune {
     private String cap;
     @Id
-    // @GeneratedValue
     private int id;
     private String nome;
     @ManyToOne

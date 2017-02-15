@@ -72,6 +72,15 @@ footer.page-footer {
 .btn-floating i {
   color: #FFFFFF;
 }
+.btn.is-checked,
+.btn-flat.is-checked {
+  background-color: #FF5722;
+  color: #fff;
+}
+.btn.is-checked i.material-icons,
+.btn-flat.is-checked i.material-icons {
+  color: #fff;
+}
 .input .valid {
   color: #FF5722;
 }
@@ -153,6 +162,17 @@ html {
 .tabs .tab a.active {
   color: #FF5722;
 }
+.collection .collection-item {
+  width: 100%;
+}
+.collection .collection-item.avatar {
+  min-height: 120px;
+  padding-left: 120px;
+}
+.collection .collection-item.avatar .circle {
+  width: 90px;
+  height: 90px;
+}
 .collection .collection-item.active {
   background-color: #D1C4E9;
 }
@@ -192,4 +212,7 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 }
 .input-field .prefix.active {
   color: #FF5722;
+}
+.strike {
+  text-decoration: line-through;
 }

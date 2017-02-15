@@ -5,22 +5,30 @@
     beanRicerca.cerca(request.getParameter("cercaProdotto"));
 			if (beanRicerca.getProdotti().size() != 0) {
 %>
-<div class="card-panel">
-	<a href="" class="center">ricerca avanzata</a>
-	<p class="center">
-		Trovati
-		<%=beanRicerca.getProdotti().size()%>
-		prodotti
-	</p>
-</div>
-<!-- <div class="button-group sort-by-button-group"> -->
-<!-- 	<button class="button is-checked" data-sort-value="original-order">original order</button> -->
-<!-- 	<button class="button" data-sort-value="titolo">nome</button> -->
-<!-- 	<button class="button" data-sort-value="prezzo">prezzo</button> -->
-<!-- 	<button class="button" data-sort-value="categoria">categoria</button> -->
-<!-- </div> -->
 <div class="side-scrollable">
 	<div class="side-scrollable-content">
+		<div class="card-panel">
+			<a href="" class="center">ricerca avanzata</a>
+			<p class="center">
+				Trovati
+				<%=beanRicerca.getProdotti().size()%>
+				prodotti
+			</p>
+		</div>
+		<div class="button-group sort-by-button-group center">
+			<button class="is-checked btn-flat" data-sort-value="original-order">
+				<i class="material-icons">sort</i>
+			</button>
+			<button class="btn-flat" data-sort-value="titolo">
+				<i class="material-icons">sort_by_alpha</i>
+			</button>
+			<button class="btn-flat" data-sort-value="prezzo">
+				<i class="material-icons">attach_money</i>
+			</button>
+			<button class="btn-flat active" data-sort-value="categoria">
+				<i class="material-icons">book</i>
+			</button>
+		</div>
 		<ul class="collection">
 			<%
 			    for (BeanRicercaProdotto bp : beanRicerca.getProdotti()) {
@@ -28,7 +36,7 @@
 			<li class="collection-item avatar activator" data-category="<%=bp.getCategoriaNome().replace(" ", "-")%>">
 				<img src="<%=bp.getProdottoFoto()%>" alt="" class="circle">
 				<span class="title truncate" id="titolo"><%=bp.getProdottoNome()%></span>
-				<p>
+				<p class="truncate">
 					in
 					<a href="?categoria=<%=bp.getCategoriaNome()%>"><%=bp.getCategoriaNome()%></a>
 				</p>
@@ -47,71 +55,74 @@
 	</div>
 </div>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<!-- <script type="text/javascript" src="/js/jquery-2.2.0.js"></script> -->
 <script type="text/javascript">
-	$j = jQuery.noConflict();
-	$j(document).ready(function() {
-		$j('.collection-item').click(function() {
-			$j('.collection').find('.active').removeClass('active');
-			$j(this).toggleClass('active');
-			var form = $j(this).find('form');
-			$j.ajax({
+	// 	$j = jQuery.noConflict();
+	$(document).ready(function() {
+		$('.collection-item').click(function() {
+			$('.collection').find('.active').removeClass('active');
+			$(this).toggleClass('active');
+			var form = $(this).find('form');
+			$.ajax({
 				type : 'POST',
 				url : 'modules/cercaProdotto/cardProdotto.jsp',
 				data : form.serialize(),
 				dataType : 'html',
 				success : function(data) {
-					$j('#dettagliProdotto').html(data);
+					$('#dettagliProdotto').html(data);
 
 				},
 				error : function() {
-					$j('#dettagliProdotto').html("<p>errore imprevisto</p>");
+					$('#dettagliProdotto').html("<p>errore imprevisto</p>");
 				},
 				timeout : 2000
 			});
-			$j.ajax({
+			$.ajax({
 				type : 'POST',
 				url : 'modules/cercaProdotto/cardVenditore.jsp',
 				data : form.serialize(),
 				dataType : 'html',
 				success : function(data) {
-					$j('#dettagliVenditore').html(data);
+					$('#dettagliVenditore').html(data);
 					$('.card').show();
 				},
 				error : function() {
-					$j('#dettagliVenditore').html("<p>errore imprevisto</p>");
+					$('#dettagliVenditore').html("<p>errore imprevisto</p>");
 				},
 				timeout : 2000
 			});
 
 		});
-		// 		var $grid = $j('.collection');
-		// 		$grid.isotope({
-		// 			itemSelector : '.collection-item',
-		// 			layoutMode : 'masonry',
-		// 			getSortData : {
-		// 				titolo : '#titolo',
-		// 				categoria : '[data-category]',
-		// 				prezzo : function(itemElem) {
-		// 					var weight = $j(itemElem).find('#prezzo').text();
-		// 					return parseFloat(weight.replace(/[\(\)]/g, ''));
-		// 				}
-		// 			}
-		// 		});
-		// 		$j('.sort-by-button-group').on('click', 'button', function() {
-		// 			var sortValue = $j(this).attr('data-sort-value');
-		// 			$grid.isotope({
-		// 				sortBy : sortValue
-		// 			});
-		// 		});
-
-		// 		$j('.button-group').each(function(i, buttonGroup) {
-		// 			var $buttonGroup = $j(buttonGroup);
-		// 			$buttonGroup.on('click', 'button', function() {
-		// 				$buttonGroup.find('.is-checked').removeClass('is-checked');
-		// 				$j(this).addClass('is-checked');
-		// 			});
-		// 		});
-		// 		$grid.isotope('layout');
+		console.log("pronto");
+		var $grid = $('.collection');
+		$grid.isotope({
+			itemSelector : '.collection-item',
+			layoutMode : 'masonry',
+			getSortData : {
+				titolo : '#titolo',
+				categoria : '[data-category]',
+				prezzo : function(itemElem) {
+					var weight = $(itemElem).find('#prezzo').text();
+					return parseFloat(weight.replace(/[\(\)]/g, ''));
+				}
+			}
+		});
+		$('.sort-by-button-group').on('click', 'button', function() {
+			console.log("chick group");
+			var sortValue = $(this).attr('data-sort-value');
+			$grid.isotope({
+				sortBy : sortValue
+			});
+		});
+		$('.button-group').each(function(i, buttonGroup) {
+			console.log("chick tasto");
+			var $buttonGroup = $(buttonGroup);
+			$buttonGroup.on('click', 'button', function() {
+				$buttonGroup.find('.is-checked').removeClass('is-checked');
+				$(this).addClass('is-checked');
+			});
+		});
+		$grid.isotope('layout');
 	});
 </script>
 <%

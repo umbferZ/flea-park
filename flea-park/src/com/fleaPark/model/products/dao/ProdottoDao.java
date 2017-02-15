@@ -13,6 +13,7 @@ package com.fleaPark.model.products.dao;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.umbZfer.services.persistence.dao.EntityDao;
 import org.umbZfer.services.persistence.dao.hibernate.EntityDaoHibernate;
 
@@ -31,7 +32,7 @@ public interface ProdottoDao extends EntityDao<Prodotto, Integer> {
             String q = "FROM Prodotto p WHERE venditore=:idUtente";
             Query query = super.openSession().createQuery(q);
             query.setParameter("idUtente", utente);
-            List<Prodotto> list = query.list();
+            @SuppressWarnings("unchecked") List<Prodotto> list = query.list();
             closeSession();
             return list;
         }
@@ -39,18 +40,10 @@ public interface ProdottoDao extends EntityDao<Prodotto, Integer> {
         @Override
         public List<Prodotto> getProdottoNonVendutoLikeParolaChiave(String parolachiave) {
             // TODO: Trovare modo per interrogazione multipla (JOIN?)
-            String[] words = parolachiave.split(" ");
-            String q = " p.nome LIKE :" + words[0] + " OR p.descrizione LIKE :" + words[0];
-
-            for (String w : words)
-                q += " OR p.nome LIKE :" + w + " OR p.descrizione LIKE :" + w;
-
-            // String sql = "from Prodotto p where p.nome like :parolaChiave";
-            String sql = "FROM Prodotto p WHERE " + q + " AND acquirente_id IS NULL";
+            String sql = "FROM Prodotto p WHERE p.acquirente is NULL AND p.nome LIKE :parolaChiave OR p.descrizione LIKE :parolaChiave";
             Query query = super.openSession().createQuery(sql);
-            for (String w : words)
-                query.setParameter(w, "%" + w + "%");
-            List<Prodotto> list = query.list();
+            query.setParameter("parolaChiave", "%" + parolachiave + "%");
+            @SuppressWarnings("unchecked") List<Prodotto> list = query.list();
             closeSession();
             return list;
         }

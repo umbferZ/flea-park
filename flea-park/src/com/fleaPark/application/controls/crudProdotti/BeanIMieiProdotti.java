@@ -80,7 +80,7 @@ public class BeanIMieiProdotti {
             b.prodottoId = p.getId();
             b.prodottoPrezzo = p.getPrezzo().getValore();
             b.prodottoNome = p.getNome();
-            b.prodottoValuta = p.getPrezzo().getValuta().name();
+            b.prodottoValuta = p.getPrezzo().getValuta().toString();
             b.venduto = p.getAcquirente() == null ? false : true;
             iMieiProdotti.add(b);
         }

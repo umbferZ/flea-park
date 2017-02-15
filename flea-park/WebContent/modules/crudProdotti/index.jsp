@@ -4,9 +4,7 @@
 %>
 <div class="container">
 	<h5 class="center">I miei prodotti</h5>
-	<div class="row">
-		<jsp:include page="/modules/crudProdotti/mostraProdotti.jsp"></jsp:include>
-	</div>
+	<jsp:include page="./mostraProdotti.jsp"></jsp:include>
 </div>
 <div class="fixed-action-btn click-to-toggle">
 	<a class="btn-floating btn-large red">

@@ -3,8 +3,11 @@
 		<div class="card-image">
 			<img alt="" src="https://i.ytimg.com/vi/uFS4TVu8v08/maxresdefault.jpg">
 			<span class="card-title red white-text shadow">
-				<span class=""> Venduto </span>
-				<sub class="strike"><%=request.getParameter("prezzo")%> <%=request.getParameter("valuta")%></sub>
+				<span class="strike">
+					<%=request.getParameter("prezzo")%>
+					<%=request.getParameter("valuta")%>
+				</span>
+				<sub>Venduto</sub>
 			</span>
 		</div>
 		<div class="card-content">

@@ -44,7 +44,7 @@ public class C_UC_Ricerca {
         beanPrDe.setProdottoDescrizione(p.getDescrizione());
         beanPrDe.setProdottoCategoriaNome(p.getCategoria().getNome());
         beanPrDe.setProdottoPrezzo(p.getPrezzo().getValore());
-        beanPrDe.setProdottoValuta(p.getPrezzo().getValuta().name());
+        beanPrDe.setProdottoValuta(p.getPrezzo().getValuta().toString());
         List<String> gallery = new ArrayList<>();
         for (Foto f : p.getFoto())
             gallery.add(f.getPercorso() + f.getNome());

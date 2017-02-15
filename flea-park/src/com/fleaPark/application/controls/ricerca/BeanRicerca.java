@@ -33,7 +33,7 @@ public class BeanRicerca {
             bp.setProdottoId(p.getId());
             bp.setProdottoNome(p.getNome());
             bp.setProdottoPrezzo(p.getPrezzo().getValore());
-            bp.setPrdottoValuta(p.getPrezzo().getValuta().name());
+            bp.setPrdottoValuta(p.getPrezzo().getValuta().toString());
             bp.setProdottoFoto(p.getFoto().get(0).getNome());
             prodotti.add(bp);
         }

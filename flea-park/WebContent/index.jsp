@@ -23,14 +23,21 @@
 </head>
 <body>
 	<jsp:include page="/components/cmp_bar/barNav.jsp"></jsp:include>
+	<jsp:include page="/components/cmp_bar/barSearch.jsp"></jsp:include>
+	<%
+	    if (session.getAttribute("utente") == null) {
+	%>
+	<jsp:include page="/modules/crudUtente/accesso.jsp"></jsp:include>
+	<jsp:include page="/modules/crudUtente/registrazione.jsp"></jsp:include>
+	<%
+	    }
+	%>
 	<div id="content">
 		<%
 		    if (session.getAttribute("utente") != null) {
 		%>
 		<jsp:include page="/modules/crudProdotti/index.jsp"></jsp:include>
-		<%
-		    } else {
-		%>
+		<jsp:include page="/modules/acquisti/index.jsp"></jsp:include>
 		<%
 		    }
 		%>

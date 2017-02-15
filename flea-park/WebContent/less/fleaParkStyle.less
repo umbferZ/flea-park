@@ -89,6 +89,16 @@ footer {
             color: @baseColor
         }
     }
+
+    & , &-flat {
+        &.is-checked {
+            background-color: @accentColor;
+            color: #fff;
+            i.material-icons {
+                color: #fff;
+            }
+        }
+    }
 }
 
 .input {
@@ -219,6 +229,16 @@ html {
 
 .collection {
     & &-item {
+        width: 100%;
+        &.avatar {
+            min-height: 120px;
+            padding-left: 120px;
+            .circle {
+                width: 90px;
+                height: 90px;
+            }
+        }
+
         &.active {
             background-color: @lightPrimaryColor;
         }
@@ -240,5 +260,9 @@ input:focus:not([type]):not([readonly]) + label , input[type="text"]:focus:not([
 
 .input-field .prefix.active {
     color: @accentColor;
+}
+
+.strike {
+    text-decoration: line-through;
 }
 

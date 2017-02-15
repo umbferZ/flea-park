@@ -11,7 +11,7 @@
 package com.fleaPark.model.products;
 
 public enum Valuta {
-    DOLLAR("$"), EUR("€"), FJD("¥"), GBP("£");
+    DOLLAR("$"), EUR("&euro;"), FJD("¥"), GBP("£");
     private String valuta;
 
     Valuta(String code) {

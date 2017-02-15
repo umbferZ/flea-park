@@ -9,11 +9,13 @@ String[] caption = new String[] { "right", "left", "center" };
 		<%
 		    for (int i = 0; i < 4; i++) {
 		%>
-		<li><img src="images/slider/slide_<%=i%>.jpg">
+		<li>
+			<img src="images/slider/slide_<%=i%>.jpg">
 			<div class="caption <%=caption[i % caption.length]%>-align">
 				<h2><%=h3[i % h3.length]%></h2>
 				<h4 class="light grey-text text-lighten-3"><%=h5[i % h5.length]%></h4>
-			</div></li>
+			</div>
+		</li>
 		<%
 		    }
 		%>

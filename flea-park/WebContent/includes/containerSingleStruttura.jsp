@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="row">
 	<div class="col s12">
 		<div class="card ">
@@ -31,16 +29,12 @@
 						<div class="input-field col s12">
 							<select class="icons">
 								<option value="" disabled selected>Choose your option</option>
-								<option value="" data-icon="images/icons/bedS.png" class="left circle">singola
-									1</option>
-								<option value="" data-icon="images/icons/bedM.jpeg" class="left circle">matrimoniale
-									2</option>
-								<option value="" data-icon="images/icons/bedT.png" class="left circle">tripla
-									3</option>
+								<option value="" data-icon="images/icons/bedS.png" class="left circle">singola 1</option>
+								<option value="" data-icon="images/icons/bedM.jpeg" class="left circle">matrimoniale 2</option>
+								<option value="" data-icon="images/icons/bedT.png" class="left circle">tripla 3</option>
 							</select>
 						</div>
-						<button class="btn amber darken-4" type="submit" name="addCart" value="ok">Aggiungi
-							al carrello</button>
+						<button class="btn amber darken-4" type="submit" name="addCart" value="ok">Aggiungi al carrello</button>
 					</form>
 				</div>
 				<div class="card-title">123,00€</div>

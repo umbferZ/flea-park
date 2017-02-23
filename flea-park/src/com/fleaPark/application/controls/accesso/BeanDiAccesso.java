@@ -34,8 +34,8 @@ public class BeanDiAccesso {
             email = user.getEmail();
             password = user.getPassword();
             idUtente = user.getId();
-            fotoCopertina = user.getUtenteInfo().getFotoCopertina().getNome();
-            fotoProfilo = user.getUtenteInfo().getFotoProfilo().getNome();
+            fotoCopertina = user.getUtenteInfo() != null ? user.getUtenteInfo().getFotoCopertina().getNome() : "images/generic/genericWall.jpg";
+            fotoProfilo = user.getUtenteInfo() != null ? user.getUtenteInfo().getFotoCopertina().getNome() : "images/generic/genericUser.jpg";
             return true;
         }
         return false;

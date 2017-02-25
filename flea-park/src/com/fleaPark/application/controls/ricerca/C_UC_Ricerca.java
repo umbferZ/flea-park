@@ -25,12 +25,14 @@ public class C_UC_Ricerca {
         return factory.getProdottoDao().getProdottoNonVendutoLikeParolaChiave(ricerca);
     }
 
+    @Deprecated
     public Categoria getCategoria(int idCategoria) {
         DaoFactory factory = DaoFactory.getInstance();
         return factory.getCategoriaDao().getById(idCategoria, true);
 
     }
 
+    @Deprecated
     public List<Categoria> getCategorie() {
         DaoFactory factory = DaoFactory.getInstance();
         return factory.getCategoriaDao().getAll();

@@ -8,7 +8,9 @@
  * Last update: 13-feb-2017 7.07.17
  * 
  */
-package com.fleaPark.application.standAlone.view;
+package com.fleaPark.demo;
+
+import com.fleaPark.application.standAlone.view.FleaParkFrame;
 
 public class DemoView {
     public static void main(String[] args) {

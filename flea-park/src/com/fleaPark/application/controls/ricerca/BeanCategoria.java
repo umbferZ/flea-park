@@ -15,6 +15,7 @@ import java.util.List;
 
 import com.fleaPark.model.products.Categoria;
 
+@Deprecated
 public class BeanCategoria {
     private int idCategoria;
     private String nome;
@@ -23,6 +24,7 @@ public class BeanCategoria {
         super();
     }
 
+    @Deprecated
     public BeanCategoria getBeanCategoria(int id) {
         C_UC_Ricerca controller = new C_UC_Ricerca();
         Categoria c = controller.getCategoria(id);
@@ -31,6 +33,7 @@ public class BeanCategoria {
         return this;
     }
 
+    @Deprecated
     public List<BeanCategoria> getCategorie() {
         C_UC_Ricerca controller = new C_UC_Ricerca();
         List<Categoria> list = controller.getCategorie();

@@ -18,11 +18,6 @@ import com.fleaPark.model.people.dao.UtenteDao;
 
 public class C_UC_Access {
 
-    public static void main(String[] args) {
-        C_UC_Access access = new C_UC_Access();
-        access.registrati("nome", "cognome", "email@email", "password");
-    }
-
     public Utente accedi(String email, String password) {
         DaoFactory factory = DaoFactory.getInstance();
         UtenteDao utenteDao = factory.getUtenteDao();

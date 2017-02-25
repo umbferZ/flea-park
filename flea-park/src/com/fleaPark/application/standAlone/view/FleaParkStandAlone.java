@@ -4,8 +4,8 @@
  * email: umberto.ferracci@gmail.com
  * Project: fleaPark
  * Package: com.fleaPark.application.standAlone.view
- * Type: Prova
- * Last update: 25-feb-2017 2.08.38
+ * Type: FleaParkStandAlone
+ * Last update: 25-feb-2017 18.25.43
  * 
  */
 package com.fleaPark.application.standAlone.view;
@@ -18,16 +18,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-import javax.swing.SwingConstants;
 
-public class Prova {
+public class FleaParkStandAlone {
 
     private JFrame frmFleaPark;
     private CardLayout cl;
@@ -41,7 +39,7 @@ public class Prova {
             @Override
             public void run() {
                 try {
-                    Prova window = new Prova();
+                    FleaParkStandAlone window = new FleaParkStandAlone();
                     window.frmFleaPark.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -53,7 +51,7 @@ public class Prova {
     /**
      * Create the application.
      */
-    public Prova() {
+    public FleaParkStandAlone() {
         initialize();
     }
 

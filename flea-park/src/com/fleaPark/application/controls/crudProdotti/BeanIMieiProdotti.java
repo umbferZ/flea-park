@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.application.controls.crudProdotti
  * Type: BeanIMieiProdotti
- * Last update: 13-feb-2017 7.07.17
+ * Last update: 25-feb-2017 18.25.43
  * 
  */
 package com.fleaPark.application.controls.crudProdotti;
@@ -22,19 +22,18 @@ public class BeanIMieiProdotti {
 
     private String prodottoDescrizione;
     private int prodottoId;
+
     private String prodottoNome;
+
     private double prodottoPrezzo;
+
     private String prodottoValuta;
     private int utenteId;
     private boolean venduto;
+    private String categoria;
 
-    public static void main(String[] args) {
-        BeanIMieiProdotti iMiei = new BeanIMieiProdotti();
-        iMiei.setUtenteId(3);
-        iMiei.prendiProdotti();
-        List<BeanIMieiProdotti> list = iMiei.getiMieiProdotti();
-        for (BeanIMieiProdotti b : list)
-            Message4Debug.log("" + b.getProdottoNome() + " ");
+    public String getCategoria() {
+        return categoria;
     }
 
     public List<BeanIMieiProdotti> getiMieiProdotti() {
@@ -82,9 +81,14 @@ public class BeanIMieiProdotti {
             b.prodottoNome = p.getNome();
             b.prodottoValuta = p.getPrezzo().getValuta().toString();
             b.venduto = p.getAcquirente() == null ? false : true;
+            b.categoria = p.getCategoria().getNome();
             iMieiProdotti.add(b);
         }
 
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public void setiMieiProdotti(List<BeanIMieiProdotti> iMieiProdotti) {

@@ -1,3 +1,13 @@
+/*
+ * 
+ * Created by Umberto Ferracci from urania's PC
+ * email: umberto.ferracci@gmail.com
+ * Project: fleaPark
+ * Package: com.fleaPark.application.standAlone.view
+ * Type: StatusBar
+ * Last update: 25-feb-2017 18.25.43
+ * 
+ */
 package com.fleaPark.application.standAlone.view;
 
 import java.awt.FlowLayout;
@@ -8,6 +18,10 @@ import javax.swing.JPanel;
 
 public class StatusBar extends JPanel {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     /**
      * Create the panel.
      */
@@ -20,11 +34,11 @@ public class StatusBar extends JPanel {
         add(lblMessage);
     }
 
-    public void setMessage(String message) {
-        lblMessage.setText(message);
-    }
-
     public String getMessage() {
         return lblMessage.getText();
+    }
+
+    public void setMessage(String message) {
+        lblMessage.setText(message);
     }
 }

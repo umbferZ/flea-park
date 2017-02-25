@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.products.dao
  * Type: ProdottoDao
- * Last update: 13-feb-2017 7.07.17
+ * Last update: 25-feb-2017 18.25.43
  * 
  */
 package com.fleaPark.model.products.dao;
@@ -13,7 +13,6 @@ package com.fleaPark.model.products.dao;
 import java.util.List;
 
 import org.hibernate.Query;
-import org.hibernate.SQLQuery;
 import org.umbZfer.services.persistence.dao.EntityDao;
 import org.umbZfer.services.persistence.dao.hibernate.EntityDaoHibernate;
 

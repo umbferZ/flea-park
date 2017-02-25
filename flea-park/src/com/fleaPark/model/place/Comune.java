@@ -5,7 +5,7 @@
  * Project: fleaPark
  * Package: com.fleaPark.model.place
  * Type: Comune
- * Last update: 13-feb-2017 7.07.17
+ * Last update: 25-feb-2017 18.25.43
  * 
  */
 package com.fleaPark.model.place;

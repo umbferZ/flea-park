@@ -20,6 +20,7 @@ import com.fleaPark.model.people.Utente;
 import com.fleaPark.model.products.Prodotto;
 
 public interface ProdottoDao extends EntityDao<Prodotto, Integer> {
+    
     public List<Prodotto> getProdottoByIdUtente(Utente utente);
 
     public List<Prodotto> getProdottoNonVendutoLikeParolaChiave(String parolachiave);

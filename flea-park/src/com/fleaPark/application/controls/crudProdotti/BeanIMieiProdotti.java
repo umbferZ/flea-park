@@ -18,6 +18,7 @@ import org.umbZfer.debug.Message4Debug;
 import com.fleaPark.model.products.Prodotto;
 
 public class BeanIMieiProdotti {
+    
     private List<BeanIMieiProdotti> iMieiProdotti = new ArrayList<>();
 
     private String prodottoDescrizione;

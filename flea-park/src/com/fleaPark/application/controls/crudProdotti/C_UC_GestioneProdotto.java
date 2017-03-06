@@ -37,6 +37,7 @@ public class C_UC_GestioneProdotto {
     public List<Prodotto> prendiProdotti(int utenteId) {
         DaoFactory factory = DaoFactory.getInstance();
         Utente u = factory.getUtenteDao().getById(utenteId, false);
+        u.getProdotti();
         return factory.getProdottoDao().getProdottoByIdUtente(u);
     }
 }
